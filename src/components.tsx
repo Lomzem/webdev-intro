@@ -234,10 +234,7 @@ export function SequenceDiagram({
 }
 
 /** Flow diagram: boxes connected by arrows */
-export function FlowDiagram({
-  items,
-  direction = "right",
-}: FlowDiagramProps) {
+export function FlowDiagram({ items, direction = "right" }: FlowDiagramProps) {
   return (
     <div
       className={`flex ${direction === "down" ? "flex-col" : "flex-row flex-wrap"} items-center gap-2 justify-center`}

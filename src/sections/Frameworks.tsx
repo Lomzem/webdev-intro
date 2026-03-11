@@ -14,10 +14,11 @@ export default function Frameworks() {
       </div>
 
       <p className="text-lg leading-relaxed text-zinc-300">
-        Frontend frameworks like <strong className="text-violet-300">React</strong>,
-        Vue, and Svelte solve one big problem: updating the UI when data changes.
-        Without a framework, you have to manually find DOM elements and change
-        them yourself. With React, you describe <em>what the UI should look like</em>{" "}
+        Frontend frameworks like{" "}
+        <strong className="text-violet-300">React</strong>, Vue, and Svelte
+        solve one big problem: updating the UI when data changes. Without a
+        framework, you have to manually find DOM elements and change them
+        yourself. With React, you describe <em>what the UI should look like</em>{" "}
         and React figures out how to update it efficiently.
       </p>
 
@@ -123,7 +124,9 @@ export default function Frameworks() {
                   <span className="text-sky-300">{"todos"}</span>
                   <span className="text-zinc-400">{"."}</span>
                   <span className="text-sky-300">{"filter"}</span>
-                  <span className="text-zinc-400">{"(t => t.id !== id));\n\n"}</span>
+                  <span className="text-zinc-400">
+                    {"(t => t.id !== id));\n\n"}
+                  </span>
 
                   <span className="text-zinc-400">{"  "}</span>
                   <span className="text-violet-300">{"return "}</span>
@@ -169,30 +172,51 @@ export default function Frameworks() {
       />
 
       <p className="text-zinc-400 leading-relaxed">
-        With React, you just say <em>"here's my list of todos, render them."</em>{" "}
-        When the list changes (add/delete), React automatically figures out the
-        minimal DOM updates needed. You never manually create or remove elements.
+        With React, you just say{" "}
+        <em>"here's my list of todos, render them."</em> When the list changes
+        (add/delete), React automatically figures out the minimal DOM updates
+        needed. You never manually create or remove elements.
       </p>
 
       <Callout color="#a78bfa" icon="📄">
-        <strong className="text-violet-300">.js vs .jsx — what's the difference?</strong>{" "}
+        <strong className="text-violet-300">
+          .js vs .jsx — what's the difference?
+        </strong>{" "}
         Notice the React file above is called{" "}
-        <code className="font-mono text-xs bg-zinc-800 px-1 rounded text-violet-200">App.jsx</code>{" "}
+        <code className="font-mono text-xs bg-zinc-800 px-1 rounded text-violet-200">
+          App.jsx
+        </code>{" "}
         not{" "}
-        <code className="font-mono text-xs bg-zinc-800 px-1 rounded text-violet-200">App.js</code>.
-        The{" "}
-        <code className="font-mono text-xs bg-zinc-800 px-1 rounded text-violet-200">.jsx</code>{" "}
-        extension means "JavaScript + JSX" — JSX is that HTML-like syntax you see
-        inside the React component (the{" "}
-        <code className="font-mono text-xs bg-zinc-800 px-1 rounded">{"<ul>"}</code>,{" "}
-        <code className="font-mono text-xs bg-zinc-800 px-1 rounded">{"<li>"}</code>,{" "}
-        <code className="font-mono text-xs bg-zinc-800 px-1 rounded">{"<button>"}</code>{" "}
+        <code className="font-mono text-xs bg-zinc-800 px-1 rounded text-violet-200">
+          App.js
+        </code>
+        . The{" "}
+        <code className="font-mono text-xs bg-zinc-800 px-1 rounded text-violet-200">
+          .jsx
+        </code>{" "}
+        extension means "JavaScript + JSX" — JSX is that HTML-like syntax you
+        see inside the React component (the{" "}
+        <code className="font-mono text-xs bg-zinc-800 px-1 rounded">
+          {"<ul>"}
+        </code>
+        ,{" "}
+        <code className="font-mono text-xs bg-zinc-800 px-1 rounded">
+          {"<li>"}
+        </code>
+        ,{" "}
+        <code className="font-mono text-xs bg-zinc-800 px-1 rounded">
+          {"<button>"}
+        </code>{" "}
         tags mixed with JavaScript). Browsers don't understand JSX — the bundler
-        (Vite) transforms it into regular JavaScript function calls before shipping
-        it. Use{" "}
-        <code className="font-mono text-xs bg-zinc-800 px-1 rounded text-violet-200">.jsx</code>{" "}
+        (Vite) transforms it into regular JavaScript function calls before
+        shipping it. Use{" "}
+        <code className="font-mono text-xs bg-zinc-800 px-1 rounded text-violet-200">
+          .jsx
+        </code>{" "}
         for files that contain JSX markup, and plain{" "}
-        <code className="font-mono text-xs bg-zinc-800 px-1 rounded text-violet-200">.js</code>{" "}
+        <code className="font-mono text-xs bg-zinc-800 px-1 rounded text-violet-200">
+          .js
+        </code>{" "}
         for files that don't (utilities, API helpers, constants, etc.).
       </Callout>
 
@@ -207,8 +231,7 @@ export default function Frameworks() {
               {
                 from: "User",
                 to: "Browser",
-                label:
-                  'Types "yourapp.com" into the address bar',
+                label: 'Types "yourapp.com" into the address bar',
                 color: "#a78bfa",
               },
               {

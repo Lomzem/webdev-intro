@@ -117,7 +117,7 @@ function App() {
           }
         }
       },
-      { rootMargin: "-20% 0px -70% 0px" }
+      { rootMargin: "-20% 0px -70% 0px" },
     );
 
     observerRef.current = observer;
@@ -224,9 +224,7 @@ function App() {
                 key={section.id}
                 onClick={() => scrollTo(section.id)}
                 className={`w-full text-left px-3 py-2.5 rounded-xl transition-all duration-200 group flex items-center gap-3 ${
-                  isActive
-                    ? "bg-zinc-800/80"
-                    : "hover:bg-zinc-900"
+                  isActive ? "bg-zinc-800/80" : "hover:bg-zinc-900"
                 }`}
               >
                 <span
@@ -293,8 +291,8 @@ function App() {
                 But web development feels like a different universe — bundlers,
                 frameworks, runtimes, SSR. This guide explains{" "}
                 <strong className="text-zinc-200">what</strong> each piece does,{" "}
-                <strong className="text-zinc-200">why</strong> it exists, and most
-                importantly,{" "}
+                <strong className="text-zinc-200">why</strong> it exists, and
+                most importantly,{" "}
                 <strong className="text-zinc-200">where it runs</strong>.
               </p>
             </div>

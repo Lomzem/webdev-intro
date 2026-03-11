@@ -8,12 +8,21 @@ export default function PackageManagers() {
       </div>
 
       <p className="text-lg leading-relaxed text-zinc-300">
-        Remember the Old Days — downloading <code className="font-mono text-xs bg-zinc-800 px-1.5 rounded">jquery.min.js</code> manually
-        and dropping it in a folder? A{" "}
+        Remember the Old Days — downloading{" "}
+        <code className="font-mono text-xs bg-zinc-800 px-1.5 rounded">
+          jquery.min.js
+        </code>{" "}
+        manually and dropping it in a folder? A{" "}
         <strong className="text-lime-300">package manager</strong> automates
-        that. It's like <code className="font-mono text-xs bg-zinc-800 px-1.5 rounded">apt</code> for
-        Ubuntu or <code className="font-mono text-xs bg-zinc-800 px-1.5 rounded">brew</code> for
-        macOS, but for JavaScript libraries.
+        that. It's like{" "}
+        <code className="font-mono text-xs bg-zinc-800 px-1.5 rounded">
+          apt
+        </code>{" "}
+        for Ubuntu or{" "}
+        <code className="font-mono text-xs bg-zinc-800 px-1.5 rounded">
+          brew
+        </code>{" "}
+        for macOS, but for JavaScript libraries.
       </p>
 
       {/* The big three */}
@@ -136,7 +145,9 @@ export default function PackageManagers() {
               <span className="text-sky-300">{'"devDependencies"'}</span>
               <span className="text-zinc-400">{": {\n"}</span>
               <span className="text-zinc-500">
-                {"    // Tools used only during development (not shipped to users)\n"}
+                {
+                  "    // Tools used only during development (not shipped to users)\n"
+                }
               </span>
               <span className="text-zinc-400">{"    "}</span>
               <span className="text-sky-300">{'"vite"'}</span>
@@ -164,7 +175,7 @@ export default function PackageManagers() {
             {
               cmd: "npm install",
               alias: "npm i",
-              desc: 'Reads package.json and downloads everything listed in dependencies and devDependencies into a folder called node_modules/. Run this once when you clone a project, or after someone adds a new dependency.',
+              desc: "Reads package.json and downloads everything listed in dependencies and devDependencies into a folder called node_modules/. Run this once when you clone a project, or after someone adds a new dependency.",
             },
             {
               cmd: "npm install react",
@@ -256,19 +267,32 @@ export default function PackageManagers() {
         <strong className="text-lime-300">
           Package managers run on your machine, never in the browser.
         </strong>{" "}
-        When you run <code className="font-mono text-xs bg-zinc-800 px-1 rounded">npm install</code>,
-        it downloads code to your <code className="font-mono text-xs bg-zinc-800 px-1 rounded">node_modules/</code>{" "}
+        When you run{" "}
+        <code className="font-mono text-xs bg-zinc-800 px-1 rounded">
+          npm install
+        </code>
+        , it downloads code to your{" "}
+        <code className="font-mono text-xs bg-zinc-800 px-1 rounded">
+          node_modules/
+        </code>{" "}
         folder. The bundler (Vite) then picks the pieces it needs from there and
         includes them in the final bundle. The user's browser never sees npm,
-        node_modules, or package.json — it just gets the finished JS and CSS files.
+        node_modules, or package.json — it just gets the finished JS and CSS
+        files.
       </Callout>
 
       <Callout color="#a3e635" icon="💡">
-        <strong className="text-lime-300">npm vs pnpm in practice:</strong>{" "}
-        They use the same registry (npmjs.com), the same package.json format,
-        and nearly identical commands (<code className="font-mono text-xs bg-zinc-800 px-1 rounded">pnpm install</code>,{" "}
-        <code className="font-mono text-xs bg-zinc-800 px-1 rounded">pnpm run dev</code>).
-        pnpm is faster because it stores packages globally and symlinks them
+        <strong className="text-lime-300">npm vs pnpm in practice:</strong> They
+        use the same registry (npmjs.com), the same package.json format, and
+        nearly identical commands (
+        <code className="font-mono text-xs bg-zinc-800 px-1 rounded">
+          pnpm install
+        </code>
+        ,{" "}
+        <code className="font-mono text-xs bg-zinc-800 px-1 rounded">
+          pnpm run dev
+        </code>
+        ). pnpm is faster because it stores packages globally and symlinks them
         into each project instead of making full copies. If npm works for you,
         stick with it — you can always switch later with zero code changes.
       </Callout>

@@ -10,7 +10,8 @@ export default function Architecture() {
         <strong className="text-blue-300">authored</strong> on a dev machine,{" "}
         <strong className="text-blue-300">built</strong> into optimized output,{" "}
         <strong className="text-blue-300">served</strong> to browsers, and{" "}
-        <strong className="text-blue-300">connected</strong> to backend services.
+        <strong className="text-blue-300">connected</strong> to backend
+        services.
       </p>
 
       {/* Main architecture diagram */}
@@ -80,16 +81,18 @@ export default function Architecture() {
                 optimized static files:
               </p>
               <div className="space-y-1">
-                {["index.html", "assets/app.ab3f.js", "assets/style.c9.css"].map(
-                  (f) => (
-                    <div
-                      key={f}
-                      className="font-mono text-xs text-amber-200/80 bg-amber-950/30 rounded px-2 py-1"
-                    >
-                      dist/{f}
-                    </div>
-                  )
-                )}
+                {[
+                  "index.html",
+                  "assets/app.ab3f.js",
+                  "assets/style.c9.css",
+                ].map((f) => (
+                  <div
+                    key={f}
+                    className="font-mono text-xs text-amber-200/80 bg-amber-950/30 rounded px-2 py-1"
+                  >
+                    dist/{f}
+                  </div>
+                ))}
               </div>
               <div className="text-xs text-zinc-600 font-mono pt-2 border-t border-amber-900/20">
                 Deployed to a CDN or static host
@@ -306,7 +309,10 @@ export default function Architecture() {
       <Callout color="#60a5fa" icon="🚀">
         <strong className="text-blue-300">The typical dev workflow:</strong>
         <ol className="mt-2 space-y-1 text-zinc-400 list-decimal list-inside">
-          <li>Write components in your framework of choice + style with Tailwind or CSS</li>
+          <li>
+            Write components in your framework of choice + style with Tailwind
+            or CSS
+          </li>
           <li>
             <code className="text-cyan-300 text-xs">npm run dev</code> — bundler
             serves your app locally with HMR
@@ -328,9 +334,9 @@ export default function Architecture() {
         <p className="text-zinc-400 max-w-2xl mx-auto leading-relaxed">
           Every piece has a clear role and a clear place where it runs. The
           package manager downloads libraries to your machine. The bundler
-          builds on your machine. TypeScript and Tailwind run at build time.
-          The framework runs in the browser (or on the server, for SSR).
-          Your API runs on a server. Data flows between them via HTTP.{" "}
+          builds on your machine. TypeScript and Tailwind run at build time. The
+          framework runs in the browser (or on the server, for SSR). Your API
+          runs on a server. Data flows between them via HTTP.{" "}
           <strong className="text-zinc-300">
             The specific tools change — the architecture doesn't.
           </strong>

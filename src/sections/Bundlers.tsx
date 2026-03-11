@@ -1,9 +1,4 @@
-import {
-  CodeBlock,
-  RunsBadge,
-  DiagramBox,
-  Callout,
-} from "../components";
+import { CodeBlock, RunsBadge, DiagramBox, Callout } from "../components";
 
 export default function Bundlers() {
   return (
@@ -153,12 +148,8 @@ export default function Bundlers() {
                 <span className="text-zinc-500">
                   {"  ➜  press h + enter to show help\n\n"}
                 </span>
-                <span className="text-sky-300">
-                  {"  [hmr] "}
-                </span>
-                <span className="text-zinc-400">
-                  App.jsx updated — 3ms
-                </span>
+                <span className="text-sky-300">{"  [hmr] "}</span>
+                <span className="text-zinc-400">App.jsx updated — 3ms</span>
               </span>
             }
           />

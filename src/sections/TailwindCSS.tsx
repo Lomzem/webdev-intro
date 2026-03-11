@@ -13,10 +13,9 @@ export default function TailwindCSS() {
         <code className="font-mono text-xs bg-zinc-800 px-1.5 rounded text-rose-300">
           .card-wrapper-outer-container
         </code>
-        .{" "}
-        <strong className="text-rose-300">Tailwind CSS</strong> flips this: you
-        apply small, single-purpose utility classes directly in your HTML/JSX.
-        No separate CSS file, no naming things.
+        . <strong className="text-rose-300">Tailwind CSS</strong> flips this:
+        you apply small, single-purpose utility classes directly in your
+        HTML/JSX. No separate CSS file, no naming things.
       </p>
 
       <CompareCards
@@ -82,9 +81,7 @@ export default function TailwindCSS() {
                     <span className="text-zinc-400">{"="}</span>
                     <span className="text-emerald-400">"card-title"</span>
                     <span className="text-zinc-400">{">\n"}</span>
-                    <span className="text-zinc-300">
-                      {"    Hello World\n"}
-                    </span>
+                    <span className="text-zinc-300">{"    Hello World\n"}</span>
                     <span className="text-zinc-400">{"  </"}</span>
                     <span className="text-red-400">h2</span>
                     <span className="text-zinc-400">{">\n"}</span>
@@ -122,9 +119,7 @@ export default function TailwindCSS() {
                       {'"text-2xl\n    font-bold\n    text-slate-900"'}
                     </span>
                     <span className="text-zinc-400">{">\n"}</span>
-                    <span className="text-zinc-300">
-                      {"    Hello World\n"}
-                    </span>
+                    <span className="text-zinc-300">{"    Hello World\n"}</span>
                     <span className="text-zinc-400">{"  </"}</span>
                     <span className="text-red-400">h2</span>
                     <span className="text-zinc-400">{">\n"}</span>
@@ -137,11 +132,9 @@ export default function TailwindCSS() {
               <p className="text-xs text-zinc-500 leading-relaxed">
                 Each class does one thing:{" "}
                 <code className="text-rose-300">bg-white</code> = white
-                background,{" "}
-                <code className="text-rose-300">rounded-xl</code> = rounded
-                corners,{" "}
-                <code className="text-rose-300">p-6</code> = padding,{" "}
-                <code className="text-rose-300">shadow-md</code> = drop
+                background, <code className="text-rose-300">rounded-xl</code> =
+                rounded corners, <code className="text-rose-300">p-6</code> =
+                padding, <code className="text-rose-300">shadow-md</code> = drop
                 shadow.
               </p>
             </div>
@@ -186,14 +179,14 @@ export default function TailwindCSS() {
         <strong className="text-rose-300">
           Tailwind doesn't run in the browser.
         </strong>{" "}
-        During the build (when Vite bundles your app), Tailwind scans your
-        JSX files for class names like{" "}
+        During the build (when Vite bundles your app), Tailwind scans your JSX
+        files for class names like{" "}
         <code className="font-mono text-xs bg-zinc-800 px-1 rounded">
           bg-white
         </code>{" "}
-        and generates a plain CSS file containing only those rules. The
-        browser receives normal, standard CSS — it has no idea Tailwind
-        was involved. This page you're reading right now uses Tailwind!
+        and generates a plain CSS file containing only those rules. The browser
+        receives normal, standard CSS — it has no idea Tailwind was involved.
+        This page you're reading right now uses Tailwind!
       </Callout>
     </div>
   );

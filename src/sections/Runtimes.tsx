@@ -6,8 +6,8 @@ export default function Runtimes() {
       <p className="text-lg leading-relaxed text-zinc-300">
         JavaScript was born in the browser in 1995. For years, that was the{" "}
         <em>only</em> place it could run. Then{" "}
-        <strong className="text-sky-300">Node.js</strong> came along in 2009
-        and changed everything — it let you run JavaScript on servers, on your
+        <strong className="text-sky-300">Node.js</strong> came along in 2009 and
+        changed everything — it let you run JavaScript on servers, on your
         laptop, anywhere. A <strong className="text-sky-300">runtime</strong> is
         the engine that actually executes your JavaScript code.
       </p>
@@ -112,16 +112,18 @@ export default function Runtimes() {
           <code className="font-mono text-sky-200 bg-sky-950/50 px-1.5 rounded">
             npm run dev
           </code>{" "}
-          — that's <strong>Node.js</strong> (a JS runtime) running on your laptop.
-          It starts the Vite dev server, watches your files, and serves your
-          app to the browser.
+          — that's <strong>Node.js</strong> (a JS runtime) running on your
+          laptop. It starts the Vite dev server, watches your files, and serves
+          your app to the browser.
         </Callout>
 
         <Callout color="#a78bfa" icon="🌐">
-          <strong className="text-violet-300">When a user opens your app</strong>{" "}
-          — their browser's built-in JS engine (V8, SpiderMonkey, etc.)
-          executes the JavaScript bundle that Vite produced. Completely
-          separate from your machine.
+          <strong className="text-violet-300">
+            When a user opens your app
+          </strong>{" "}
+          — their browser's built-in JS engine (V8, SpiderMonkey, etc.) executes
+          the JavaScript bundle that Vite produced. Completely separate from
+          your machine.
         </Callout>
       </div>
 

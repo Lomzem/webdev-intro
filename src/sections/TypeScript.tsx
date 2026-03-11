@@ -1,4 +1,10 @@
-import { CodeBlock, RunsBadge, CompareCards, Callout, DiagramBox } from "../components";
+import {
+  CodeBlock,
+  RunsBadge,
+  CompareCards,
+  Callout,
+  DiagramBox,
+} from "../components";
 
 export default function TypeScript() {
   return (
@@ -11,9 +17,9 @@ export default function TypeScript() {
         JavaScript is <em>dynamically typed</em> — a variable can be a number
         one moment and a string the next. This flexibility is great for small
         scripts, but in a large app it leads to bugs that are hard to track
-        down.{" "}
-        <strong className="text-pink-300">TypeScript</strong> is JavaScript with
-        types added on top. It catches mistakes <em>before</em> your code runs.
+        down. <strong className="text-pink-300">TypeScript</strong> is
+        JavaScript with types added on top. It catches mistakes <em>before</em>{" "}
+        your code runs.
       </p>
 
       {/* Before/After */}
@@ -38,11 +44,19 @@ export default function TypeScript() {
                   <span className="text-zinc-400">{", "}</span>
                   <span className="text-emerald-400">{'"3"'}</span>
                   <span className="text-zinc-400">{");\n"}</span>
-                  <span className="text-zinc-500">{'// Returns "53" not 8!'}</span>
+                  <span className="text-zinc-500">
+                    {'// Returns "53" not 8!'}
+                  </span>
                   <span className="text-zinc-400">{"\n"}</span>
-                  <span className="text-zinc-500">{"// JS silently concatenated\n"}</span>
-                  <span className="text-zinc-500">{"// strings instead of adding.\n"}</span>
-                  <span className="text-zinc-500">{"// No error. Just wrong."}</span>
+                  <span className="text-zinc-500">
+                    {"// JS silently concatenated\n"}
+                  </span>
+                  <span className="text-zinc-500">
+                    {"// strings instead of adding.\n"}
+                  </span>
+                  <span className="text-zinc-500">
+                    {"// No error. Just wrong."}
+                  </span>
                 </span>
               }
             />
@@ -77,10 +91,18 @@ export default function TypeScript() {
                   <span className="text-zinc-400">{", "}</span>
                   <span className="text-red-400">{'"3"'}</span>
                   <span className="text-zinc-400">{");\n"}</span>
-                  <span className="text-red-400">{"// ❌ Error: Argument of\n"}</span>
-                  <span className="text-red-400">{"// type 'string' is not\n"}</span>
-                  <span className="text-red-400">{"// assignable to 'number'.\n"}</span>
-                  <span className="text-zinc-500">{"// Caught BEFORE running!"}</span>
+                  <span className="text-red-400">
+                    {"// ❌ Error: Argument of\n"}
+                  </span>
+                  <span className="text-red-400">
+                    {"// type 'string' is not\n"}
+                  </span>
+                  <span className="text-red-400">
+                    {"// assignable to 'number'.\n"}
+                  </span>
+                  <span className="text-zinc-500">
+                    {"// Caught BEFORE running!"}
+                  </span>
                 </span>
               }
             />
@@ -160,9 +182,9 @@ export default function TypeScript() {
           A Real-World Example
         </h3>
         <p className="text-zinc-400 leading-relaxed">
-          Types really shine when working with data from an API.
-          Without types, you're guessing what fields exist on an object.
-          With types, your editor tells you <em>exactly</em> what's available.
+          Types really shine when working with data from an API. Without types,
+          you're guessing what fields exist on an object. With types, your
+          editor tells you <em>exactly</em> what's available.
         </p>
 
         <CodeBlock
@@ -170,8 +192,12 @@ export default function TypeScript() {
           accent="rose"
           code={
             <span>
-              <span className="text-zinc-500">{"// This describes what a Post looks like.\n"}</span>
-              <span className="text-zinc-500">{"// It doesn't create anything — it's just a blueprint.\n\n"}</span>
+              <span className="text-zinc-500">
+                {"// This describes what a Post looks like.\n"}
+              </span>
+              <span className="text-zinc-500">
+                {"// It doesn't create anything — it's just a blueprint.\n\n"}
+              </span>
               <span className="text-violet-300">{"interface "}</span>
               <span className="text-pink-300">{"Post"}</span>
               <span className="text-zinc-400">{" {\n"}</span>
@@ -249,9 +275,15 @@ export default function TypeScript() {
               <span className="text-zinc-400">{"      {post."}</span>
               <span className="text-red-400">{"naem"}</span>
               <span className="text-zinc-400">{"}\n"}</span>
-              <span className="text-red-400">{"      // ❌ Error: Property 'naem'\n"}</span>
-              <span className="text-red-400">{"      // does not exist on type 'Post'.\n"}</span>
-              <span className="text-red-400">{"      // Did you mean 'name'?\n"}</span>
+              <span className="text-red-400">
+                {"      // ❌ Error: Property 'naem'\n"}
+              </span>
+              <span className="text-red-400">
+                {"      // does not exist on type 'Post'.\n"}
+              </span>
+              <span className="text-red-400">
+                {"      // Did you mean 'name'?\n"}
+              </span>
               <span className="text-zinc-400">{"    </"}</span>
               <span className="text-red-400">{"div"}</span>
               <span className="text-zinc-400">{">\n"}</span>
@@ -331,10 +363,12 @@ export default function TypeScript() {
           <strong className="text-pink-300">
             TypeScript doesn't run in the browser.
           </strong>{" "}
-          Just like Tailwind, TypeScript is a{" "}
-          <strong>build-time tool</strong>. Vite (via its bundler) strips all the
-          type annotations out and produces plain JavaScript. The browser
-          receives normal <code className="font-mono text-xs bg-zinc-800 px-1 rounded">.js</code>{" "}
+          Just like Tailwind, TypeScript is a <strong>build-time tool</strong>.
+          Vite (via its bundler) strips all the type annotations out and
+          produces plain JavaScript. The browser receives normal{" "}
+          <code className="font-mono text-xs bg-zinc-800 px-1 rounded">
+            .js
+          </code>{" "}
           — it has no idea you wrote TypeScript.
         </Callout>
 
@@ -345,11 +379,15 @@ export default function TypeScript() {
           The app you're reading right now is written in plain JavaScript (.jsx
           files). You don't <em>have</em> to use TypeScript. But most production
           React apps do, because catching type errors at build time beats
-          debugging them in production. When you're ready, switching is
-          as simple as renaming{" "}
-          <code className="font-mono text-xs bg-zinc-800 px-1 rounded">.jsx</code>{" "}
+          debugging them in production. When you're ready, switching is as
+          simple as renaming{" "}
+          <code className="font-mono text-xs bg-zinc-800 px-1 rounded">
+            .jsx
+          </code>{" "}
           →{" "}
-          <code className="font-mono text-xs bg-zinc-800 px-1 rounded">.tsx</code>{" "}
+          <code className="font-mono text-xs bg-zinc-800 px-1 rounded">
+            .tsx
+          </code>{" "}
           and adding types gradually.
         </Callout>
       </div>

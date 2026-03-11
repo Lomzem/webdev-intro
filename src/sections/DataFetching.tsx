@@ -17,9 +17,9 @@ export default function DataFetching() {
 
       <p className="text-lg leading-relaxed text-zinc-300">
         React handles the UI, but where does the <em>data</em> come from? Your
-        app needs to talk to a backend server — to fetch a list of posts, load
-        a user profile, or submit a form. This is done with HTTP requests from
-        the browser to your API.
+        app needs to talk to a backend server — to fetch a list of posts, load a
+        user profile, or submit a form. This is done with HTTP requests from the
+        browser to your API.
       </p>
 
       {/* fetch example */}
@@ -62,7 +62,9 @@ export default function DataFetching() {
               {"'https://api.yourapp.com/posts'"}
             </span>
             <span className="text-zinc-400">{")\n"}</span>
-            <span className="text-zinc-400">{"      .then(r => r.json())\n"}</span>
+            <span className="text-zinc-400">
+              {"      .then(r => r.json())\n"}
+            </span>
             <span className="text-zinc-400">{"      .then("}</span>
             <span className="text-sky-300">{"setPosts"}</span>
             <span className="text-zinc-400">{");\n"}</span>
@@ -147,8 +149,14 @@ export default function DataFetching() {
           TanStack Query: Data Fetching on Steroids
         </h3>
         <p className="text-zinc-400 leading-relaxed">
-          The <code className="font-mono text-xs bg-zinc-800 px-1 rounded">fetch()</code>{" "}
-          + <code className="font-mono text-xs bg-zinc-800 px-1 rounded">useEffect</code>{" "}
+          The{" "}
+          <code className="font-mono text-xs bg-zinc-800 px-1 rounded">
+            fetch()
+          </code>{" "}
+          +{" "}
+          <code className="font-mono text-xs bg-zinc-800 px-1 rounded">
+            useEffect
+          </code>{" "}
           approach above works for simple cases, but real apps need loading
           spinners, error messages, caching, retries, and more. Watch how
           quickly the "manual" version balloons compared to{" "}
@@ -219,7 +227,9 @@ export default function DataFetching() {
                     <span className="text-zinc-400">{"("}</span>
                     <span className="text-emerald-400">{"'/api/posts'"}</span>
                     <span className="text-zinc-400">{")\n"}</span>
-                    <span className="text-zinc-400">{"      .then(r => {\n"}</span>
+                    <span className="text-zinc-400">
+                      {"      .then(r => {\n"}
+                    </span>
                     <span className="text-zinc-400">{"        "}</span>
                     <span className="text-violet-300">{"if "}</span>
                     <span className="text-zinc-400">{"(!r.ok)\n"}</span>
@@ -233,7 +243,9 @@ export default function DataFetching() {
                     <span className="text-violet-300">{"return "}</span>
                     <span className="text-zinc-400">{"r.json();\n"}</span>
                     <span className="text-zinc-400">{"      })\n"}</span>
-                    <span className="text-zinc-400">{"      .then(data => {\n"}</span>
+                    <span className="text-zinc-400">
+                      {"      .then(data => {\n"}
+                    </span>
                     <span className="text-zinc-400">{"        "}</span>
                     <span className="text-sky-300">{"setPosts"}</span>
                     <span className="text-zinc-400">{"(data);\n"}</span>
@@ -243,7 +255,9 @@ export default function DataFetching() {
                     <span className="text-violet-300">{"false"}</span>
                     <span className="text-zinc-400">{");\n"}</span>
                     <span className="text-zinc-400">{"      })\n"}</span>
-                    <span className="text-zinc-400">{"      .catch(err => {\n"}</span>
+                    <span className="text-zinc-400">
+                      {"      .catch(err => {\n"}
+                    </span>
                     <span className="text-zinc-400">{"        "}</span>
                     <span className="text-sky-300">{"setError"}</span>
                     <span className="text-zinc-400">{"(err);\n"}</span>
@@ -274,11 +288,21 @@ export default function DataFetching() {
                     <span className="text-red-400">{"p"}</span>
                     <span className="text-zinc-400">{">;\n\n"}</span>
 
-                    <span className="text-zinc-500">{"  // No caching.\n"}</span>
-                    <span className="text-zinc-500">{"  // No retries.\n"}</span>
-                    <span className="text-zinc-500">{"  // No background refetch.\n"}</span>
-                    <span className="text-zinc-500">{"  // Every page visit re-fetches.\n"}</span>
-                    <span className="text-zinc-500">{"  // And you wrote all this yourself.\n"}</span>
+                    <span className="text-zinc-500">
+                      {"  // No caching.\n"}
+                    </span>
+                    <span className="text-zinc-500">
+                      {"  // No retries.\n"}
+                    </span>
+                    <span className="text-zinc-500">
+                      {"  // No background refetch.\n"}
+                    </span>
+                    <span className="text-zinc-500">
+                      {"  // Every page visit re-fetches.\n"}
+                    </span>
+                    <span className="text-zinc-500">
+                      {"  // And you wrote all this yourself.\n"}
+                    </span>
                     <span className="text-zinc-400">{"}"}</span>
                   </span>
                 }
@@ -353,10 +377,18 @@ export default function DataFetching() {
                     <span className="text-red-400">{"p"}</span>
                     <span className="text-zinc-400">{">;\n\n"}</span>
 
-                    <span className="text-zinc-500">{"  // Caching ✓  Retries ✓\n"}</span>
-                    <span className="text-zinc-500">{"  // Background refetch ✓\n"}</span>
-                    <span className="text-zinc-500">{"  // Loading & error states ✓\n"}</span>
-                    <span className="text-zinc-500">{"  // All in ~12 lines.\n"}</span>
+                    <span className="text-zinc-500">
+                      {"  // Caching ✓  Retries ✓\n"}
+                    </span>
+                    <span className="text-zinc-500">
+                      {"  // Background refetch ✓\n"}
+                    </span>
+                    <span className="text-zinc-500">
+                      {"  // Loading & error states ✓\n"}
+                    </span>
+                    <span className="text-zinc-500">
+                      {"  // All in ~12 lines.\n"}
+                    </span>
                     <span className="text-zinc-400">{"}"}</span>
                   </span>
                 }
@@ -372,11 +404,16 @@ export default function DataFetching() {
           Sending Data: POST Requests with useMutation
         </h3>
         <p className="text-zinc-400 leading-relaxed">
-          <code className="font-mono text-xs bg-zinc-800 px-1 rounded">useQuery</code>{" "}
-          is for <strong className="text-orange-200">reading</strong> data (GET requests).
-          But what about <strong className="text-orange-200">sending</strong> data — creating
-          a new post, submitting a form, deleting an item? That's where{" "}
-          <code className="font-mono text-xs bg-zinc-800 px-1 rounded text-orange-300">useMutation</code>{" "}
+          <code className="font-mono text-xs bg-zinc-800 px-1 rounded">
+            useQuery
+          </code>{" "}
+          is for <strong className="text-orange-200">reading</strong> data (GET
+          requests). But what about{" "}
+          <strong className="text-orange-200">sending</strong> data — creating a
+          new post, submitting a form, deleting an item? That's where{" "}
+          <code className="font-mono text-xs bg-zinc-800 px-1 rounded text-orange-300">
+            useMutation
+          </code>{" "}
           comes in.
         </p>
 
@@ -392,10 +429,14 @@ export default function DataFetching() {
               <span className="text-sky-300">{"useQueryClient"}</span>
               <span className="text-zinc-400">{" } "}</span>
               <span className="text-violet-300">{"from "}</span>
-              <span className="text-emerald-400">{"'@tanstack/react-query'"}</span>
+              <span className="text-emerald-400">
+                {"'@tanstack/react-query'"}
+              </span>
               <span className="text-zinc-400">{";\n\n"}</span>
 
-              <span className="text-zinc-500">{"// Define the shape of a new post\n"}</span>
+              <span className="text-zinc-500">
+                {"// Define the shape of a new post\n"}
+              </span>
               <span className="text-violet-300">{"interface "}</span>
               <span className="text-pink-300">{"NewPost"}</span>
               <span className="text-zinc-400">{" {\n"}</span>
@@ -472,7 +513,9 @@ export default function DataFetching() {
               <span className="text-zinc-400">{"    "}</span>
               <span className="text-sky-300">{"onSuccess"}</span>
               <span className="text-zinc-400">{": () => {\n"}</span>
-              <span className="text-zinc-500">{"      // Refetch the posts list so the new one appears\n"}</span>
+              <span className="text-zinc-500">
+                {"      // Refetch the posts list so the new one appears\n"}
+              </span>
               <span className="text-zinc-400">{"      "}</span>
               <span className="text-sky-300">{"queryClient"}</span>
               <span className="text-zinc-400">{"."}</span>
@@ -485,7 +528,9 @@ export default function DataFetching() {
               <span className="text-zinc-400">{"    },\n"}</span>
               <span className="text-zinc-400">{"  });\n\n"}</span>
 
-              <span className="text-zinc-500">{"  // TypeScript ensures you pass the right shape:\n"}</span>
+              <span className="text-zinc-500">
+                {"  // TypeScript ensures you pass the right shape:\n"}
+              </span>
               <span className="text-zinc-400">{"  "}</span>
               <span className="text-sky-300">{"mutate"}</span>
               <span className="text-zinc-400">{"({\n"}</span>
@@ -513,7 +558,9 @@ export default function DataFetching() {
               <span className="text-zinc-400">{": "}</span>
               <span className="text-emerald-400">{"'Oops'"}</span>
               <span className="text-zinc-400">{" });\n"}</span>
-              <span className="text-red-400">{"  // ❌ Error: missing 'body' and 'author'\n"}</span>
+              <span className="text-red-400">
+                {"  // ❌ Error: missing 'body' and 'author'\n"}
+              </span>
               <span className="text-zinc-400">{"}"}</span>
             </span>
           }
@@ -531,13 +578,15 @@ export default function DataFetching() {
               {
                 from: "Browser (React)",
                 to: "Your API Server",
-                label: "useMutation fires a POST /api/posts request with the form data as JSON in the body",
+                label:
+                  "useMutation fires a POST /api/posts request with the form data as JSON in the body",
                 color: "#38bdf8",
               },
               {
                 from: "Your API Server",
                 to: "Database",
-                label: "Server validates the data and runs INSERT INTO posts (...) VALUES (...)",
+                label:
+                  "Server validates the data and runs INSERT INTO posts (...) VALUES (...)",
                 color: "#34d399",
               },
               {
@@ -550,14 +599,16 @@ export default function DataFetching() {
               {
                 from: "Your API Server",
                 to: "Browser (React)",
-                label: 'Server responds with 201 Created and the new post as JSON',
+                label:
+                  "Server responds with 201 Created and the new post as JSON",
                 color: "#38bdf8",
                 direction: "left",
               },
               {
                 from: "Browser (React)",
                 to: "Browser (React)",
-                label: 'onSuccess fires — invalidates the "posts" query, triggering a refetch so the list updates',
+                label:
+                  'onSuccess fires — invalidates the "posts" query, triggering a refetch so the list updates',
                 color: "#a78bfa",
               },
               {
@@ -573,14 +624,20 @@ export default function DataFetching() {
 
         <Callout color="#fb923c" icon="💡">
           <strong className="text-orange-300">GET vs POST:</strong>{" "}
-          <code className="font-mono text-xs bg-zinc-800 px-1 rounded">useQuery</code>{" "}
+          <code className="font-mono text-xs bg-zinc-800 px-1 rounded">
+            useQuery
+          </code>{" "}
           = reading data (GET). Runs automatically when the component renders.{" "}
-          <code className="font-mono text-xs bg-zinc-800 px-1 rounded">useMutation</code>{" "}
+          <code className="font-mono text-xs bg-zinc-800 px-1 rounded">
+            useMutation
+          </code>{" "}
           = writing data (POST, PUT, DELETE). Runs only when you call{" "}
-          <code className="font-mono text-xs bg-zinc-800 px-1 rounded">mutate()</code>{" "}
-          — typically in response to a user action like clicking a button.
-          After a successful mutation, you invalidate related queries so the
-          cached data refreshes.
+          <code className="font-mono text-xs bg-zinc-800 px-1 rounded">
+            mutate()
+          </code>{" "}
+          — typically in response to a user action like clicking a button. After
+          a successful mutation, you invalidate related queries so the cached
+          data refreshes.
         </Callout>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
@@ -619,10 +676,10 @@ export default function DataFetching() {
         <strong className="text-orange-300">
           All of this runs in the browser.
         </strong>{" "}
-        TanStack Query is a client-side library — it runs in the user's
-        browser alongside React. It makes HTTP requests to your backend API,
-        manages the responses, and tells React when to re-render. Your
-        backend server is a completely separate program.
+        TanStack Query is a client-side library — it runs in the user's browser
+        alongside React. It makes HTTP requests to your backend API, manages the
+        responses, and tells React when to re-render. Your backend server is a
+        completely separate program.
       </Callout>
     </div>
   );
