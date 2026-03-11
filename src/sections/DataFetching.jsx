@@ -2,6 +2,7 @@ import {
   CodeBlock,
   RunsBadge,
   SequenceDiagram,
+  CompareCards,
   Callout,
 } from "../components";
 
@@ -146,68 +147,224 @@ export default function DataFetching() {
           TanStack Query: Data Fetching on Steroids
         </h3>
         <p className="text-zinc-400 leading-relaxed">
-          Raw <code className="font-mono text-xs bg-zinc-800 px-1 rounded">fetch()</code>{" "}
-          works, but you quickly need to handle: loading states, error states,
-          caching (don't re-fetch data you already have), retries on failure,
-          background refetching, pagination...{" "}
-          <strong className="text-orange-300">TanStack Query</strong> handles all
-          of this for you.
+          The <code className="font-mono text-xs bg-zinc-800 px-1 rounded">fetch()</code>{" "}
+          + <code className="font-mono text-xs bg-zinc-800 px-1 rounded">useEffect</code>{" "}
+          approach above works for simple cases, but real apps need loading
+          spinners, error messages, caching, retries, and more. Watch how
+          quickly the "manual" version balloons compared to{" "}
+          <strong className="text-orange-300">TanStack Query</strong>.
         </p>
 
-        <CodeBlock
-          title="PostList.jsx — with TanStack Query"
-          accent="orange"
-          code={
-            <span>
-              <span className="text-violet-300">{"import "}</span>
-              <span className="text-zinc-400">{"{ "}</span>
-              <span className="text-sky-300">{"useQuery"}</span>
-              <span className="text-zinc-400">{" } "}</span>
-              <span className="text-violet-300">{"from "}</span>
-              <span className="text-emerald-400">
-                {"'@tanstack/react-query'"}
-              </span>
-              <span className="text-zinc-400">{";\n\n"}</span>
-              <span className="text-violet-300">{"function "}</span>
-              <span className="text-amber-300">{"PostList"}</span>
-              <span className="text-zinc-400">{"() {\n"}</span>
-              <span className="text-zinc-400">{"  "}</span>
-              <span className="text-violet-300">{"const "}</span>
-              <span className="text-zinc-400">{"{ "}</span>
-              <span className="text-sky-300">data</span>
-              <span className="text-zinc-400">{", "}</span>
-              <span className="text-sky-300">isLoading</span>
-              <span className="text-zinc-400">{", "}</span>
-              <span className="text-sky-300">error</span>
-              <span className="text-zinc-400">{" } = "}</span>
-              <span className="text-amber-300">{"useQuery"}</span>
-              <span className="text-zinc-400">{"({\n"}</span>
-              <span className="text-zinc-400">{"    "}</span>
-              <span className="text-sky-300">{"queryKey"}</span>
-              <span className="text-zinc-400">{": ["}</span>
-              <span className="text-emerald-400">{"'posts'"}</span>
-              <span className="text-zinc-400">{"],\n"}</span>
-              <span className="text-zinc-400">{"    "}</span>
-              <span className="text-sky-300">{"queryFn"}</span>
-              <span className="text-zinc-400">{": () =>\n"}</span>
-              <span className="text-zinc-400">{"      "}</span>
-              <span className="text-amber-300">{"fetch"}</span>
-              <span className="text-zinc-400">{"("}</span>
-              <span className="text-emerald-400">{"'/api/posts'"}</span>
-              <span className="text-zinc-400">{").\n"}</span>
-              <span className="text-zinc-400">
-                {"        then(r => r.json()),\n"}
-              </span>
-              <span className="text-zinc-400">{"  });\n\n"}</span>
-              <span className="text-zinc-500">
-                {"  // isLoading, error, data — all managed for you!\n"}
-              </span>
-              <span className="text-zinc-500">
-                {"  // Caching, retries, background refetch — all automatic!\n"}
-              </span>
-              <span className="text-zinc-400">{"}"}</span>
-            </span>
-          }
+        <CompareCards
+          before={{
+            label: "Manual: useEffect + fetch (~35 lines)",
+            content: (
+              <CodeBlock
+                title="PostList.jsx — doing it all yourself"
+                code={
+                  <span>
+                    <span className="text-violet-300">{"import "}</span>
+                    <span className="text-zinc-400">{"{ "}</span>
+                    <span className="text-sky-300">{"useState"}</span>
+                    <span className="text-zinc-400">{", "}</span>
+                    <span className="text-sky-300">{"useEffect"}</span>
+                    <span className="text-zinc-400">{" } "}</span>
+                    <span className="text-violet-300">{"from "}</span>
+                    <span className="text-emerald-400">{"'react'"}</span>
+                    <span className="text-zinc-400">{";\n\n"}</span>
+
+                    <span className="text-violet-300">{"function "}</span>
+                    <span className="text-amber-300">{"PostList"}</span>
+                    <span className="text-zinc-400">{"() {\n"}</span>
+
+                    <span className="text-zinc-400">{"  "}</span>
+                    <span className="text-violet-300">{"const "}</span>
+                    <span className="text-zinc-400">{"["}</span>
+                    <span className="text-sky-300">{"posts"}</span>
+                    <span className="text-zinc-400">{", "}</span>
+                    <span className="text-sky-300">{"setPosts"}</span>
+                    <span className="text-zinc-400">{"] = "}</span>
+                    <span className="text-amber-300">{"useState"}</span>
+                    <span className="text-zinc-400">{"([]);\n"}</span>
+
+                    <span className="text-zinc-400">{"  "}</span>
+                    <span className="text-violet-300">{"const "}</span>
+                    <span className="text-zinc-400">{"["}</span>
+                    <span className="text-sky-300">{"isLoading"}</span>
+                    <span className="text-zinc-400">{", "}</span>
+                    <span className="text-sky-300">{"setIsLoading"}</span>
+                    <span className="text-zinc-400">{"] = "}</span>
+                    <span className="text-amber-300">{"useState"}</span>
+                    <span className="text-zinc-400">{"("}</span>
+                    <span className="text-violet-300">{"true"}</span>
+                    <span className="text-zinc-400">{");\n"}</span>
+
+                    <span className="text-zinc-400">{"  "}</span>
+                    <span className="text-violet-300">{"const "}</span>
+                    <span className="text-zinc-400">{"["}</span>
+                    <span className="text-sky-300">{"error"}</span>
+                    <span className="text-zinc-400">{", "}</span>
+                    <span className="text-sky-300">{"setError"}</span>
+                    <span className="text-zinc-400">{"] = "}</span>
+                    <span className="text-amber-300">{"useState"}</span>
+                    <span className="text-zinc-400">{"("}</span>
+                    <span className="text-violet-300">{"null"}</span>
+                    <span className="text-zinc-400">{");\n\n"}</span>
+
+                    <span className="text-zinc-400">{"  "}</span>
+                    <span className="text-amber-300">{"useEffect"}</span>
+                    <span className="text-zinc-400">{"(() => {\n"}</span>
+                    <span className="text-zinc-400">{"    "}</span>
+                    <span className="text-amber-300">{"fetch"}</span>
+                    <span className="text-zinc-400">{"("}</span>
+                    <span className="text-emerald-400">{"'/api/posts'"}</span>
+                    <span className="text-zinc-400">{")\n"}</span>
+                    <span className="text-zinc-400">{"      .then(r => {\n"}</span>
+                    <span className="text-zinc-400">{"        "}</span>
+                    <span className="text-violet-300">{"if "}</span>
+                    <span className="text-zinc-400">{"(!r.ok)\n"}</span>
+                    <span className="text-zinc-400">{"          "}</span>
+                    <span className="text-violet-300">{"throw new "}</span>
+                    <span className="text-amber-300">{"Error"}</span>
+                    <span className="text-zinc-400">{"("}</span>
+                    <span className="text-emerald-400">{"`${r.status}`"}</span>
+                    <span className="text-zinc-400">{");\n"}</span>
+                    <span className="text-zinc-400">{"        "}</span>
+                    <span className="text-violet-300">{"return "}</span>
+                    <span className="text-zinc-400">{"r.json();\n"}</span>
+                    <span className="text-zinc-400">{"      })\n"}</span>
+                    <span className="text-zinc-400">{"      .then(data => {\n"}</span>
+                    <span className="text-zinc-400">{"        "}</span>
+                    <span className="text-sky-300">{"setPosts"}</span>
+                    <span className="text-zinc-400">{"(data);\n"}</span>
+                    <span className="text-zinc-400">{"        "}</span>
+                    <span className="text-sky-300">{"setIsLoading"}</span>
+                    <span className="text-zinc-400">{"("}</span>
+                    <span className="text-violet-300">{"false"}</span>
+                    <span className="text-zinc-400">{");\n"}</span>
+                    <span className="text-zinc-400">{"      })\n"}</span>
+                    <span className="text-zinc-400">{"      .catch(err => {\n"}</span>
+                    <span className="text-zinc-400">{"        "}</span>
+                    <span className="text-sky-300">{"setError"}</span>
+                    <span className="text-zinc-400">{"(err);\n"}</span>
+                    <span className="text-zinc-400">{"        "}</span>
+                    <span className="text-sky-300">{"setIsLoading"}</span>
+                    <span className="text-zinc-400">{"("}</span>
+                    <span className="text-violet-300">{"false"}</span>
+                    <span className="text-zinc-400">{");\n"}</span>
+                    <span className="text-zinc-400">{"      });\n"}</span>
+                    <span className="text-zinc-400">{"  }, []);\n\n"}</span>
+
+                    <span className="text-zinc-400">{"  "}</span>
+                    <span className="text-violet-300">{"if "}</span>
+                    <span className="text-zinc-400">{"(isLoading) "}</span>
+                    <span className="text-violet-300">{"return "}</span>
+                    <span className="text-zinc-400">{"<"}</span>
+                    <span className="text-red-400">{"p"}</span>
+                    <span className="text-zinc-400">{">Loading...</"}</span>
+                    <span className="text-red-400">{"p"}</span>
+                    <span className="text-zinc-400">{">;\n"}</span>
+                    <span className="text-zinc-400">{"  "}</span>
+                    <span className="text-violet-300">{"if "}</span>
+                    <span className="text-zinc-400">{"(error) "}</span>
+                    <span className="text-violet-300">{"return "}</span>
+                    <span className="text-zinc-400">{"<"}</span>
+                    <span className="text-red-400">{"p"}</span>
+                    <span className="text-zinc-400">{">Error!</"}</span>
+                    <span className="text-red-400">{"p"}</span>
+                    <span className="text-zinc-400">{">;\n\n"}</span>
+
+                    <span className="text-zinc-500">{"  // No caching.\n"}</span>
+                    <span className="text-zinc-500">{"  // No retries.\n"}</span>
+                    <span className="text-zinc-500">{"  // No background refetch.\n"}</span>
+                    <span className="text-zinc-500">{"  // Every page visit re-fetches.\n"}</span>
+                    <span className="text-zinc-500">{"  // And you wrote all this yourself.\n"}</span>
+                    <span className="text-zinc-400">{"}"}</span>
+                  </span>
+                }
+              />
+            ),
+          }}
+          after={{
+            label: "TanStack Query: useQuery (~12 lines)",
+            content: (
+              <CodeBlock
+                title="PostList.jsx — let the library handle it"
+                accent="orange"
+                code={
+                  <span>
+                    <span className="text-violet-300">{"import "}</span>
+                    <span className="text-zinc-400">{"{ "}</span>
+                    <span className="text-sky-300">{"useQuery"}</span>
+                    <span className="text-zinc-400">{" } "}</span>
+                    <span className="text-violet-300">{"from "}</span>
+                    <span className="text-emerald-400">
+                      {"'@tanstack/react-query'"}
+                    </span>
+                    <span className="text-zinc-400">{";\n\n"}</span>
+                    <span className="text-violet-300">{"function "}</span>
+                    <span className="text-amber-300">{"PostList"}</span>
+                    <span className="text-zinc-400">{"() {\n"}</span>
+                    <span className="text-zinc-400">{"  "}</span>
+                    <span className="text-violet-300">{"const "}</span>
+                    <span className="text-zinc-400">{"{ "}</span>
+                    <span className="text-sky-300">data</span>
+                    <span className="text-zinc-400">{", "}</span>
+                    <span className="text-sky-300">isLoading</span>
+                    <span className="text-zinc-400">{", "}</span>
+                    <span className="text-sky-300">error</span>
+                    <span className="text-zinc-400">{" } = "}</span>
+                    <span className="text-amber-300">{"useQuery"}</span>
+                    <span className="text-zinc-400">{"({\n"}</span>
+                    <span className="text-zinc-400">{"    "}</span>
+                    <span className="text-sky-300">{"queryKey"}</span>
+                    <span className="text-zinc-400">{": ["}</span>
+                    <span className="text-emerald-400">{"'posts'"}</span>
+                    <span className="text-zinc-400">{"],\n"}</span>
+                    <span className="text-zinc-400">{"    "}</span>
+                    <span className="text-sky-300">{"queryFn"}</span>
+                    <span className="text-zinc-400">{": () =>\n"}</span>
+                    <span className="text-zinc-400">{"      "}</span>
+                    <span className="text-amber-300">{"fetch"}</span>
+                    <span className="text-zinc-400">{"("}</span>
+                    <span className="text-emerald-400">{"'/api/posts'"}</span>
+                    <span className="text-zinc-400">{").\n"}</span>
+                    <span className="text-zinc-400">
+                      {"        then(r => r.json()),\n"}
+                    </span>
+                    <span className="text-zinc-400">{"  });\n\n"}</span>
+
+                    <span className="text-zinc-400">{"  "}</span>
+                    <span className="text-violet-300">{"if "}</span>
+                    <span className="text-zinc-400">{"(isLoading) "}</span>
+                    <span className="text-violet-300">{"return "}</span>
+                    <span className="text-zinc-400">{"<"}</span>
+                    <span className="text-red-400">{"p"}</span>
+                    <span className="text-zinc-400">{">Loading...</"}</span>
+                    <span className="text-red-400">{"p"}</span>
+                    <span className="text-zinc-400">{">;\n"}</span>
+                    <span className="text-zinc-400">{"  "}</span>
+                    <span className="text-violet-300">{"if "}</span>
+                    <span className="text-zinc-400">{"(error) "}</span>
+                    <span className="text-violet-300">{"return "}</span>
+                    <span className="text-zinc-400">{"<"}</span>
+                    <span className="text-red-400">{"p"}</span>
+                    <span className="text-zinc-400">{">Error!</"}</span>
+                    <span className="text-red-400">{"p"}</span>
+                    <span className="text-zinc-400">{">;\n\n"}</span>
+
+                    <span className="text-zinc-500">{"  // Caching ✓  Retries ✓\n"}</span>
+                    <span className="text-zinc-500">{"  // Background refetch ✓\n"}</span>
+                    <span className="text-zinc-500">{"  // Loading & error states ✓\n"}</span>
+                    <span className="text-zinc-500">{"  // All in ~12 lines.\n"}</span>
+                    <span className="text-zinc-400">{"}"}</span>
+                  </span>
+                }
+              />
+            ),
+          }}
+          accentBefore="border-zinc-700 bg-zinc-900/50"
+          accentAfter="border-orange-900/40 bg-orange-950/10"
         />
 
         {/* useMutation POST example */}
