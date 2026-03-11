@@ -79,7 +79,7 @@ const sectionComponents = [OldDays, Runtimes, PackageManagers, Bundlers, Framewo
       <nav class="flex-1 overflow-y-auto p-3 space-y-0.5">
         {sections.map((section) => (
           <button
-            class="nav-btn w-full text-left px-3 py-2.5 rounded-xl transition-all duration-200 group flex items-center gap-3 hover:bg-zinc-900"
+            class="nav-btn w-full text-left px-3 py-2.5 rounded-xl transition-all duration-200 group flex items-center gap-3 hover:bg-zinc-900 cursor-pointer"
             data-section={section.id}
             data-color={section.color}
           >
