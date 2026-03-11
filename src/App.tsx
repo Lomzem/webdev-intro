@@ -342,15 +342,19 @@ function App() {
                   href="https://github.com/Lomzem"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 hover:text-zinc-400 transition-colors"
+                  className="group inline-flex items-center gap-2 transition-colors"
                 >
                   <img
                     src="https://github.com/Lomzem.png"
                     alt="Lawjay Lee"
-                    className="w-5 h-5 rounded-full"
+                    className="w-5 h-5 rounded-full border border-zinc-800 group-hover:border-violet-500/60 transition-colors"
                   />
-                  <span className="font-medium text-zinc-500">Lawjay Lee</span>
-                  <span className="font-mono text-zinc-700">@Lomzem</span>
+                  <span className="font-medium text-zinc-500 group-hover:text-zinc-200 transition-colors">
+                    Lawjay Lee
+                  </span>
+                  <span className="font-mono text-zinc-700 group-hover:text-violet-400/70 transition-colors">
+                    @Lomzem
+                  </span>
                 </a>
                 <span className="text-zinc-800">·</span>
                 <a
