@@ -33,15 +33,11 @@ const sectionComponents = [OldDays, Runtimes, PackageManagers, Bundlers, Framewo
   <div class="noise-bg min-h-screen bg-zinc-950">
     <!-- Mobile header -->
     <div class="lg:hidden fixed top-0 left-0 right-0 z-50 bg-zinc-950/90 backdrop-blur-xl border-b border-zinc-800/50">
-      <div class="flex items-center justify-between px-4 py-3">
-        <div class="flex items-center gap-2">
-          <span class="text-lg">⚡</span>
-          <span class="font-display font-bold text-sm text-zinc-200">Web Fundamentals</span>
-        </div>
+      <div class="flex items-center gap-3 px-4 py-3">
         <button
           id="menu-toggle"
           aria-label="Open menu"
-          class="p-2 rounded-lg hover:bg-zinc-800 transition-colors"
+          class="p-2 -ml-2 rounded-lg hover:bg-zinc-800 transition-colors"
         >
           <svg id="menu-icon-open" class="w-5 h-5 text-zinc-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
             <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
@@ -50,6 +46,10 @@ const sectionComponents = [OldDays, Runtimes, PackageManagers, Bundlers, Framewo
             <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
           </svg>
         </button>
+        <div class="flex items-center gap-2">
+          <span class="text-lg">⚡</span>
+          <span class="font-display font-bold text-sm text-zinc-200">Web Fundamentals</span>
+        </div>
       </div>
     </div>
 
