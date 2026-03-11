@@ -30,7 +30,7 @@ export default function Architecture() {
             <div className="space-y-2 text-sm">
               <div className="rounded-lg bg-cyan-950/30 border border-cyan-900/30 p-3">
                 <div className="font-mono text-xs text-cyan-300 font-bold">
-                  Bun
+                  Node.js
                 </div>
                 <div className="text-zinc-500 text-xs mt-0.5">
                   JS runtime — runs Vite & your dev tools
@@ -56,7 +56,7 @@ export default function Architecture() {
               </div>
             </div>
             <div className="text-xs text-zinc-600 font-mono pt-2 border-t border-cyan-900/20">
-              bun run dev → localhost:5173
+              npm run dev → localhost:5173
             </div>
           </div>
 
@@ -72,7 +72,7 @@ export default function Architecture() {
               </div>
               <RunsBadge location="Build Step" color="amber" />
               <p className="text-xs text-zinc-500">
-                <code className="text-amber-300">bun run build</code> produces
+                <code className="text-amber-300">npm run build</code> produces
                 static files:
               </p>
               <div className="space-y-1">
@@ -204,12 +204,12 @@ export default function Architecture() {
           <ol className="mt-2 space-y-1 text-zinc-400 list-decimal list-inside">
             <li>Write React components + Tailwind</li>
             <li>
-              <code className="text-cyan-300 text-xs">bun run dev</code> — Vite
+              <code className="text-cyan-300 text-xs">npm run dev</code> — Vite
               serves your app locally
             </li>
             <li>React runs in your browser, fetches from your API</li>
             <li>
-              <code className="text-amber-300 text-xs">bun run build</code> — Vite
+              <code className="text-amber-300 text-xs">npm run build</code> — Vite
               produces static files
             </li>
             <li>Deploy static files to any host</li>

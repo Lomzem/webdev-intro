@@ -210,6 +210,166 @@ export default function DataFetching() {
           }
         />
 
+        {/* useMutation POST example */}
+        <h3 className="font-display font-bold text-orange-300 text-xl !mt-10">
+          Sending Data: POST Requests with useMutation
+        </h3>
+        <p className="text-zinc-400 leading-relaxed">
+          <code className="font-mono text-xs bg-zinc-800 px-1 rounded">useQuery</code>{" "}
+          is for <strong className="text-orange-200">reading</strong> data (GET requests).
+          But what about <strong className="text-orange-200">sending</strong> data — creating
+          a new post, submitting a form, deleting an item? That's where{" "}
+          <code className="font-mono text-xs bg-zinc-800 px-1 rounded text-orange-300">useMutation</code>{" "}
+          comes in.
+        </p>
+
+        <CodeBlock
+          title="CreatePost.jsx — sending data with useMutation"
+          accent="orange"
+          code={
+            <span>
+              <span className="text-violet-300">{"import "}</span>
+              <span className="text-zinc-400">{"{ "}</span>
+              <span className="text-sky-300">{"useMutation"}</span>
+              <span className="text-zinc-400">{", "}</span>
+              <span className="text-sky-300">{"useQueryClient"}</span>
+              <span className="text-zinc-400">{" } "}</span>
+              <span className="text-violet-300">{"from "}</span>
+              <span className="text-emerald-400">{"'@tanstack/react-query'"}</span>
+              <span className="text-zinc-400">{";\n\n"}</span>
+
+              <span className="text-violet-300">{"function "}</span>
+              <span className="text-amber-300">{"CreatePost"}</span>
+              <span className="text-zinc-400">{"() {\n"}</span>
+              <span className="text-zinc-400">{"  "}</span>
+              <span className="text-violet-300">{"const "}</span>
+              <span className="text-sky-300">{"queryClient"}</span>
+              <span className="text-zinc-400">{" = "}</span>
+              <span className="text-amber-300">{"useQueryClient"}</span>
+              <span className="text-zinc-400">{"();\n\n"}</span>
+
+              <span className="text-zinc-400">{"  "}</span>
+              <span className="text-violet-300">{"const "}</span>
+              <span className="text-zinc-400">{"{ "}</span>
+              <span className="text-sky-300">{"mutate"}</span>
+              <span className="text-zinc-400">{", "}</span>
+              <span className="text-sky-300">{"isPending"}</span>
+              <span className="text-zinc-400">{" } = "}</span>
+              <span className="text-amber-300">{"useMutation"}</span>
+              <span className="text-zinc-400">{"({\n"}</span>
+
+              <span className="text-zinc-400">{"    "}</span>
+              <span className="text-sky-300">{"mutationFn"}</span>
+              <span className="text-zinc-400">{": (newPost) =>\n"}</span>
+              <span className="text-zinc-400">{"      "}</span>
+              <span className="text-amber-300">{"fetch"}</span>
+              <span className="text-zinc-400">{"("}</span>
+              <span className="text-emerald-400">{"'/api/posts'"}</span>
+              <span className="text-zinc-400">{", {\n"}</span>
+              <span className="text-zinc-400">{"        "}</span>
+              <span className="text-sky-300">{"method"}</span>
+              <span className="text-zinc-400">{": "}</span>
+              <span className="text-emerald-400">{"'POST'"}</span>
+              <span className="text-zinc-400">{",\n"}</span>
+              <span className="text-zinc-400">{"        "}</span>
+              <span className="text-sky-300">{"headers"}</span>
+              <span className="text-zinc-400">{": { "}</span>
+              <span className="text-emerald-400">{"'Content-Type'"}</span>
+              <span className="text-zinc-400">{": "}</span>
+              <span className="text-emerald-400">{"'application/json'"}</span>
+              <span className="text-zinc-400">{" },\n"}</span>
+              <span className="text-zinc-400">{"        "}</span>
+              <span className="text-sky-300">{"body"}</span>
+              <span className="text-zinc-400">{": JSON.stringify(newPost),\n"}</span>
+              <span className="text-zinc-400">{"      }),\n"}</span>
+
+              <span className="text-zinc-400">{"    "}</span>
+              <span className="text-sky-300">{"onSuccess"}</span>
+              <span className="text-zinc-400">{": () => {\n"}</span>
+              <span className="text-zinc-500">{"      // Refetch the posts list so the new one appears\n"}</span>
+              <span className="text-zinc-400">{"      "}</span>
+              <span className="text-sky-300">{"queryClient"}</span>
+              <span className="text-zinc-400">{"."}</span>
+              <span className="text-amber-300">{"invalidateQueries"}</span>
+              <span className="text-zinc-400">{"({ "}</span>
+              <span className="text-sky-300">{"queryKey"}</span>
+              <span className="text-zinc-400">{": ["}</span>
+              <span className="text-emerald-400">{"'posts'"}</span>
+              <span className="text-zinc-400">{"] });\n"}</span>
+              <span className="text-zinc-400">{"    },\n"}</span>
+              <span className="text-zinc-400">{"  });\n\n"}</span>
+
+              <span className="text-zinc-500">{"  // Call mutate() when the user submits the form:\n"}</span>
+              <span className="text-zinc-500">{"  // mutate({ title: 'My Post', body: 'Hello!' })\n"}</span>
+              <span className="text-zinc-400">{"}"}</span>
+            </span>
+          }
+        />
+
+        <div className="rounded-xl border border-orange-900/30 bg-orange-950/10 p-6">
+          <SequenceDiagram
+            steps={[
+              {
+                from: "User",
+                to: "Browser (React)",
+                label: 'Fills out the "New Post" form and clicks Submit',
+                color: "#fbbf24",
+              },
+              {
+                from: "Browser (React)",
+                to: "Your API Server",
+                label: "useMutation fires a POST /api/posts request with the form data as JSON in the body",
+                color: "#38bdf8",
+              },
+              {
+                from: "Your API Server",
+                to: "Database",
+                label: "Server validates the data and runs INSERT INTO posts (...) VALUES (...)",
+                color: "#34d399",
+              },
+              {
+                from: "Database",
+                to: "Your API Server",
+                label: "Database confirms the row was created",
+                color: "#34d399",
+                direction: "left",
+              },
+              {
+                from: "Your API Server",
+                to: "Browser (React)",
+                label: 'Server responds with 201 Created and the new post as JSON',
+                color: "#38bdf8",
+                direction: "left",
+              },
+              {
+                from: "Browser (React)",
+                to: "Browser (React)",
+                label: 'onSuccess fires — invalidates the "posts" query, triggering a refetch so the list updates',
+                color: "#a78bfa",
+              },
+              {
+                from: "Browser",
+                to: "User",
+                label: "User sees their new post appear in the list",
+                color: "#fbbf24",
+                direction: "left",
+              },
+            ]}
+          />
+        </div>
+
+        <Callout color="#fb923c" icon="💡">
+          <strong className="text-orange-300">GET vs POST:</strong>{" "}
+          <code className="font-mono text-xs bg-zinc-800 px-1 rounded">useQuery</code>{" "}
+          = reading data (GET). Runs automatically when the component renders.{" "}
+          <code className="font-mono text-xs bg-zinc-800 px-1 rounded">useMutation</code>{" "}
+          = writing data (POST, PUT, DELETE). Runs only when you call{" "}
+          <code className="font-mono text-xs bg-zinc-800 px-1 rounded">mutate()</code>{" "}
+          — typically in response to a user action like clicking a button.
+          After a successful mutation, you invalidate related queries so the
+          cached data refreshes.
+        </Callout>
+
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
           {[
             {

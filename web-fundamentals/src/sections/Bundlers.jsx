@@ -142,7 +142,7 @@ export default function Bundlers() {
             code={
               <span>
                 <span className="text-zinc-500">$</span>{" "}
-                <span className="text-emerald-300">bun run dev</span>
+                <span className="text-emerald-300">npm run dev</span>
                 {"\n\n"}
                 <span className="text-zinc-500">
                   {"  VITE v7.3.1  ready in 120 ms\n\n"}

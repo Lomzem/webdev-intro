@@ -110,9 +110,9 @@ export default function Runtimes() {
         <Callout color="#38bdf8" icon="⚡">
           <strong className="text-sky-300">When you run</strong>{" "}
           <code className="font-mono text-sky-200 bg-sky-950/50 px-1.5 rounded">
-            bun run dev
+            npm run dev
           </code>{" "}
-          — that's <strong>Bun</strong> (a JS runtime) running on your laptop.
+          — that's <strong>Node.js</strong> (a JS runtime) running on your laptop.
           It starts the Vite dev server, watches your files, and serves your
           app to the browser.
         </Callout>
