@@ -4,16 +4,20 @@ export default function Architecture() {
   return (
     <div className="space-y-8">
       <p className="text-lg leading-relaxed text-zinc-300">
-        Here's the full picture of how all these pieces fit together in{" "}
-        <strong className="text-blue-300">your</strong> app. Three distinct
-        environments, each with a clear role.
+        You've now seen every piece individually. Here's how they all fit
+        together. Regardless of which specific tools you pick, the modern web
+        stack follows the same fundamental pattern: code is{" "}
+        <strong className="text-blue-300">authored</strong> on a dev machine,{" "}
+        <strong className="text-blue-300">built</strong> into optimized output,{" "}
+        <strong className="text-blue-300">served</strong> to browsers, and{" "}
+        <strong className="text-blue-300">connected</strong> to backend services.
       </p>
 
       {/* Main architecture diagram */}
       <DiagramBox className="!border-blue-800/40 !bg-blue-950/10">
         <div className="text-center mb-6">
           <span className="text-xs font-mono text-zinc-500 uppercase tracking-widest">
-            Your Full Architecture
+            The Modern Web Architecture
           </span>
         </div>
 
@@ -23,35 +27,35 @@ export default function Architecture() {
             <div className="flex items-center gap-2 mb-1">
               <span className="text-2xl">🖥️</span>
               <h4 className="font-display font-bold text-cyan-300">
-                Your Dev Machine
+                Development
               </h4>
             </div>
-            <RunsBadge location="Development" color="cyan" />
+            <RunsBadge location="Your Machine" color="cyan" />
             <div className="space-y-2 text-sm">
               <div className="rounded-lg bg-cyan-950/30 border border-cyan-900/30 p-3">
                 <div className="font-mono text-xs text-cyan-300 font-bold">
-                  Node.js
+                  JS Runtime
                 </div>
                 <div className="text-zinc-500 text-xs mt-0.5">
-                  JS runtime — runs Vite & your dev tools
+                  Node.js / Bun — runs your dev tools
                 </div>
               </div>
               <div className="text-cyan-600 text-center">▾</div>
               <div className="rounded-lg bg-cyan-950/30 border border-cyan-900/30 p-3">
                 <div className="font-mono text-xs text-cyan-300 font-bold">
-                  Vite Dev Server
+                  Bundler + Dev Server
                 </div>
                 <div className="text-zinc-500 text-xs mt-0.5">
-                  Bundles code, serves to browser, HMR
+                  Vite / Webpack — bundles code, HMR
                 </div>
               </div>
               <div className="text-cyan-600 text-center">▾</div>
               <div className="rounded-lg bg-cyan-950/30 border border-cyan-900/30 p-3">
                 <div className="font-mono text-xs text-cyan-300 font-bold">
-                  Tailwind CSS
+                  Build-Time Tools
                 </div>
                 <div className="text-zinc-500 text-xs mt-0.5">
-                  Scans your JSX → generates CSS
+                  TypeScript, Tailwind, ESLint
                 </div>
               </div>
             </div>
@@ -70,10 +74,10 @@ export default function Architecture() {
                   Build Output
                 </h4>
               </div>
-              <RunsBadge location="Build Step" color="amber" />
+              <RunsBadge location="Build Step / CI" color="amber" />
               <p className="text-xs text-zinc-500">
                 <code className="text-amber-300">npm run build</code> produces
-                static files:
+                optimized static files:
               </p>
               <div className="space-y-1">
                 {["index.html", "assets/app.ab3f.js", "assets/style.c9.css"].map(
@@ -88,7 +92,7 @@ export default function Architecture() {
                 )}
               </div>
               <div className="text-xs text-zinc-600 font-mono pt-2 border-t border-amber-900/20">
-                Deployed to CDN / static host (Vercel, Netlify)
+                Deployed to a CDN or static host
               </div>
             </div>
 
@@ -112,18 +116,18 @@ export default function Architecture() {
               <div className="space-y-2 text-sm">
                 <div className="rounded-lg bg-violet-950/30 border border-violet-900/30 p-3">
                   <div className="font-mono text-xs text-violet-300 font-bold">
-                    React
+                    Frontend Framework
                   </div>
                   <div className="text-zinc-500 text-xs mt-0.5">
-                    Builds & updates the UI from your components
+                    React / Vue / Svelte — builds & updates UI
                   </div>
                 </div>
                 <div className="rounded-lg bg-violet-950/30 border border-violet-900/30 p-3">
                   <div className="font-mono text-xs text-violet-300 font-bold">
-                    TanStack Query
+                    Client Libraries
                   </div>
                   <div className="text-zinc-500 text-xs mt-0.5">
-                    Manages data fetching, caching, sync
+                    TanStack Query, router, state management
                   </div>
                 </div>
               </div>
@@ -135,17 +139,17 @@ export default function Architecture() {
             <div className="flex items-center gap-2 mb-1">
               <span className="text-2xl">⚙️</span>
               <h4 className="font-display font-bold text-emerald-300">
-                Your Backend Server
+                Backend Server
               </h4>
             </div>
-            <RunsBadge location="Your Server" color="emerald" />
+            <RunsBadge location="Server / Cloud" color="emerald" />
             <div className="space-y-2 text-sm">
               <div className="rounded-lg bg-emerald-950/30 border border-emerald-900/30 p-3">
                 <div className="font-mono text-xs text-emerald-300 font-bold">
                   API Endpoints
                 </div>
                 <div className="text-zinc-500 text-xs mt-0.5">
-                  /api/posts, /api/users, /api/auth
+                  REST or GraphQL — your app's interface
                 </div>
               </div>
               <div className="text-emerald-600 text-center">▾</div>
@@ -154,7 +158,7 @@ export default function Architecture() {
                   Business Logic
                 </div>
                 <div className="text-zinc-500 text-xs mt-0.5">
-                  Validation, auth, processing
+                  Auth, validation, processing
                 </div>
               </div>
               <div className="text-emerald-600 text-center">▾</div>
@@ -163,12 +167,12 @@ export default function Architecture() {
                   Database
                 </div>
                 <div className="text-zinc-500 text-xs mt-0.5">
-                  PostgreSQL, MongoDB, etc.
+                  PostgreSQL, MongoDB, Redis, etc.
                 </div>
               </div>
             </div>
             <div className="text-xs text-zinc-600 font-mono pt-2 border-t border-emerald-900/20">
-              Separate deployment, separate codebase
+              Can be any language: JS, Python, Go, Rust...
             </div>
           </div>
         </div>
@@ -179,7 +183,7 @@ export default function Architecture() {
             <div className="flex items-center gap-2">
               <div className="w-8 border-t-2 border-violet-500" />
               <span className="text-violet-400">
-                Browser fetches API data via HTTP
+                Browser ↔ Server communicate via HTTP (JSON)
               </span>
               <div className="w-8 border-t-2 border-emerald-500" />
             </div>
@@ -187,35 +191,134 @@ export default function Architecture() {
         </div>
       </DiagramBox>
 
-      {/* Summary */}
-      <div className="grid md:grid-cols-2 gap-4">
-        <Callout color="#60a5fa" icon="🧩">
-          <strong className="text-blue-300">
-            "Headless" means decoupled.
-          </strong>{" "}
-          Your React frontend and your backend API are completely separate
-          applications. The frontend is just static files served from a CDN.
-          The backend is a server that responds to API calls. They communicate
-          via HTTP (JSON). You can swap out either one without touching the other.
-        </Callout>
-
-        <Callout color="#60a5fa" icon="🚀">
-          <strong className="text-blue-300">Your dev workflow:</strong>
-          <ol className="mt-2 space-y-1 text-zinc-400 list-decimal list-inside">
-            <li>Write React components + Tailwind</li>
-            <li>
-              <code className="text-cyan-300 text-xs">npm run dev</code> — Vite
-              serves your app locally
-            </li>
-            <li>React runs in your browser, fetches from your API</li>
-            <li>
-              <code className="text-amber-300 text-xs">npm run build</code> — Vite
-              produces static files
-            </li>
-            <li>Deploy static files to any host</li>
-          </ol>
-        </Callout>
+      {/* Key principles */}
+      <div className="space-y-4">
+        <h3 className="font-display font-bold text-blue-300 text-xl">
+          Core Principles (No Matter What You Pick)
+        </h3>
+        <div className="grid md:grid-cols-2 gap-4">
+          {[
+            {
+              title: "Separation of Concerns",
+              desc: "Each layer has one job. The bundler builds. The framework renders. The server stores data. Swap any piece without rewriting the rest.",
+              icon: "🧩",
+            },
+            {
+              title: "Build vs Runtime",
+              desc: "Some tools run once at build time (TypeScript, Tailwind, bundler) and some run every time a user visits (React, TanStack Query, your API). Knowing which is which avoids confusion.",
+              icon: "⏱️",
+            },
+            {
+              title: "Client vs Server",
+              desc: "The browser is the client. Your API is the server. They communicate over HTTP with JSON. The browser can't access databases; the server can't access the DOM.",
+              icon: "🔀",
+            },
+            {
+              title: "Static vs Dynamic",
+              desc: "Some content never changes (CSS, images, compiled JS) and can be served from a CDN. Dynamic content (user data, personalized pages) requires a server.",
+              icon: "📄",
+            },
+          ].map((p) => (
+            <div
+              key={p.title}
+              className="rounded-xl border border-blue-900/30 bg-blue-950/10 p-4"
+            >
+              <div className="text-2xl mb-2">{p.icon}</div>
+              <h4 className="font-display font-bold text-blue-300 mb-1">
+                {p.title}
+              </h4>
+              <p className="text-sm text-zinc-400 leading-relaxed">{p.desc}</p>
+            </div>
+          ))}
+        </div>
       </div>
+
+      {/* Common stacks */}
+      <div className="space-y-4">
+        <h3 className="font-display font-bold text-blue-300 text-xl">
+          Common Stacks in the Wild
+        </h3>
+        <div className="space-y-3">
+          {[
+            {
+              name: "Vite + React + Separate API",
+              tags: ["CSR", "Headless"],
+              desc: "Frontend is static files on a CDN. Backend is a separate server (Express, Django, Go, etc). Simplest architecture. Great for SPAs and dashboards.",
+              color: "#a78bfa",
+            },
+            {
+              name: "Next.js (Full-stack)",
+              tags: ["SSR", "SSG", "API Routes"],
+              desc: "One codebase handles both frontend and backend. Server components fetch data, API routes handle mutations. Popular for public-facing apps.",
+              color: "#2dd4bf",
+            },
+            {
+              name: "Astro + Headless CMS",
+              tags: ["SSG", "Islands"],
+              desc: "Mostly static HTML generated at build time. Interactive React/Vue components only where needed. Ideal for content sites, blogs, and docs.",
+              color: "#fbbf24",
+            },
+            {
+              name: "React Native / Expo",
+              tags: ["Mobile", "Cross-platform"],
+              desc: "Same React concepts, but renders to native iOS/Android instead of the DOM. Still talks to a backend API the same way.",
+              color: "#fb7185",
+            },
+          ].map((stack) => (
+            <div
+              key={stack.name}
+              className="rounded-xl border p-4 flex flex-col sm:flex-row gap-4"
+              style={{
+                borderColor: stack.color + "25",
+                backgroundColor: stack.color + "06",
+              }}
+            >
+              <div className="sm:w-64 flex-shrink-0">
+                <div
+                  className="font-display font-bold"
+                  style={{ color: stack.color }}
+                >
+                  {stack.name}
+                </div>
+                <div className="flex flex-wrap gap-1.5 mt-1.5">
+                  {stack.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="text-[10px] font-mono font-bold uppercase tracking-wider px-2 py-0.5 rounded-full"
+                      style={{
+                        color: stack.color,
+                        backgroundColor: stack.color + "15",
+                      }}
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+              <p className="text-sm text-zinc-400 leading-relaxed">
+                {stack.desc}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <Callout color="#60a5fa" icon="🚀">
+        <strong className="text-blue-300">The typical dev workflow:</strong>
+        <ol className="mt-2 space-y-1 text-zinc-400 list-decimal list-inside">
+          <li>Write components in your framework of choice + style with Tailwind or CSS</li>
+          <li>
+            <code className="text-cyan-300 text-xs">npm run dev</code> — bundler
+            serves your app locally with HMR
+          </li>
+          <li>Your app runs in the browser, fetches data from an API</li>
+          <li>
+            <code className="text-amber-300 text-xs">npm run build</code> —
+            TypeScript checks, Tailwind compiles, bundler optimizes
+          </li>
+          <li>Deploy — static files to a CDN, or a server for SSR</li>
+        </ol>
+      </Callout>
 
       <div className="rounded-2xl border border-blue-800/30 bg-gradient-to-br from-blue-950/20 to-violet-950/20 p-6 text-center space-y-3">
         <div className="text-3xl">🎓</div>
@@ -224,11 +327,13 @@ export default function Architecture() {
         </h3>
         <p className="text-zinc-400 max-w-2xl mx-auto leading-relaxed">
           Every piece has a clear role and a clear place where it runs. The
-          bundler builds on your machine. Tailwind compiles at build time.
-          React runs in the browser. Your API runs on a server. Data flows
-          between them via HTTP.{" "}
-          <strong className="text-zinc-300">That's it.</strong> Everything else
-          is details.
+          package manager downloads libraries to your machine. The bundler
+          builds on your machine. TypeScript and Tailwind run at build time.
+          The framework runs in the browser (or on the server, for SSR).
+          Your API runs on a server. Data flows between them via HTTP.{" "}
+          <strong className="text-zinc-300">
+            The specific tools change — the architecture doesn't.
+          </strong>
         </p>
       </div>
     </div>
