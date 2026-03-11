@@ -30,8 +30,16 @@ const sections: Section[] = [
     component: OldDays,
   },
   {
-    id: "package-managers",
+    id: "runtimes",
     num: "02",
+    title: "JS Runtimes",
+    subtitle: "Node, Bun & Deno",
+    color: "#38bdf8",
+    component: Runtimes,
+  },
+  {
+    id: "package-managers",
+    num: "03",
     title: "Package Managers",
     subtitle: "npm, pnpm & bun",
     color: "#a3e635",
@@ -39,19 +47,11 @@ const sections: Section[] = [
   },
   {
     id: "bundlers",
-    num: "03",
+    num: "04",
     title: "Bundlers",
     subtitle: "Vite & Webpack",
     color: "#34d399",
     component: Bundlers,
-  },
-  {
-    id: "runtimes",
-    num: "04",
-    title: "JS Runtimes",
-    subtitle: "Node, Bun & Deno",
-    color: "#38bdf8",
-    component: Runtimes,
   },
   {
     id: "frameworks",

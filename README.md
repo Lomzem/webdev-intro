@@ -7,9 +7,9 @@ An interactive guide that explains modern web development concepts for CS studen
 ## What's Covered
 
 1. **The Old Days** — Raw HTML, CSS & JS before modern tooling
-2. **Package Managers** — npm, pnpm & bun
-3. **Bundlers** — Vite & Webpack
-4. **JS Runtimes** — Node.js, Bun & Deno
+2. **JS Runtimes** — Node.js, Bun & Deno
+3. **Package Managers** — npm, pnpm & bun
+4. **Bundlers** — Vite & Webpack
 5. **Frontend Frameworks** — React, Vue & Svelte
 6. **TypeScript** — Types for JavaScript (.js, .jsx, .ts, .tsx explained)
 7. **CSS Frameworks** — Tailwind CSS
