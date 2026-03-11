@@ -4,6 +4,7 @@ import PackageManagers from "./sections/PackageManagers";
 import Bundlers from "./sections/Bundlers";
 import Runtimes from "./sections/Runtimes";
 import Frameworks from "./sections/Frameworks";
+import TypeScript from "./sections/TypeScript";
 import TailwindCSS from "./sections/TailwindCSS";
 import DataFetching from "./sections/DataFetching";
 import Fullstack from "./sections/Fullstack";
@@ -22,7 +23,7 @@ const sections = [
     id: "package-managers",
     num: "02",
     title: "Package Managers",
-    subtitle: "npm, pnpm & yarn",
+    subtitle: "npm, pnpm & bun",
     color: "#a3e635",
     component: PackageManagers,
   },
@@ -51,16 +52,24 @@ const sections = [
     component: Frameworks,
   },
   {
-    id: "tailwind",
+    id: "typescript",
     num: "06",
+    title: "TypeScript",
+    subtitle: "Types for JavaScript",
+    color: "#fb7185",
+    component: TypeScript,
+  },
+  {
+    id: "tailwind",
+    num: "07",
     title: "CSS Frameworks",
     subtitle: "Tailwind CSS",
-    color: "#fb7185",
+    color: "#f472b6",
     component: TailwindCSS,
   },
   {
     id: "data-fetching",
-    num: "07",
+    num: "08",
     title: "Data Fetching",
     subtitle: "TanStack Query",
     color: "#fb923c",
@@ -68,7 +77,7 @@ const sections = [
   },
   {
     id: "fullstack",
-    num: "08",
+    num: "09",
     title: "Fullstack Frameworks",
     subtitle: "Next.js & Remix",
     color: "#2dd4bf",
@@ -76,7 +85,7 @@ const sections = [
   },
   {
     id: "architecture",
-    num: "09",
+    num: "10",
     title: "Your Architecture",
     subtitle: "The Full Picture",
     color: "#60a5fa",

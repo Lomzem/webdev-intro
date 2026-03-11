@@ -106,6 +106,21 @@ export default function OldDays() {
         ))}
       </div>
 
+      <Callout color="#fbbf24" icon="📄">
+        <strong className="text-amber-300">File extensions you'll see:</strong>{" "}
+        In the old days, it was simple —{" "}
+        <code className="font-mono text-xs bg-zinc-800 px-1 rounded text-amber-200">.html</code>{" "}
+        for markup,{" "}
+        <code className="font-mono text-xs bg-zinc-800 px-1 rounded text-amber-200">.css</code>{" "}
+        for styles, and{" "}
+        <code className="font-mono text-xs bg-zinc-800 px-1 rounded text-amber-200">.js</code>{" "}
+        for JavaScript. The{" "}
+        <code className="font-mono text-xs bg-zinc-800 px-1 rounded text-amber-200">.js</code>{" "}
+        extension means "plain JavaScript" and it's still the most common one
+        you'll see. As we go through this guide, you'll learn about new
+        extensions that build on top of it.
+      </Callout>
+
       <Callout color="#fbbf24" icon="🧠">
         <strong className="text-amber-300">The takeaway:</strong> Raw
         HTML/CSS/JS works, and it's how the web started. But as apps grew
