@@ -264,7 +264,7 @@ const serverComponentCode = `<span class="text-violet-300">import </span><span c
     </h3>
     <p class="text-zinc-400 leading-relaxed">
       In Next.js (App Router), components are
-      <strong class="text-teal-200"> server components by default </strong>
+      <strong class="text-teal-200">server components by default</strong>
       . They run on the server and can directly access databases, read files, or call
       internal services — things a browser can never do. The component looks like
       normal React, but the framework runs it on the server and sends the rendered
@@ -283,20 +283,18 @@ const serverComponentCode = `<span class="text-violet-300">import </span><span c
         This component queries a database directly.
       </strong>
       No
-      <code class="font-mono text-xs bg-zinc-800 px-1 rounded"> useState </code>
-      , no
-      <code class="font-mono text-xs bg-zinc-800 px-1 rounded">
-        useEffect
-      </code>
-      , no
-      <code class="font-mono text-xs bg-zinc-800 px-1 rounded"> fetch() </code>
+      <code class="font-mono text-xs bg-zinc-800 px-1 rounded">useState</code>,
+      no
+      <code class="font-mono text-xs bg-zinc-800 px-1 rounded">useEffect</code>,
+      no
+      <code class="font-mono text-xs bg-zinc-800 px-1 rounded">fetch()</code>
       to an API, no
-      <code class="font-mono text-xs bg-zinc-800 px-1 rounded"> useQuery </code>
-      . The SQL runs on the server, the JSX is rendered to HTML on the server, and
-      the browser receives a finished page. Your database credentials and query logic
-      never leave the server — the browser only gets the resulting HTML. The component
-      is
-      <code class="font-mono text-xs bg-zinc-800 px-1 rounded"> async </code>
+      <code class="font-mono text-xs bg-zinc-800 px-1 rounded">useQuery</code>.
+      The SQL runs on the server, the JSX is rendered to HTML on the server, and
+      the browser receives a finished page. Your database credentials and query
+      logic never leave the server — the browser only gets the resulting HTML.
+      The component is
+      <code class="font-mono text-xs bg-zinc-800 px-1 rounded">async</code>
       — something not possible in client-side React.
     </Callout>
   </div>

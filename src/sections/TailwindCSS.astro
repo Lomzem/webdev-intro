@@ -45,11 +45,10 @@ const afterCode = `<span class="text-zinc-400">&lt;</span><span class="text-red-
     Traditional CSS means writing styles in separate files and inventing class
     names like <code
       class="font-mono text-xs bg-zinc-800 px-1.5 rounded text-rose-300"
-    >
-      .card-wrapper-outer-container
-    </code>. <strong class="text-rose-300">Tailwind CSS</strong> flips this: you apply
-    small, single-purpose utility classes directly in your HTML/JSX. No separate CSS
-    file, no naming things.
+      >.card-wrapper-outer-container</code
+    >. <strong class="text-rose-300">Tailwind CSS</strong> flips this: you apply small,
+    single-purpose utility classes directly in your HTML/JSX. No separate CSS file,
+    no naming things.
   </p>
 
   <CompareCards
@@ -120,11 +119,9 @@ const afterCode = `<span class="text-zinc-400">&lt;</span><span class="text-red-
       Tailwind doesn't run in the browser.
     </strong> During the build (when Vite bundles your app), Tailwind scans your JSX
     files for class names like <code
-      class="font-mono text-xs bg-zinc-800 px-1 rounded"
-    >
-      bg-white
-    </code> and generates a plain CSS file containing only those rules. The browser
-    receives normal, standard CSS — it has no idea Tailwind was involved. This page
-    you're reading right now uses Tailwind!
+      class="font-mono text-xs bg-zinc-800 px-1 rounded">bg-white</code
+    > and generates a plain CSS file containing only those rules. The browser receives
+    normal, standard CSS — it has no idea Tailwind was involved. This page you're
+    reading right now uses Tailwind!
   </Callout>
 </div>
