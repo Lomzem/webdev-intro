@@ -43,10 +43,10 @@ const postCardCode = `<span class="text-violet-300">function </span><span class=
       &lt;</span><span class="text-red-400">p</span><span class="text-zinc-400">&gt;{post.</span><span class="text-sky-300">body</span><span class="text-zinc-400">}&lt;/</span><span class="text-red-400">p</span><span class="text-zinc-400">&gt;
       &lt;</span><span class="text-red-400">span</span><span class="text-zinc-400">&gt;By {post.</span><span class="text-sky-300">author</span><span class="text-zinc-400">}&lt;/</span><span class="text-red-400">span</span><span class="text-zinc-400">&gt;
 
-      {post.</span><span class="text-red-400">naem</span><span class="text-zinc-400">}
-</span><span class="text-red-400">      // ❌ Error: Property 'naem'
+      {post.</span><span class="text-red-400">titl</span><span class="text-zinc-400">}
+</span><span class="text-red-400">      // ❌ Error: Property 'titl'
 </span><span class="text-red-400">      // does not exist on type 'Post'.
-</span><span class="text-red-400">      // Did you mean 'name'?
+</span><span class="text-red-400">      // Did you mean 'title'?
 </span><span class="text-zinc-400">    &lt;/</span><span class="text-red-400">div</span><span class="text-zinc-400">&gt;
   );
 }</span>`;
@@ -228,33 +228,14 @@ const postCardCode = `<span class="text-violet-300">function </span><span class=
     </div>
   </div>
 
-  <div class="grid md:grid-cols-2 gap-4">
-    <Callout color="#fb7185" icon="🔑">
-      <strong class="text-pink-300">
-        TypeScript doesn't run in the browser.
-      </strong> Just like Tailwind, TypeScript is a <strong
-        >build-time tool</strong
-      >. Vite (via its bundler) strips all the type annotations out and produces
-      plain JavaScript. The browser receives normal <code
-        class="font-mono text-xs bg-zinc-800 px-1 rounded"
-      >
-        .js
-      </code> — it has no idea you wrote TypeScript.
-    </Callout>
-
-    <Callout color="#fb7185" icon="💡">
-      <strong class="text-pink-300">
-        This project uses .jsx — and that's fine.
-      </strong> The app you're reading right now is written in plain JavaScript (.jsx
-      files). You don't <em>have</em> to use TypeScript. But most production React
-      apps do, because catching type errors at build time beats debugging them in
-      production. When you're ready, switching is as simple as renaming <code
-        class="font-mono text-xs bg-zinc-800 px-1 rounded"
-      >
-        .jsx
-      </code> → <code class="font-mono text-xs bg-zinc-800 px-1 rounded">
-        .tsx
-      </code> and adding types gradually.
-    </Callout>
-  </div>
+  <Callout color="#fb7185" icon="🔑">
+    <strong class="text-pink-300">
+      TypeScript doesn't run in the browser.
+    </strong> Just like Tailwind, TypeScript is a <strong
+      >build-time tool</strong
+    >. Vite (via its bundler) strips all the type annotations out and produces
+    plain JavaScript. The browser receives normal <code
+      class="font-mono text-xs bg-zinc-800 px-1 rounded">.js</code
+    > — it has no idea you wrote TypeScript.
+  </Callout>
 </div>
