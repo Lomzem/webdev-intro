@@ -45,10 +45,11 @@ const afterCode = `<span class="text-violet-300">function </span><span class="te
   </div>
 
   <p class="text-lg leading-relaxed text-zinc-300">
-    Frontend frameworks like <strong class="text-violet-300">React</strong>, Vue, and Svelte
-    solve one big problem: updating the UI when data changes. Without a
-    framework, you have to manually find DOM elements and change them
-    yourself. With React, you describe <em>what the UI should look like</em> and React figures out how to update it efficiently.
+    Frontend frameworks like <strong class="text-violet-300">React</strong>,
+    Vue, and Svelte solve one big problem: updating the UI when data changes.
+    Without a framework, you have to manually find DOM elements and change them
+    yourself. With React, you describe <em>what the UI should look like</em> and React
+    figures out how to update it efficiently.
   </p>
 
   {/* Before/After comparison */}
@@ -71,32 +72,44 @@ const afterCode = `<span class="text-violet-300">function </span><span class="te
   </CompareCards>
 
   <p class="text-zinc-400 leading-relaxed">
-    With React, you just say <em>"here's my list of todos, render them."</em> When the list changes
-    (add/delete), React automatically figures out the minimal DOM updates
-    needed. You never manually create or remove elements.
+    With React, you just say <em>"here's my list of todos, render them."</em> When
+    the list changes (add/delete), React automatically figures out the minimal DOM
+    updates needed. You never manually create or remove elements.
   </p>
 
   <Callout color="#a78bfa" icon="📄">
     <strong class="text-violet-300">
       .js vs .jsx — what's the difference?
-    </strong> Notice the React file above is called <code class="font-mono text-xs bg-zinc-800 px-1 rounded text-violet-200">
+    </strong> Notice the React file above is called <code
+      class="font-mono text-xs bg-zinc-800 px-1 rounded text-violet-200"
+    >
       App.jsx
-    </code> not <code class="font-mono text-xs bg-zinc-800 px-1 rounded text-violet-200">
+    </code> not <code
+      class="font-mono text-xs bg-zinc-800 px-1 rounded text-violet-200"
+    >
       App.js
-    </code>. The <code class="font-mono text-xs bg-zinc-800 px-1 rounded text-violet-200">
+    </code>. The <code
+      class="font-mono text-xs bg-zinc-800 px-1 rounded text-violet-200"
+    >
       .jsx
     </code> extension means "JavaScript + JSX" — JSX is that HTML-like syntax you
-    see inside the React component (the <code class="font-mono text-xs bg-zinc-800 px-1 rounded">
+    see inside the React component (the <code
+      class="font-mono text-xs bg-zinc-800 px-1 rounded"
+    >
       {"<ul>"}
     </code>, <code class="font-mono text-xs bg-zinc-800 px-1 rounded">
       {"<li>"}
     </code>, <code class="font-mono text-xs bg-zinc-800 px-1 rounded">
       {"<button>"}
     </code> tags mixed with JavaScript). Browsers don't understand JSX — the bundler
-    (Vite) transforms it into regular JavaScript function calls before
-    shipping it. Use <code class="font-mono text-xs bg-zinc-800 px-1 rounded text-violet-200">
+    (Vite) transforms it into regular JavaScript function calls before shipping it.
+    Use <code
+      class="font-mono text-xs bg-zinc-800 px-1 rounded text-violet-200"
+    >
       .jsx
-    </code> for files that contain JSX markup, and plain <code class="font-mono text-xs bg-zinc-800 px-1 rounded text-violet-200">
+    </code> for files that contain JSX markup, and plain <code
+      class="font-mono text-xs bg-zinc-800 px-1 rounded text-violet-200"
+    >
       .js
     </code> for files that don't (utilities, API helpers, constants, etc.).
   </Callout>
@@ -207,8 +220,10 @@ const afterCode = `<span class="text-violet-300">function </span><span class="te
       <strong class="text-violet-300">
         No server involved for UI updates!
       </strong> React runs entirely in the browser. When a user clicks a button, types
-      in an input, or toggles a dropdown, React handles it <em>right there in the browser</em> — no network request, no server,
-      no waiting. This is what makes React apps feel fast and responsive.
+      in an input, or toggles a dropdown, React handles it <em
+        >right there in the browser</em
+      > — no network request, no server, no waiting. This is what makes React apps
+      feel fast and responsive.
     </Callout>
   </div>
 </div>

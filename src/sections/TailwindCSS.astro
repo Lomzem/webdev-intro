@@ -42,12 +42,14 @@ const afterCode = `<span class="text-zinc-400">&lt;</span><span class="text-red-
   </div>
 
   <p class="text-lg leading-relaxed text-zinc-300">
-    Traditional CSS means writing styles in separate files and inventing
-    class names like <code class="font-mono text-xs bg-zinc-800 px-1.5 rounded text-rose-300">
+    Traditional CSS means writing styles in separate files and inventing class
+    names like <code
+      class="font-mono text-xs bg-zinc-800 px-1.5 rounded text-rose-300"
+    >
       .card-wrapper-outer-container
-    </code>. <strong class="text-rose-300">Tailwind CSS</strong> flips this:
-    you apply small, single-purpose utility classes directly in your
-    HTML/JSX. No separate CSS file, no naming things.
+    </code>. <strong class="text-rose-300">Tailwind CSS</strong> flips this: you apply
+    small, single-purpose utility classes directly in your HTML/JSX. No separate CSS
+    file, no naming things.
   </p>
 
   <CompareCards
@@ -68,58 +70,61 @@ const afterCode = `<span class="text-zinc-400">&lt;</span><span class="text-red-
     </Fragment>
     <Fragment slot="after">
       <div class="space-y-3">
-        <CodeBlock title="Component.jsx — that's it, no CSS file needed" accent="rose">
+        <CodeBlock
+          title="Component.jsx — that's it, no CSS file needed"
+          accent="rose"
+        >
           <Fragment set:html={afterCode} />
         </CodeBlock>
         <p class="text-xs text-zinc-400 leading-relaxed">
-          Each class does one thing: <code class="text-rose-300">bg-white</code> = white
-          background, <code class="text-rose-300">rounded-xl</code> =
-          rounded corners, <code class="text-rose-300">p-6</code> =
-          padding, <code class="text-rose-300">shadow-md</code> = drop
-          shadow.
+          Each class does one thing: <code class="text-rose-300">bg-white</code> =
+          white background, <code class="text-rose-300">rounded-xl</code> = rounded
+          corners, <code class="text-rose-300">p-6</code> = padding, <code
+            class="text-rose-300">shadow-md</code
+          > = drop shadow.
         </p>
       </div>
     </Fragment>
   </CompareCards>
 
   <div class="grid md:grid-cols-3 gap-4">
-    {[
-      {
-        title: "No Naming",
-        desc: 'You never have to invent class names like ".sidebar-nav-link-active-state" again.',
-        icon: "\u{1F3F7}\u{FE0F}",
-      },
-      {
-        title: "Tiny Output",
-        desc: "Tailwind scans your code and only generates CSS for the classes you actually use. Unused styles are never shipped.",
-        icon: "\u{1F4E6}",
-      },
-      {
-        title: "Co-located",
-        desc: "Styles live right next to the markup they affect. No jumping between files.",
-        icon: "\u{1F4CD}",
-      },
-    ].map((b) => (
-      <div
-        class="rounded-xl border border-rose-900/30 bg-rose-950/10 p-4"
-      >
-        <div class="text-2xl mb-2">{b.icon}</div>
-        <h3 class="font-display font-bold text-rose-300 mb-1">
-          {b.title}
-        </h3>
-        <p class="text-sm text-zinc-400 leading-relaxed">{b.desc}</p>
-      </div>
-    ))}
+    {
+      [
+        {
+          title: "No Naming",
+          desc: 'You never have to invent class names like ".sidebar-nav-link-active-state" again.',
+          icon: "\u{1F3F7}\u{FE0F}",
+        },
+        {
+          title: "Tiny Output",
+          desc: "Tailwind scans your code and only generates CSS for the classes you actually use. Unused styles are never shipped.",
+          icon: "\u{1F4E6}",
+        },
+        {
+          title: "Co-located",
+          desc: "Styles live right next to the markup they affect. No jumping between files.",
+          icon: "\u{1F4CD}",
+        },
+      ].map((b) => (
+        <div class="rounded-xl border border-rose-900/30 bg-rose-950/10 p-4">
+          <div class="text-2xl mb-2">{b.icon}</div>
+          <h3 class="font-display font-bold text-rose-300 mb-1">{b.title}</h3>
+          <p class="text-sm text-zinc-400 leading-relaxed">{b.desc}</p>
+        </div>
+      ))
+    }
   </div>
 
   <Callout color="#fb7185" icon="🔑">
     <strong class="text-rose-300">
       Tailwind doesn't run in the browser.
     </strong> During the build (when Vite bundles your app), Tailwind scans your JSX
-    files for class names like <code class="font-mono text-xs bg-zinc-800 px-1 rounded">
+    files for class names like <code
+      class="font-mono text-xs bg-zinc-800 px-1 rounded"
+    >
       bg-white
     </code> and generates a plain CSS file containing only those rules. The browser
-    receives normal, standard CSS — it has no idea Tailwind was involved.
-    This page you're reading right now uses Tailwind!
+    receives normal, standard CSS — it has no idea Tailwind was involved. This page
+    you're reading right now uses Tailwind!
   </Callout>
 </div>

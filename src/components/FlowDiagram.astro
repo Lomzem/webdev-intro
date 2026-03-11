@@ -12,26 +12,30 @@ interface Props {
 const { items, direction = "right" } = Astro.props;
 ---
 
-<div class={`flex ${direction === "down" ? "flex-col" : "flex-row flex-wrap"} items-center gap-2 justify-center`}>
-  {items.map((item, i) => (
-    <div class="flex items-center gap-2">
-      {typeof item === "string" ? (
-        <div class="px-4 py-2 rounded-xl border border-zinc-700 bg-zinc-800/80 text-sm font-mono text-zinc-300 text-center">
-          {item}
-        </div>
-      ) : (
-        <div
-          class="px-4 py-2 rounded-xl border text-sm font-mono text-center font-semibold"
-          style={`border-color: ${item.color}60; background-color: ${item.color}15; color: ${item.color};`}
-        >
-          {item.label}
-        </div>
-      )}
-      {i < items.length - 1 && (
-        <span class="text-zinc-500 text-lg flex-shrink-0">
-          {direction === "down" ? "▾" : "▸"}
-        </span>
-      )}
-    </div>
-  ))}
+<div
+  class={`flex ${direction === "down" ? "flex-col" : "flex-row flex-wrap"} items-center gap-2 justify-center`}
+>
+  {
+    items.map((item, i) => (
+      <div class="flex items-center gap-2">
+        {typeof item === "string" ? (
+          <div class="px-4 py-2 rounded-xl border border-zinc-700 bg-zinc-800/80 text-sm font-mono text-zinc-300 text-center">
+            {item}
+          </div>
+        ) : (
+          <div
+            class="px-4 py-2 rounded-xl border text-sm font-mono text-center font-semibold"
+            style={`border-color: ${item.color}60; background-color: ${item.color}15; color: ${item.color};`}
+          >
+            {item.label}
+          </div>
+        )}
+        {i < items.length - 1 && (
+          <span class="text-zinc-500 text-lg flex-shrink-0">
+            {direction === "down" ? "▾" : "▸"}
+          </span>
+        )}
+      </div>
+    ))
+  }
 </div>

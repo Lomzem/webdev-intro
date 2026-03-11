@@ -5,69 +5,86 @@ import Callout from "../components/Callout.astro";
 
 <div class="space-y-8">
   <p class="text-lg leading-relaxed text-zinc-300">
-    Before modern tooling existed, building a website meant creating raw
-    files by hand and opening them directly in a browser. No build step, no
-    dev server, no package manager. Just you, a text editor, and a folder of
-    files.
+    Before modern tooling existed, building a website meant creating raw files
+    by hand and opening them directly in a browser. No build step, no dev
+    server, no package manager. Just you, a text editor, and a folder of files.
   </p>
 
-  <CodeBlock
-    title="index.html — the entire app in one file"
-    accent="amber"
-  >
-    <span class="text-zinc-300" set:html={`<span class="text-zinc-400">&lt;!-- Every library loaded via a &lt;script&gt; tag --&gt;\n&lt;!-- ORDER MATTERS — load jQuery before your code! --&gt;\n</span><span class="text-red-400">&lt;script</span><span class="text-amber-300"> src</span><span class="text-zinc-400">=</span><span class="text-emerald-400">"libs/jquery-3.2.1.min.js"</span><span class="text-red-400">&gt;</span><span class="text-red-400">&lt;/script&gt;\n</span><span class="text-red-400">&lt;script</span><span class="text-amber-300"> src</span><span class="text-zinc-400">=</span><span class="text-emerald-400">"libs/bootstrap.min.js"</span><span class="text-red-400">&gt;</span><span class="text-red-400">&lt;/script&gt;\n</span><span class="text-red-400">&lt;script</span><span class="text-amber-300"> src</span><span class="text-zinc-400">=</span><span class="text-emerald-400">"libs/lodash.min.js"</span><span class="text-red-400">&gt;</span><span class="text-red-400">&lt;/script&gt;\n</span><span class="text-red-400">&lt;script</span><span class="text-amber-300"> src</span><span class="text-zinc-400">=</span><span class="text-emerald-400">"js/utils.js"</span><span class="text-red-400">&gt;</span><span class="text-red-400">&lt;/script&gt;\n</span><span class="text-red-400">&lt;script</span><span class="text-amber-300"> src</span><span class="text-zinc-400">=</span><span class="text-emerald-400">"js/app.js"</span><span class="text-red-400">&gt;</span><span class="text-red-400">&lt;/script&gt;\n</span><span class="text-zinc-400">\n&lt;!-- Move one script above another? Everything breaks. --&gt;</span>`} />
+  <CodeBlock title="index.html — the entire app in one file" accent="amber">
+    <span
+      class="text-zinc-300"
+      set:html={`<span class="text-zinc-400">&lt;!-- Every library loaded via a &lt;script&gt; tag --&gt;\n&lt;!-- ORDER MATTERS — load jQuery before your code! --&gt;\n</span><span class="text-red-400">&lt;script</span><span class="text-amber-300"> src</span><span class="text-zinc-400">=</span><span class="text-emerald-400">"libs/jquery-3.2.1.min.js"</span><span class="text-red-400">&gt;</span><span class="text-red-400">&lt;/script&gt;\n</span><span class="text-red-400">&lt;script</span><span class="text-amber-300"> src</span><span class="text-zinc-400">=</span><span class="text-emerald-400">"libs/bootstrap.min.js"</span><span class="text-red-400">&gt;</span><span class="text-red-400">&lt;/script&gt;\n</span><span class="text-red-400">&lt;script</span><span class="text-amber-300"> src</span><span class="text-zinc-400">=</span><span class="text-emerald-400">"libs/lodash.min.js"</span><span class="text-red-400">&gt;</span><span class="text-red-400">&lt;/script&gt;\n</span><span class="text-red-400">&lt;script</span><span class="text-amber-300"> src</span><span class="text-zinc-400">=</span><span class="text-emerald-400">"js/utils.js"</span><span class="text-red-400">&gt;</span><span class="text-red-400">&lt;/script&gt;\n</span><span class="text-red-400">&lt;script</span><span class="text-amber-300"> src</span><span class="text-zinc-400">=</span><span class="text-emerald-400">"js/app.js"</span><span class="text-red-400">&gt;</span><span class="text-red-400">&lt;/script&gt;\n</span><span class="text-zinc-400">\n&lt;!-- Move one script above another? Everything breaks. --&gt;</span>`}
+    />
   </CodeBlock>
 
   <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-    {[
-      {
-        title: "No Modules",
-        desc: "Every .js file shared the same global scope. Your variable names could collide with a library's. Naming things was a minefield.",
-        icon: "🌍",
-      },
-      {
-        title: "Manual Dependencies",
-        desc: "Want to use a library? Download the .js file, drop it in a folder, add a \u003Cscript\u003E tag. Want to update it? Do it all again.",
-        icon: "📦",
-      },
-      {
-        title: "No Hot Reload",
-        desc: "Changed one line of CSS? Hit Ctrl+R and wait for the entire page to reload. Every. Single. Time.",
-        icon: "🔄",
-      },
-      {
-        title: "Global Scope Pollution",
-        desc: 'Every variable was window.something. Two files both define "init()"? Last one wins. Good luck debugging that.',
-        icon: "💥",
-      },
-      {
-        title: "No Optimization",
-        desc: "The browser downloaded every single file separately — 15 script tags = 15 HTTP requests. On a slow connection, this was brutal.",
-        icon: "🐌",
-      },
-      {
-        title: "Copy-Paste Reuse",
-        desc: 'Want the same header on 20 pages? Copy-paste the HTML into each file. Need to change it? Update all 20. Miss one? "Whoops."',
-        icon: "📋",
-      },
-    ].map((pain) => (
-      <div
-        class="rounded-xl border border-amber-900/30 bg-amber-950/10 p-4"
-      >
-        <div class="text-2xl mb-2">{pain.icon}</div>
-        <h3 class="font-display font-bold text-amber-300 mb-1">
-          {pain.title}
-        </h3>
-        <p class="text-sm text-zinc-400 leading-relaxed">{pain.desc}</p>
-      </div>
-    ))}
+    {
+      [
+        {
+          title: "No Modules",
+          desc: "Every .js file shared the same global scope. Your variable names could collide with a library's. Naming things was a minefield.",
+          icon: "🌍",
+        },
+        {
+          title: "Manual Dependencies",
+          desc: "Want to use a library? Download the .js file, drop it in a folder, add a \u003Cscript\u003E tag. Want to update it? Do it all again.",
+          icon: "📦",
+        },
+        {
+          title: "No Hot Reload",
+          desc: "Changed one line of CSS? Hit Ctrl+R and wait for the entire page to reload. Every. Single. Time.",
+          icon: "🔄",
+        },
+        {
+          title: "Global Scope Pollution",
+          desc: 'Every variable was window.something. Two files both define "init()"? Last one wins. Good luck debugging that.',
+          icon: "💥",
+        },
+        {
+          title: "No Optimization",
+          desc: "The browser downloaded every single file separately — 15 script tags = 15 HTTP requests. On a slow connection, this was brutal.",
+          icon: "🐌",
+        },
+        {
+          title: "Copy-Paste Reuse",
+          desc: 'Want the same header on 20 pages? Copy-paste the HTML into each file. Need to change it? Update all 20. Miss one? "Whoops."',
+          icon: "📋",
+        },
+      ].map((pain) => (
+        <div class="rounded-xl border border-amber-900/30 bg-amber-950/10 p-4">
+          <div class="text-2xl mb-2">{pain.icon}</div>
+          <h3 class="font-display font-bold text-amber-300 mb-1">
+            {pain.title}
+          </h3>
+          <p class="text-sm text-zinc-400 leading-relaxed">{pain.desc}</p>
+        </div>
+      ))
+    }
   </div>
 
   <Callout color="#fbbf24" icon="📄">
-    <strong class="text-amber-300">File extensions you'll see:</strong> In the old days, it was simple — <code class="font-mono text-xs bg-zinc-800 px-1 rounded text-amber-200">.html</code> for markup, <code class="font-mono text-xs bg-zinc-800 px-1 rounded text-amber-200">.css</code> for styles, and <code class="font-mono text-xs bg-zinc-800 px-1 rounded text-amber-200">.js</code> for JavaScript. The <code class="font-mono text-xs bg-zinc-800 px-1 rounded text-amber-200">.js</code> extension means "plain JavaScript" and it's still the most common one you'll see. As we go through this guide, you'll learn about new extensions that build on top of it.
+    <strong class="text-amber-300">File extensions you'll see:</strong> In the old
+    days, it was simple — <code
+      class="font-mono text-xs bg-zinc-800 px-1 rounded text-amber-200"
+      >.html</code
+    > for markup, <code
+      class="font-mono text-xs bg-zinc-800 px-1 rounded text-amber-200"
+      >.css</code
+    > for styles, and <code
+      class="font-mono text-xs bg-zinc-800 px-1 rounded text-amber-200"
+      >.js</code
+    > for JavaScript. The <code
+      class="font-mono text-xs bg-zinc-800 px-1 rounded text-amber-200"
+      >.js</code
+    > extension means "plain JavaScript" and it's still the most common one you'll
+    see. As we go through this guide, you'll learn about new extensions that build
+    on top of it.
   </Callout>
 
   <Callout color="#fbbf24" icon="🧠">
-    <strong class="text-amber-300">The takeaway:</strong> Raw HTML/CSS/JS works, and it's how the web started. But as apps grew bigger, developers needed better tools to manage complexity. That's what the rest of this guide is about — the tools that make modern web development actually bearable.
+    <strong class="text-amber-300">The takeaway:</strong> Raw HTML/CSS/JS works, and
+    it's how the web started. But as apps grew bigger, developers needed better tools
+    to manage complexity. That's what the rest of this guide is about — the tools
+    that make modern web development actually bearable.
   </Callout>
 </div>

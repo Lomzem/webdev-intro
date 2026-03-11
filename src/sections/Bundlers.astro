@@ -21,7 +21,10 @@ const terminalCode = `<span class="text-zinc-400">$</span> <span class="text-eme
   </div>
 
   <p class="text-lg leading-relaxed text-zinc-300">
-    A <strong class="text-emerald-300">bundler</strong> takes all your source files — JavaScript, CSS, images, everything — and combines them into a small number of optimized files that browsers can load efficiently. Think of it like a compiler for web apps.
+    A <strong class="text-emerald-300">bundler</strong> takes all your source files
+    — JavaScript, CSS, images, everything — and combines them into a small number
+    of optimized files that browsers can load efficiently. Think of it like a compiler
+    for web apps.
   </p>
 
   <DiagramBox>
@@ -32,55 +35,51 @@ const terminalCode = `<span class="text-zinc-400">$</span> <span class="text-eme
     </div>
     <div class="flex flex-col lg:flex-row items-center gap-6 justify-center">
       <div class="flex flex-wrap gap-2 max-w-xs justify-center">
-        {[
-          "App.jsx",
-          "Header.jsx",
-          "utils.js",
-          "api.js",
-          "index.css",
-          "button.css",
-          "logo.svg",
-          "config.js",
-          "hooks.js",
-          "types.js",
-        ].map((f) => (
-          <div
-            class="px-2 py-1 rounded border border-zinc-700 bg-zinc-800/60 text-xs font-mono text-zinc-400"
-          >
-            {f}
-          </div>
-        ))}
+        {
+          [
+            "App.jsx",
+            "Header.jsx",
+            "utils.js",
+            "api.js",
+            "index.css",
+            "button.css",
+            "logo.svg",
+            "config.js",
+            "hooks.js",
+            "types.js",
+          ].map((f) => (
+            <div class="px-2 py-1 rounded border border-zinc-700 bg-zinc-800/60 text-xs font-mono text-zinc-400">
+              {f}
+            </div>
+          ))
+        }
       </div>
 
-      <div class="text-emerald-500 text-3xl lg:rotate-0 rotate-90">
-        ⟹
-      </div>
+      <div class="text-emerald-500 text-3xl lg:rotate-0 rotate-90">⟹</div>
 
-      <div class="px-6 py-4 rounded-2xl bg-emerald-950/40 border-2 border-emerald-700/50 text-center">
+      <div
+        class="px-6 py-4 rounded-2xl bg-emerald-950/40 border-2 border-emerald-700/50 text-center"
+      >
         <div class="text-3xl mb-1">⚡</div>
-        <div class="font-display font-bold text-emerald-300 text-lg">
-          Vite
-        </div>
+        <div class="font-display font-bold text-emerald-300 text-lg">Vite</div>
         <div class="text-xs text-zinc-400 mt-1">Bundler</div>
       </div>
 
-      <div class="text-emerald-500 text-3xl lg:rotate-0 rotate-90">
-        ⟹
-      </div>
+      <div class="text-emerald-500 text-3xl lg:rotate-0 rotate-90">⟹</div>
 
       <div class="flex flex-col gap-2">
-        {[
-          { name: "index.html", size: "1.2 KB" },
-          { name: "app.ab3f2.js", size: "48 KB" },
-          { name: "style.c9e1.css", size: "12 KB" },
-        ].map((f) => (
-          <div
-            class="px-3 py-1.5 rounded border border-emerald-800/50 bg-emerald-950/30 text-xs font-mono flex items-center gap-3"
-          >
-            <span class="text-emerald-300">{f.name}</span>
-            <span class="text-zinc-500">{f.size}</span>
-          </div>
-        ))}
+        {
+          [
+            { name: "index.html", size: "1.2 KB" },
+            { name: "app.ab3f2.js", size: "48 KB" },
+            { name: "style.c9e1.css", size: "12 KB" },
+          ].map((f) => (
+            <div class="px-3 py-1.5 rounded border border-emerald-800/50 bg-emerald-950/30 text-xs font-mono flex items-center gap-3">
+              <span class="text-emerald-300">{f.name}</span>
+              <span class="text-zinc-500">{f.size}</span>
+            </div>
+          ))
+        }
       </div>
     </div>
   </DiagramBox>
@@ -91,34 +90,34 @@ const terminalCode = `<span class="text-zinc-400">$</span> <span class="text-eme
         What Vite Does For You
       </h3>
       <ul class="space-y-3">
-        {[
+        {
           [
-            "Module Resolution",
-            'You write import Button from "./Button" and Vite figures out how to connect everything.',
-          ],
-          [
-            "Minification",
-            "Removes whitespace, shortens variable names, shrinks your code to load faster.",
-          ],
-          [
-            "Code Splitting",
-            "Splits your bundle so users only download the code they need for the current page.",
-          ],
-          [
-            "Asset Handling",
-            "Images, fonts, SVGs — Vite processes them, optimizes them, and gives them unique filenames for caching.",
-          ],
-        ].map(([title, desc]) => (
-          <li class="flex gap-3">
-            <span class="text-emerald-500 mt-1 flex-shrink-0">▸</span>
-            <div>
-              <span class="text-emerald-200 font-semibold">
-                {title}:
-              </span>{" "}
-              <span class="text-zinc-400">{desc}</span>
-            </div>
-          </li>
-        ))}
+            [
+              "Module Resolution",
+              'You write import Button from "./Button" and Vite figures out how to connect everything.',
+            ],
+            [
+              "Minification",
+              "Removes whitespace, shortens variable names, shrinks your code to load faster.",
+            ],
+            [
+              "Code Splitting",
+              "Splits your bundle so users only download the code they need for the current page.",
+            ],
+            [
+              "Asset Handling",
+              "Images, fonts, SVGs — Vite processes them, optimizes them, and gives them unique filenames for caching.",
+            ],
+          ].map(([title, desc]) => (
+            <li class="flex gap-3">
+              <span class="text-emerald-500 mt-1 flex-shrink-0">▸</span>
+              <div>
+                <span class="text-emerald-200 font-semibold">{title}:</span>{" "}
+                <span class="text-zinc-400">{desc}</span>
+              </div>
+            </li>
+          ))
+        }
       </ul>
     </div>
 
@@ -127,18 +126,24 @@ const terminalCode = `<span class="text-zinc-400">$</span> <span class="text-eme
         Hot Module Replacement
       </h3>
       <p class="text-zinc-400 leading-relaxed">
-        HMR is magic. When you save a file, Vite instantly swaps <em>just that module</em> in the browser without a full page reload. Your app state is preserved — if you're filling out a form and change a CSS color, you don't lose your typed text.
+        HMR is magic. When you save a file, Vite instantly swaps <em
+          >just that module</em
+        > in the browser without a full page reload. Your app state is preserved —
+        if you're filling out a form and change a CSS color, you don't lose your typed
+        text.
       </p>
-      <CodeBlock
-        title="terminal"
-        accent="emerald"
-      >
+      <CodeBlock title="terminal" accent="emerald">
         <Fragment set:html={terminalCode} />
       </CodeBlock>
     </div>
   </div>
 
   <Callout color="#34d399" icon="🔑">
-    <strong class="text-emerald-300">Key insight:</strong> The bundler runs on <em>your computer</em> (or a build server). The user's browser <strong>never sees your source files</strong> — it only gets the optimized output. The browser doesn't know or care that you used Vite.
+    <strong class="text-emerald-300">Key insight:</strong> The bundler runs on <em
+      >your computer</em
+    > (or a build server). The user's browser <strong
+      >never sees your source files</strong
+    > — it only gets the optimized output. The browser doesn't know or care that you
+    used Vite.
   </Callout>
 </div>

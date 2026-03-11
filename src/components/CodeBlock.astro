@@ -1,7 +1,16 @@
 ---
 interface Props {
   title?: string;
-  accent?: "amber" | "emerald" | "sky" | "violet" | "rose" | "orange" | "teal" | "blue" | "zinc";
+  accent?:
+    | "amber"
+    | "emerald"
+    | "sky"
+    | "violet"
+    | "rose"
+    | "orange"
+    | "teal"
+    | "blue"
+    | "zinc";
 }
 
 const { title, accent = "zinc" } = Astro.props;
@@ -19,8 +28,12 @@ const headerBg: Record<string, string> = {
 };
 ---
 
-<div class="rounded-xl overflow-hidden border border-zinc-800 bg-zinc-950 shadow-2xl">
-  <div class={`flex items-center gap-2 px-4 py-2.5 border-b ${headerBg[accent] || headerBg.zinc}`}>
+<div
+  class="rounded-xl overflow-hidden border border-zinc-800 bg-zinc-950 shadow-2xl"
+>
+  <div
+    class={`flex items-center gap-2 px-4 py-2.5 border-b ${headerBg[accent] || headerBg.zinc}`}
+  >
     <div class="flex gap-1.5">
       <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
       <div class="w-3 h-3 rounded-full bg-yellow-500/80"></div>
@@ -28,5 +41,6 @@ const headerBg: Record<string, string> = {
     </div>
     {title && <span class="text-xs font-mono text-zinc-400 ml-2">{title}</span>}
   </div>
-  <pre class="p-4 overflow-x-auto text-sm leading-relaxed font-mono"><code><slot /></code></pre>
+  <pre
+    class="p-4 overflow-x-auto text-sm leading-relaxed font-mono"><code><slot /></code></pre>
 </div>
