@@ -20,7 +20,7 @@
 }
 
 @font-face {
-  font-family: "Fira Code Fallback";
+  font-family: "IBM Plex Mono Fallback";
   src: local("Courier New");
   size-adjust: 130%;
   ascent-override: 80%;
@@ -31,7 +31,7 @@
 @theme {
   --font-display: "Syne", "Syne Fallback", sans-serif;
   --font-body: "Plus Jakarta Sans", "Plus Jakarta Sans Fallback", sans-serif;
-  --font-mono: "Fira Code", "Fira Code Fallback", monospace;
+  --font-mono: "IBM Plex Mono", "IBM Plex Mono Fallback", monospace;
 }
 
 html {
