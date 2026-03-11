@@ -12,5 +12,5 @@ const { color = "#fbbf24", icon = "💡" } = Astro.props;
   style={`border-color: ${color}30; background-color: ${color}08;`}
 >
   <span class="text-xl flex-shrink-0">{icon}</span>
-  <div class="text-sm leading-relaxed text-zinc-300"><slot /></div>
+  <div class="text-sm leading-relaxed text-zinc-300 min-w-0"><slot /></div>
 </div>

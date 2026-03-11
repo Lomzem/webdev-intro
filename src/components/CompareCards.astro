@@ -11,7 +11,7 @@ const { beforeLabel, afterLabel, accentBefore, accentAfter } = Astro.props;
 
 <div class="grid md:grid-cols-2 gap-4">
   <div
-    class={`rounded-xl border p-5 ${accentBefore || "border-red-900/50 bg-red-950/20"}`}
+    class={`rounded-xl border p-5 min-w-0 ${accentBefore || "border-red-900/50 bg-red-950/20"}`}
   >
     <div
       class="text-xs font-semibold font-mono uppercase tracking-wider text-red-400 mb-3"
@@ -21,7 +21,7 @@ const { beforeLabel, afterLabel, accentBefore, accentAfter } = Astro.props;
     <slot name="before" />
   </div>
   <div
-    class={`rounded-xl border p-5 ${accentAfter || "border-emerald-900/50 bg-emerald-950/20"}`}
+    class={`rounded-xl border p-5 min-w-0 ${accentAfter || "border-emerald-900/50 bg-emerald-950/20"}`}
   >
     <div
       class="text-xs font-semibold font-mono uppercase tracking-wider text-emerald-400 mb-3"
