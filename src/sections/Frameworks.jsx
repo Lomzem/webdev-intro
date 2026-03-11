@@ -110,6 +110,21 @@ export default function Frameworks() {
                   <span className="text-zinc-400">{"] = "}</span>
                   <span className="text-amber-300">useState</span>
                   <span className="text-zinc-400">{"([]);\n\n"}</span>
+
+                  <span className="text-zinc-400">{"  "}</span>
+                  <span className="text-violet-300">{"const "}</span>
+                  <span className="text-sky-300">{"remove"}</span>
+                  <span className="text-zinc-400">{" = ("}</span>
+                  <span className="text-sky-300">{"id"}</span>
+                  <span className="text-zinc-400">{") =>\n"}</span>
+                  <span className="text-zinc-400">{"    "}</span>
+                  <span className="text-sky-300">{"setTodos"}</span>
+                  <span className="text-zinc-400">{"("}</span>
+                  <span className="text-sky-300">{"todos"}</span>
+                  <span className="text-zinc-400">{"."}</span>
+                  <span className="text-sky-300">{"filter"}</span>
+                  <span className="text-zinc-400">{"(t => t.id !== id));\n\n"}</span>
+
                   <span className="text-zinc-400">{"  "}</span>
                   <span className="text-violet-300">{"return "}</span>
                   <span className="text-zinc-400">{"(\n"}</span>
@@ -128,7 +143,9 @@ export default function Frameworks() {
                   <span className="text-zinc-400">{"          <"}</span>
                   <span className="text-red-400">button</span>
                   <span className="text-amber-300">{" onClick"}</span>
-                  <span className="text-zinc-400">{"={del(t)}>\n"}</span>
+                  <span className="text-zinc-400">{"={() => "}</span>
+                  <span className="text-sky-300">{"remove"}</span>
+                  <span className="text-zinc-400">{"(t.id)}>\n"}</span>
                   <span className="text-zinc-400">
                     {"            Delete\n"}
                   </span>
