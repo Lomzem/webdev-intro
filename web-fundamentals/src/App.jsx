@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import OldDays from "./sections/OldDays";
+import PackageManagers from "./sections/PackageManagers";
 import Bundlers from "./sections/Bundlers";
 import Runtimes from "./sections/Runtimes";
 import Frameworks from "./sections/Frameworks";
@@ -18,8 +19,16 @@ const sections = [
     component: OldDays,
   },
   {
-    id: "bundlers",
+    id: "package-managers",
     num: "02",
+    title: "Package Managers",
+    subtitle: "npm, pnpm & yarn",
+    color: "#a3e635",
+    component: PackageManagers,
+  },
+  {
+    id: "bundlers",
+    num: "03",
     title: "Bundlers",
     subtitle: "Vite & Webpack",
     color: "#34d399",
@@ -27,7 +36,7 @@ const sections = [
   },
   {
     id: "runtimes",
-    num: "03",
+    num: "04",
     title: "JS Runtimes",
     subtitle: "Node, Bun & Deno",
     color: "#38bdf8",
@@ -35,7 +44,7 @@ const sections = [
   },
   {
     id: "frameworks",
-    num: "04",
+    num: "05",
     title: "Frontend Frameworks",
     subtitle: "React, Vue & Svelte",
     color: "#a78bfa",
@@ -43,7 +52,7 @@ const sections = [
   },
   {
     id: "tailwind",
-    num: "05",
+    num: "06",
     title: "CSS Frameworks",
     subtitle: "Tailwind CSS",
     color: "#fb7185",
@@ -51,7 +60,7 @@ const sections = [
   },
   {
     id: "data-fetching",
-    num: "06",
+    num: "07",
     title: "Data Fetching",
     subtitle: "TanStack Query",
     color: "#fb923c",
@@ -59,7 +68,7 @@ const sections = [
   },
   {
     id: "fullstack",
-    num: "07",
+    num: "08",
     title: "Fullstack Frameworks",
     subtitle: "Next.js & Remix",
     color: "#2dd4bf",
@@ -67,7 +76,7 @@ const sections = [
   },
   {
     id: "architecture",
-    num: "08",
+    num: "09",
     title: "Your Architecture",
     subtitle: "The Full Picture",
     color: "#60a5fa",
