@@ -381,7 +381,7 @@ export default function DataFetching() {
         </p>
 
         <CodeBlock
-          title="CreatePost.jsx — sending data with useMutation"
+          title="CreatePost.tsx — sending typed data with useMutation"
           accent="orange"
           code={
             <span>
@@ -394,6 +394,27 @@ export default function DataFetching() {
               <span className="text-violet-300">{"from "}</span>
               <span className="text-emerald-400">{"'@tanstack/react-query'"}</span>
               <span className="text-zinc-400">{";\n\n"}</span>
+
+              <span className="text-zinc-500">{"// Define the shape of a new post\n"}</span>
+              <span className="text-violet-300">{"interface "}</span>
+              <span className="text-pink-300">{"NewPost"}</span>
+              <span className="text-zinc-400">{" {\n"}</span>
+              <span className="text-zinc-400">{"  "}</span>
+              <span className="text-sky-300">{"title"}</span>
+              <span className="text-zinc-400">{": "}</span>
+              <span className="text-pink-300">{"string"}</span>
+              <span className="text-zinc-400">{";\n"}</span>
+              <span className="text-zinc-400">{"  "}</span>
+              <span className="text-sky-300">{"body"}</span>
+              <span className="text-zinc-400">{": "}</span>
+              <span className="text-pink-300">{"string"}</span>
+              <span className="text-zinc-400">{";\n"}</span>
+              <span className="text-zinc-400">{"  "}</span>
+              <span className="text-sky-300">{"author"}</span>
+              <span className="text-zinc-400">{": "}</span>
+              <span className="text-pink-300">{"string"}</span>
+              <span className="text-zinc-400">{";\n"}</span>
+              <span className="text-zinc-400">{"}\n\n"}</span>
 
               <span className="text-violet-300">{"function "}</span>
               <span className="text-amber-300">{"CreatePost"}</span>
@@ -417,7 +438,11 @@ export default function DataFetching() {
 
               <span className="text-zinc-400">{"    "}</span>
               <span className="text-sky-300">{"mutationFn"}</span>
-              <span className="text-zinc-400">{": (newPost) =>\n"}</span>
+              <span className="text-zinc-400">{": ("}</span>
+              <span className="text-sky-300">{"newPost"}</span>
+              <span className="text-zinc-400">{": "}</span>
+              <span className="text-pink-300">{"NewPost"}</span>
+              <span className="text-zinc-400">{") =>\n"}</span>
               <span className="text-zinc-400">{"      "}</span>
               <span className="text-amber-300">{"fetch"}</span>
               <span className="text-zinc-400">{"("}</span>
@@ -437,8 +462,12 @@ export default function DataFetching() {
               <span className="text-zinc-400">{" },\n"}</span>
               <span className="text-zinc-400">{"        "}</span>
               <span className="text-sky-300">{"body"}</span>
-              <span className="text-zinc-400">{": JSON.stringify(newPost),\n"}</span>
-              <span className="text-zinc-400">{"      }),\n"}</span>
+              <span className="text-zinc-400">{": "}</span>
+              <span className="text-amber-300">{"JSON"}</span>
+              <span className="text-zinc-400">{"."}</span>
+              <span className="text-sky-300">{"stringify"}</span>
+              <span className="text-zinc-400">{"(newPost),\n"}</span>
+              <span className="text-zinc-400">{"      }),\n\n"}</span>
 
               <span className="text-zinc-400">{"    "}</span>
               <span className="text-sky-300">{"onSuccess"}</span>
@@ -456,8 +485,35 @@ export default function DataFetching() {
               <span className="text-zinc-400">{"    },\n"}</span>
               <span className="text-zinc-400">{"  });\n\n"}</span>
 
-              <span className="text-zinc-500">{"  // Call mutate() when the user submits the form:\n"}</span>
-              <span className="text-zinc-500">{"  // mutate({ title: 'My Post', body: 'Hello!' })\n"}</span>
+              <span className="text-zinc-500">{"  // TypeScript ensures you pass the right shape:\n"}</span>
+              <span className="text-zinc-400">{"  "}</span>
+              <span className="text-sky-300">{"mutate"}</span>
+              <span className="text-zinc-400">{"({\n"}</span>
+              <span className="text-zinc-400">{"    "}</span>
+              <span className="text-sky-300">{"title"}</span>
+              <span className="text-zinc-400">{": "}</span>
+              <span className="text-emerald-400">{"'My Post'"}</span>
+              <span className="text-zinc-400">{",\n"}</span>
+              <span className="text-zinc-400">{"    "}</span>
+              <span className="text-sky-300">{"body"}</span>
+              <span className="text-zinc-400">{": "}</span>
+              <span className="text-emerald-400">{"'Hello world!'"}</span>
+              <span className="text-zinc-400">{",\n"}</span>
+              <span className="text-zinc-400">{"    "}</span>
+              <span className="text-sky-300">{"author"}</span>
+              <span className="text-zinc-400">{": "}</span>
+              <span className="text-emerald-400">{"'Alice'"}</span>
+              <span className="text-zinc-400">{",\n"}</span>
+              <span className="text-zinc-400">{"  });\n\n"}</span>
+
+              <span className="text-zinc-400">{"  "}</span>
+              <span className="text-sky-300">{"mutate"}</span>
+              <span className="text-zinc-400">{"({ "}</span>
+              <span className="text-sky-300">{"title"}</span>
+              <span className="text-zinc-400">{": "}</span>
+              <span className="text-emerald-400">{"'Oops'"}</span>
+              <span className="text-zinc-400">{" });\n"}</span>
+              <span className="text-red-400">{"  // ❌ Error: missing 'body' and 'author'\n"}</span>
               <span className="text-zinc-400">{"}"}</span>
             </span>
           }
