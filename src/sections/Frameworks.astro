@@ -14,7 +14,7 @@ const beforeCode = `<span class="text-zinc-400">// Add a new todo item
 </span><span class="text-sky-300">btn</span><span class="text-zinc-400">.</span><span class="text-sky-300">onclick</span><span class="text-zinc-400"> = () =&gt; {
   </span><span class="text-sky-300">li</span><span class="text-zinc-400">.</span><span class="text-sky-300">remove</span><span class="text-zinc-400">();
   </span><span class="text-sky-300">updateCount</span><span class="text-zinc-400">();
-</span><span class="text-zinc-400">
+</span><span class="text-zinc-400">};
 </span><span class="text-sky-300">li</span><span class="text-zinc-400">.</span><span class="text-sky-300">appendChild</span><span class="text-zinc-400">(btn);
 </span><span class="text-amber-300">document</span><span class="text-zinc-400">.</span><span class="text-sky-300">getElementById</span><span class="text-zinc-400">('list')
   .</span><span class="text-sky-300">appendChild</span><span class="text-zinc-400">(li);
@@ -126,8 +126,8 @@ const afterCode = `<span class="text-violet-300">function </span><span class="te
             color: "#38bdf8",
           },
           {
-            from: "Server",
-            to: "Browser",
+            from: "Browser",
+            to: "Server",
             label:
               "Responds with index.html (a tiny HTML file) + links to JS/CSS bundles",
             color: "#34d399",
@@ -141,8 +141,8 @@ const afterCode = `<span class="text-violet-300">function </span><span class="te
             color: "#38bdf8",
           },
           {
-            from: "Server",
-            to: "Browser",
+            from: "Browser",
+            to: "Server",
             label: "Sends the JavaScript bundle file",
             color: "#34d399",
             direction: "left",
@@ -155,8 +155,8 @@ const afterCode = `<span class="text-violet-300">function </span><span class="te
             color: "#a78bfa",
           },
           {
-            from: "Browser",
-            to: "User",
+            from: "User",
+            to: "Browser",
             label:
               "The page appears! Everything the user sees was built by React running in their browser",
             color: "#fbbf24",
@@ -196,8 +196,8 @@ const afterCode = `<span class="text-violet-300">function </span><span class="te
             color: "#a78bfa",
           },
           {
-            from: "Browser",
-            to: "User",
+            from: "User",
+            to: "Browser",
             label:
               "User sees the new todo appear instantly — NO server request was needed!",
             color: "#34d399",

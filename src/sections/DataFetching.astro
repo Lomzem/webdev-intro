@@ -161,15 +161,15 @@ const useMutationCode = `<span class="text-violet-300">import </span><span class
             color: "#34d399",
           },
           {
-            from: "Database",
-            to: "Your API Server",
+            from: "Your API Server",
+            to: "Database",
             label: "Database returns the rows of post data",
             color: "#34d399",
             direction: "left",
           },
           {
-            from: "Your API Server",
-            to: "Browser (React)",
+            from: "Browser (React)",
+            to: "Your API Server",
             label:
               'Server formats data as JSON and sends it back: [{"id": 1, "title": "Hello"}, ...]',
             color: "#38bdf8",
@@ -183,8 +183,8 @@ const useMutationCode = `<span class="text-violet-300">import </span><span class
             color: "#a78bfa",
           },
           {
-            from: "Browser",
-            to: "User",
+            from: "User",
+            to: "Browser",
             label: "User sees the list of blog posts appear on screen",
             color: "#fbbf24",
             direction: "left",
@@ -274,15 +274,15 @@ const useMutationCode = `<span class="text-violet-300">import </span><span class
             color: "#34d399",
           },
           {
-            from: "Database",
-            to: "Your API Server",
+            from: "Your API Server",
+            to: "Database",
             label: "Database confirms the row was created",
             color: "#34d399",
             direction: "left",
           },
           {
-            from: "Your API Server",
-            to: "Browser (React)",
+            from: "Browser (React)",
+            to: "Your API Server",
             label: "Server responds with 201 Created and the new post as JSON",
             color: "#38bdf8",
             direction: "left",
@@ -295,8 +295,8 @@ const useMutationCode = `<span class="text-violet-300">import </span><span class
             color: "#a78bfa",
           },
           {
-            from: "Browser",
-            to: "User",
+            from: "User",
+            to: "Browser",
             label: "User sees their new post appear in the list",
             color: "#fbbf24",
             direction: "left",
@@ -321,7 +321,7 @@ const useMutationCode = `<span class="text-violet-300">import </span><span class
         [
           {
             label: "Caching",
-            desc: "Fetched data is cached. Navigate away and back — instant, no re-fetch.",
+            desc: "Fetched data is cached. Navigate away and back — instant, no waiting.",
           },
           {
             label: "Loading States",
