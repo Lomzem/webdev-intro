@@ -40,6 +40,5 @@ Pushes to `main` automatically deploy to GitHub Pages via GitHub Actions. To ena
 
 ## Built With
 
-- [Vite](https://vite.dev) — Bundler
-- [React](https://react.dev) — UI framework
+- [Astro](https://astro.build) — Static site generator
 - [Tailwind CSS](https://tailwindcss.com) — Styling
