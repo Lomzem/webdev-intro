@@ -232,57 +232,57 @@ const sectionComponents = [OldDays, Runtimes, PackageManagers, Bundlers, Framewo
     </main>
   </div>
 
-  <script>
+  <script is:inline>
     // Sidebar toggle
-    const menuToggle = document.getElementById("menu-toggle");
-    const sidebar = document.getElementById("sidebar");
-    const overlay = document.getElementById("sidebar-overlay");
-    const iconOpen = document.getElementById("menu-icon-open");
-    const iconClose = document.getElementById("menu-icon-close");
-    let sidebarOpen = false;
+    var menuToggle = document.getElementById("menu-toggle");
+    var sidebar = document.getElementById("sidebar");
+    var overlay = document.getElementById("sidebar-overlay");
+    var iconOpen = document.getElementById("menu-icon-open");
+    var iconClose = document.getElementById("menu-icon-close");
+    var sidebarOpen = false;
 
-    function toggleSidebar(open?: boolean) {
-      sidebarOpen = open ?? !sidebarOpen;
+    function toggleSidebar(open) {
+      sidebarOpen = open !== undefined ? open : !sidebarOpen;
       if (sidebarOpen) {
-        sidebar?.classList.remove("-translate-x-full");
-        sidebar?.classList.add("translate-x-0");
-        overlay?.classList.remove("hidden");
-        iconOpen?.classList.add("hidden");
-        iconClose?.classList.remove("hidden");
-        menuToggle?.setAttribute("aria-label", "Close menu");
+        sidebar.classList.remove("-translate-x-full");
+        sidebar.classList.add("translate-x-0");
+        overlay.classList.remove("hidden");
+        iconOpen.classList.add("hidden");
+        iconClose.classList.remove("hidden");
+        menuToggle.setAttribute("aria-label", "Close menu");
       } else {
-        sidebar?.classList.add("-translate-x-full");
-        sidebar?.classList.remove("translate-x-0");
-        overlay?.classList.add("hidden");
-        iconOpen?.classList.remove("hidden");
-        iconClose?.classList.add("hidden");
-        menuToggle?.setAttribute("aria-label", "Open menu");
+        sidebar.classList.add("-translate-x-full");
+        sidebar.classList.remove("translate-x-0");
+        overlay.classList.add("hidden");
+        iconOpen.classList.remove("hidden");
+        iconClose.classList.add("hidden");
+        menuToggle.setAttribute("aria-label", "Open menu");
       }
     }
 
-    menuToggle?.addEventListener("click", () => toggleSidebar());
-    overlay?.addEventListener("click", () => toggleSidebar(false));
+    menuToggle.addEventListener("click", function () { toggleSidebar(); });
+    overlay.addEventListener("click", function () { toggleSidebar(false); });
 
     // Navigation
-    const navButtons = document.querySelectorAll<HTMLButtonElement>(".nav-btn");
-    const sectionIds = Array.from(navButtons).map((btn) => btn.dataset.section!);
+    var navButtons = document.querySelectorAll(".nav-btn");
+    var sectionIds = Array.from(navButtons).map(function (btn) { return btn.dataset.section; });
 
-    navButtons.forEach((btn) => {
-      btn.addEventListener("click", () => {
-        const id = btn.dataset.section!;
-        document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    navButtons.forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var id = btn.dataset.section;
+        document.getElementById(id).scrollIntoView({ behavior: "smooth" });
         toggleSidebar(false);
       });
     });
 
     // Scroll tracking with Intersection Observer
-    function setActive(id: string) {
-      navButtons.forEach((btn) => {
-        const isActive = btn.dataset.section === id;
-        const color = btn.dataset.color!;
-        const num = btn.querySelector(".nav-num") as HTMLElement;
-        const title = btn.querySelector(".nav-title") as HTMLElement;
-        const dot = btn.querySelector(".nav-dot") as HTMLElement;
+    function setActive(id) {
+      navButtons.forEach(function (btn) {
+        var isActive = btn.dataset.section === id;
+        var color = btn.dataset.color;
+        var num = btn.querySelector(".nav-num");
+        var title = btn.querySelector(".nav-title");
+        var dot = btn.querySelector(".nav-dot");
 
         if (isActive) {
           btn.classList.add("bg-zinc-800/80");
@@ -301,20 +301,20 @@ const sectionComponents = [OldDays, Runtimes, PackageManagers, Bundlers, Framewo
       });
     }
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) {
-            setActive(entry.target.id);
+    var observer = new IntersectionObserver(
+      function (entries) {
+        for (var i = 0; i < entries.length; i++) {
+          if (entries[i].isIntersecting) {
+            setActive(entries[i].target.id);
           }
         }
       },
       { rootMargin: "-20% 0px -70% 0px" }
     );
 
-    setTimeout(() => {
-      sectionIds.forEach((id) => {
-        const el = document.getElementById(id);
+    setTimeout(function () {
+      sectionIds.forEach(function (id) {
+        var el = document.getElementById(id);
         if (el) observer.observe(el);
       });
     }, 100);
