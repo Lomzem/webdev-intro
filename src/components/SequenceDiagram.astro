@@ -1,0 +1,56 @@
+---
+interface SequenceStep {
+  from: string;
+  to: string;
+  label: string;
+  color: string;
+  direction?: "left" | "right";
+}
+
+interface Props {
+  steps: SequenceStep[];
+  class?: string;
+}
+
+const { steps, class: className = "" } = Astro.props;
+---
+
+<div class={`space-y-0 ${className}`}>
+  {steps.map((step, i) => (
+    <div class="flex items-stretch gap-0">
+      <div class="flex flex-col items-center mr-4 flex-shrink-0">
+        <div
+          class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold font-mono border-2 flex-shrink-0"
+          style={`border-color: ${step.color}; color: ${step.color}; background-color: ${step.color}15;`}
+        >
+          {i + 1}
+        </div>
+        {i < steps.length - 1 && (
+          <div class="w-px flex-1 bg-zinc-800 min-h-4"></div>
+        )}
+      </div>
+      <div class="flex-1 pb-6">
+        <div class="flex flex-wrap items-center gap-2 mb-1">
+          <span
+            class="font-mono text-xs font-bold px-2 py-0.5 rounded"
+            style={`background-color: ${step.color}20; color: ${step.color};`}
+          >
+            {step.from}
+          </span>
+          <span class="text-zinc-500 text-lg">
+            {step.direction === "left" ? "◂──" : "──▸"}
+          </span>
+          <span
+            class="font-mono text-xs font-bold px-2 py-0.5 rounded"
+            style={`background-color: ${step.color}20; color: ${step.color};`}
+          >
+            {step.to}
+          </span>
+        </div>
+        <p class="text-sm text-zinc-400 leading-relaxed">
+          {step.label}
+        </p>
+      </div>
+    </div>
+  ))}
+</div>

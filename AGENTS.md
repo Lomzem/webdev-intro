@@ -1,0 +1,2 @@
+- ALWAYS use `bun` instead of `npm`, `pnpm`, `node`, or any other package manager/runtime.
+- Remember to run `bun run check` after every change.

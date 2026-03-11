@@ -1,0 +1,365 @@
+---
+import Callout from "../components/Callout.astro";
+import DiagramBox from "../components/DiagramBox.astro";
+import SequenceDiagram from "../components/SequenceDiagram.astro";
+import CodeBlock from "../components/CodeBlock.astro";
+import RunsBadge from "../components/RunsBadge.astro";
+
+const serverComponentCode = `<span class="text-violet-300">import </span><span class="text-zinc-400">{ </span><span class="text-sky-300">db</span><span class="text-zinc-400"> } </span><span class="text-violet-300">from </span><span class="text-emerald-400">'@/lib/database'</span><span class="text-zinc-400">;</span>
+
+<span class="text-zinc-400">// This runs on the SERVER. The browser never</span>
+<span class="text-zinc-400">// sees this code or your database credentials.</span>
+
+<span class="text-violet-300">export default async function </span><span class="text-amber-300">PostsPage</span><span class="text-zinc-400">() {</span>
+<span class="text-zinc-400">  // Query the database directly — no API layer needed</span>
+<span class="text-zinc-400">  </span><span class="text-violet-300">const </span><span class="text-sky-300">posts</span><span class="text-zinc-400"> = </span><span class="text-violet-300">await </span><span class="text-sky-300">db</span><span class="text-zinc-400">.</span><span class="text-sky-300">query</span><span class="text-zinc-400">(</span>
+<span class="text-zinc-400">    </span><span class="text-emerald-400">\`SELECT id, title, author
+     FROM posts
+     ORDER BY created_at DESC\`</span>
+<span class="text-zinc-400">  );</span>
+
+<span class="text-zinc-400">  // This JSX is rendered to HTML on the server,</span>
+<span class="text-zinc-400">  // then sent to the browser as a complete page.</span>
+<span class="text-zinc-400">  </span><span class="text-violet-300">return </span><span class="text-zinc-400">(</span>
+<span class="text-zinc-400">    &lt;</span><span class="text-red-400">ul</span><span class="text-zinc-400">&gt;</span>
+<span class="text-zinc-400">      {</span><span class="text-sky-300">posts</span><span class="text-zinc-400">.</span><span class="text-sky-300">map</span><span class="text-zinc-400">(post =&gt;</span>
+<span class="text-zinc-400">        &lt;</span><span class="text-red-400">li</span><span class="text-amber-300"> key</span><span class="text-zinc-400">={post.id}&gt;</span>
+<span class="text-zinc-400">          {post.title} — {post.author}</span>
+<span class="text-zinc-400">        &lt;/</span><span class="text-red-400">li</span><span class="text-zinc-400">&gt;</span>
+<span class="text-zinc-400">      )}</span>
+<span class="text-zinc-400">    &lt;/</span><span class="text-red-400">ul</span><span class="text-zinc-400">&gt;</span>
+<span class="text-zinc-400">  );</span>
+<span class="text-zinc-400">}</span>`;
+---
+
+<div class="space-y-8">
+  <p class="text-lg leading-relaxed text-zinc-300">
+    So far, every tool we've discussed falls clearly on one side: the
+    bundler runs on your machine, React runs in the browser, the API runs on
+    a server.
+    <strong class="text-teal-300">Fullstack frameworks</strong> like
+    Next.js and Remix deliberately blur that line — they let you write React
+    code that runs on <em>both</em> the server and the client.
+  </p>
+
+  {/* The problem CSR has */}
+  <div class="space-y-4">
+    <h3 class="font-display font-bold text-teal-300 text-xl">
+      The Problem with Client-Side Rendering
+    </h3>
+    <p class="text-zinc-400 leading-relaxed">
+      With a pure client-side React app (what Vite gives you), here's what
+      happens when someone visits your page:
+    </p>
+
+    <div class="rounded-xl border border-zinc-800 bg-zinc-900/50 p-6">
+      <SequenceDiagram
+        steps={[
+          {
+            from: "Browser",
+            to: "Server",
+            label:
+              'Requests the page — server sends back a nearly empty HTML file with just a <div id="root"></div>',
+            color: "#a78bfa",
+          },
+          {
+            from: "Browser",
+            to: "Server",
+            label:
+              "Downloads the JavaScript bundle (could be 200KB+ gzipped for a large app)",
+            color: "#a78bfa",
+          },
+          {
+            from: "Browser",
+            to: "Browser",
+            label:
+              "Parses and executes the JS — React builds the page from scratch. User sees a blank screen or spinner until this finishes.",
+            color: "#fb923c",
+          },
+          {
+            from: "Browser",
+            to: "API Server",
+            label:
+              "React realizes it needs data, fires off fetch() calls — more waiting",
+            color: "#fb923c",
+          },
+          {
+            from: "Browser",
+            to: "User",
+            label:
+              "Finally renders the complete page. On slow connections or old phones, this can take several seconds.",
+            color: "#fbbf24",
+            direction: "left",
+          },
+        ]}
+      />
+    </div>
+
+    <p class="text-zinc-400 leading-relaxed">
+      This is fine for dashboards and apps behind a login. But for public
+      pages — a blog, a storefront, a landing page — those seconds of blank
+      screen hurt. And search engines (Google) may not index
+      JavaScript-rendered content well.
+    </p>
+  </div>
+
+  {/* The SSR solution */}
+  <div class="space-y-4">
+    <h3 class="font-display font-bold text-teal-300 text-xl">
+      Server-Side Rendering (SSR): The Fix
+    </h3>
+    <div class="flex flex-wrap gap-3 items-center mb-2">
+      <RunsBadge location="Your Server" color="emerald" />
+      <span class="text-zinc-500 text-sm">then</span>
+      <RunsBadge location="User's Browser" color="violet" />
+    </div>
+    <p class="text-zinc-400 leading-relaxed">
+      With SSR, the server runs your React components <em>before</em> sending anything to the browser. It fetches the data, renders the
+      HTML, and sends a complete page. The browser shows content
+      immediately, then React "hydrates" (attaches event listeners) to make
+      it interactive.
+    </p>
+
+    <div class="rounded-xl border border-teal-900/30 bg-teal-950/10 p-6">
+      <SequenceDiagram
+        steps={[
+          {
+            from: "Browser",
+            to: "Server",
+            label: "Requests the page",
+            color: "#2dd4bf",
+          },
+          {
+            from: "Server",
+            to: "Database",
+            label:
+              "Server runs your React component AND fetches data — all on the server",
+            color: "#34d399",
+          },
+          {
+            from: "Server",
+            to: "Browser",
+            label:
+              "Sends fully rendered HTML with real content — not an empty shell. User sees the page instantly.",
+            color: "#2dd4bf",
+            direction: "left",
+          },
+          {
+            from: "Browser",
+            to: "Browser",
+            label:
+              'React "hydrates" — attaches click handlers, makes the page interactive. Page was already visible.',
+            color: "#a78bfa",
+          },
+        ]}
+      />
+    </div>
+  </div>
+
+  {/* The rendering spectrum */}
+  <DiagramBox>
+    <div class="text-center mb-4">
+      <span class="text-xs font-mono text-zinc-400 uppercase tracking-widest">
+        The spectrum of rendering approaches
+      </span>
+    </div>
+    <div class="flex flex-col md:flex-row gap-4">
+      {/* CSR */}
+      <div class="flex-1 rounded-xl border-2 border-violet-700/40 bg-violet-950/20 p-4 space-y-2">
+        <div class="text-xs font-mono text-violet-400 font-bold uppercase tracking-wider">
+          Client-Side Rendering (CSR)
+        </div>
+        <div class="text-lg font-display font-bold text-violet-300">
+          Vite + React
+        </div>
+        <p class="text-sm text-zinc-400 leading-relaxed">
+          Server sends an empty HTML shell. Browser downloads JS, React
+          builds the entire page. All rendering happens in the browser.
+        </p>
+        <div class="text-xs text-zinc-400 pt-2 border-t border-violet-900/30 space-y-1">
+          <div class="flex gap-2">
+            <span class="text-emerald-400">+</span> Simple mental model,
+            easy to deploy (static files)
+          </div>
+          <div class="flex gap-2">
+            <span class="text-red-400">−</span> Blank screen until JS
+            loads, poor SEO
+          </div>
+        </div>
+      </div>
+
+      {/* SSR */}
+      <div class="flex-1 rounded-xl border-2 border-teal-700/40 bg-teal-950/20 p-4 space-y-2">
+        <div class="text-xs font-mono text-teal-400 font-bold uppercase tracking-wider">
+          Server-Side Rendering (SSR)
+        </div>
+        <div class="text-lg font-display font-bold text-teal-300">
+          Next.js / Remix
+        </div>
+        <p class="text-sm text-zinc-400 leading-relaxed">
+          Server runs React and sends <em>fully rendered HTML</em>. Browser
+          receives a complete page instantly, then React hydrates to make it
+          interactive.
+        </p>
+        <div class="text-xs text-zinc-400 pt-2 border-t border-teal-900/30 space-y-1">
+          <div class="flex gap-2">
+            <span class="text-emerald-400">+</span> Fast first paint,
+            great SEO, link previews work
+          </div>
+          <div class="flex gap-2">
+            <span class="text-red-400">−</span> Needs a running server,
+            more complex deployment
+          </div>
+        </div>
+      </div>
+
+      {/* SSG */}
+      <div class="flex-1 rounded-xl border-2 border-amber-700/40 bg-amber-950/20 p-4 space-y-2">
+        <div class="text-xs font-mono text-amber-400 font-bold uppercase tracking-wider">
+          Static Site Generation (SSG)
+        </div>
+        <div class="text-lg font-display font-bold text-amber-300">
+          Next.js / Astro
+        </div>
+        <p class="text-sm text-zinc-400 leading-relaxed">
+          Pages are rendered to HTML at <em>build time</em>, not at request
+          time. No server needed at runtime — just static files, but with
+          real content baked in.
+        </p>
+        <div class="text-xs text-zinc-400 pt-2 border-t border-amber-900/30 space-y-1">
+          <div class="flex gap-2">
+            <span class="text-emerald-400">+</span> Fastest possible,
+            cheapest hosting, great SEO
+          </div>
+          <div class="flex gap-2">
+            <span class="text-red-400">−</span> Content is stale until
+            next build, not for dynamic data
+          </div>
+        </div>
+      </div>
+    </div>
+  </DiagramBox>
+
+  {/* What Next.js code looks like */}
+  <div class="space-y-4">
+    <h3 class="font-display font-bold text-teal-300 text-xl">
+      What Does This Look Like in Code?
+    </h3>
+    <p class="text-zinc-400 leading-relaxed">
+      In Next.js (App Router), components are
+      <strong class="text-teal-200">
+        server components by default
+      </strong>
+      . They run on the server and can directly access databases, read
+      files, or call internal services — things a browser can never do. The
+      component looks like normal React, but the framework runs it on the
+      server and sends the rendered HTML to the browser.
+    </p>
+
+    <CodeBlock
+      title="app/posts/page.tsx — Next.js server component"
+      accent="teal"
+    >
+      <Fragment set:html={serverComponentCode} />
+    </CodeBlock>
+
+    <Callout color="#2dd4bf" icon="🤯">
+      <strong class="text-teal-300">
+        This component queries a database directly.
+      </strong>
+      No
+      <code class="font-mono text-xs bg-zinc-800 px-1 rounded">
+        useState
+      </code>
+      , no
+      <code class="font-mono text-xs bg-zinc-800 px-1 rounded">
+        useEffect
+      </code>
+      , no
+      <code class="font-mono text-xs bg-zinc-800 px-1 rounded">
+        fetch()
+      </code>
+      to an API, no
+      <code class="font-mono text-xs bg-zinc-800 px-1 rounded">
+        useQuery
+      </code>
+      . The SQL runs on the server, the JSX is rendered to HTML on the
+      server, and the browser receives a finished page. Your database
+      credentials and query logic never leave the server — the browser only
+      gets the resulting HTML. The component is
+      <code class="font-mono text-xs bg-zinc-800 px-1 rounded">
+        async
+      </code>
+      — something not possible in client-side React.
+    </Callout>
+  </div>
+
+  {/* When to use what */}
+  <div class="space-y-4">
+    <h3 class="font-display font-bold text-teal-300 text-xl">
+      When to Use What
+    </h3>
+    <div class="grid md:grid-cols-2 gap-4">
+      {[
+        {
+          title: "Use CSR (Vite + React) when...",
+          color: "#a78bfa",
+          items: [
+            "Building a dashboard or admin panel",
+            "The app is behind authentication (no SEO needed)",
+            "You want the simplest possible setup",
+            "You already have a separate backend API",
+            "You're learning and want a clear client/server split",
+          ],
+        },
+        {
+          title: "Use SSR/SSG (Next.js) when...",
+          color: "#2dd4bf",
+          items: [
+            "Building a public-facing website (blog, storefront, docs)",
+            "SEO matters — you need Google to index your content",
+            "First-load performance is critical (e-commerce)",
+            "You want link previews on social media to work",
+            "You want one codebase for frontend + backend logic",
+          ],
+        },
+      ].map((col) => (
+        <div
+          class="rounded-xl border p-5"
+          style={`border-color: ${col.color}30; background-color: ${col.color}08;`}
+        >
+          <h3
+            class="font-display font-bold mb-3"
+            style={`color: ${col.color};`}
+          >
+            {col.title}
+          </h3>
+          <ul class="space-y-2">
+            {col.items.map((item) => (
+              <li class="flex gap-2 text-sm text-zinc-400">
+                <span
+                  style={`color: ${col.color};`}
+                  class="flex-shrink-0"
+                >
+                  ▸
+                </span>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <Callout color="#2dd4bf" icon="💡">
+    <strong class="text-teal-300">
+      They're not competing — they're tradeoffs.
+    </strong>
+    Many teams use both: a Next.js app for their public marketing site and a
+    Vite + React SPA for their logged-in dashboard. The right choice depends
+    on your use case, not which is "better." Understanding CSR first makes
+    SSR much easier to learn, because you already know what React is doing —
+    SSR just moves <em>where</em> it does it.
+  </Callout>
+</div>

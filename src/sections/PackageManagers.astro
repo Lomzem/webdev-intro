@@ -1,0 +1,203 @@
+---
+import CodeBlock from "../components/CodeBlock.astro";
+import RunsBadge from "../components/RunsBadge.astro";
+import DiagramBox from "../components/DiagramBox.astro";
+import Callout from "../components/Callout.astro";
+
+const packageJsonCode = `<span class="text-zinc-400">{
+  </span><span class="text-sky-300">"name"</span><span class="text-zinc-400">: </span><span class="text-emerald-400">"my-react-app"</span><span class="text-zinc-400">,
+  </span><span class="text-sky-300">"scripts"</span><span class="text-zinc-400">: {
+    // These are shortcuts you run with: npm run &lt;name&gt;
+    </span><span class="text-sky-300">"dev"</span><span class="text-zinc-400">:     </span><span class="text-emerald-400">"vite"</span><span class="text-zinc-400">,
+    </span><span class="text-sky-300">"build"</span><span class="text-zinc-400">:   </span><span class="text-emerald-400">"vite build"</span><span class="text-zinc-400">,
+    </span><span class="text-sky-300">"preview"</span><span class="text-zinc-400">: </span><span class="text-emerald-400">"vite preview"</span><span class="text-zinc-400">
+  },
+  </span><span class="text-sky-300">"dependencies"</span><span class="text-zinc-400">: {
+    // Libraries your app NEEDS to run in the browser
+    </span><span class="text-sky-300">"react"</span><span class="text-zinc-400">: </span><span class="text-emerald-400">"^19.2.0"</span><span class="text-zinc-400">,
+    </span><span class="text-sky-300">"react-dom"</span><span class="text-zinc-400">: </span><span class="text-emerald-400">"^19.2.0"</span><span class="text-zinc-400">
+  },
+  </span><span class="text-sky-300">"devDependencies"</span><span class="text-zinc-400">: {
+    // Tools used only during development (not shipped to users)
+    </span><span class="text-sky-300">"vite"</span><span class="text-zinc-400">: </span><span class="text-emerald-400">"^7.3.0"</span><span class="text-zinc-400">,
+    </span><span class="text-sky-300">"tailwindcss"</span><span class="text-zinc-400">: </span><span class="text-emerald-400">"^4.2.0"</span><span class="text-zinc-400">
+  }
+}</span>`;
+---
+
+<div class="space-y-8">
+  <div class="flex flex-wrap gap-3 items-center">
+    <RunsBadge location="Your Dev Machine" color="cyan" />
+  </div>
+
+  <p class="text-lg leading-relaxed text-zinc-300">
+    Remember the Old Days — downloading <code class="font-mono text-xs bg-zinc-800 px-1.5 rounded">jquery.min.js</code> manually and dropping it in a folder? A <strong class="text-lime-300">package manager</strong> automates that. It's like <code class="font-mono text-xs bg-zinc-800 px-1.5 rounded">apt</code> for Ubuntu or <code class="font-mono text-xs bg-zinc-800 px-1.5 rounded">brew</code> for macOS, but for JavaScript libraries.
+  </p>
+
+  <div class="grid md:grid-cols-3 gap-4">
+    {[
+      {
+        name: "npm",
+        full: "Node Package Manager",
+        desc: "Comes pre-installed with Node.js. The default. The one you're using.",
+        highlight: true,
+        detail: "Millions of packages on the npm registry (npmjs.com).",
+      },
+      {
+        name: "pnpm",
+        full: "Performant npm",
+        desc: "Faster and uses less disk space. Shares packages across projects via symlinks.",
+        highlight: false,
+        detail: "Drop-in replacement — same commands, better internals.",
+      },
+      {
+        name: "bun",
+        full: "Bun (also a JS runtime)",
+        desc: "Blazingly fast. Does everything — package manager, bundler, test runner, and JS runtime in one tool.",
+        highlight: false,
+        detail: "Newest of the three. Growing fast in popularity.",
+      },
+    ].map((pm) => (
+      <div
+        class={`rounded-xl border p-5 space-y-2 ${
+          pm.highlight
+            ? "border-lime-700/50 bg-lime-950/20"
+            : "border-zinc-800 bg-zinc-900/50"
+        }`}
+      >
+        <div class="flex items-center gap-2">
+          <span class="font-mono text-lg font-bold text-lime-300">
+            {pm.name}
+          </span>
+          {pm.highlight && (
+            <span class="text-[10px] font-mono font-bold uppercase tracking-wider bg-lime-400/15 text-lime-400 px-2 py-0.5 rounded-full">
+              You're using this
+            </span>
+          )}
+        </div>
+        <div class="text-xs text-zinc-500 font-mono">{pm.full}</div>
+        <p class="text-sm text-zinc-400 leading-relaxed">{pm.desc}</p>
+        <p class="text-xs text-zinc-500 italic">{pm.detail}</p>
+      </div>
+    ))}
+  </div>
+
+  <div class="space-y-4">
+    <h3 class="font-display font-bold text-lime-300 text-xl">
+      package.json — Your Project's Manifest
+    </h3>
+    <p class="text-zinc-400 leading-relaxed">
+      Every JS project has a <code class="font-mono text-xs bg-zinc-800 px-1.5 rounded text-lime-300">package.json</code> file at its root. It lists your project's dependencies (libraries you use) and defines scripts (commands you can run). Think of it like a recipe card for your project.
+    </p>
+
+    <CodeBlock
+      title="package.json"
+      accent="emerald"
+    >
+      <Fragment set:html={packageJsonCode} />
+    </CodeBlock>
+  </div>
+
+  <div class="space-y-4">
+    <h3 class="font-display font-bold text-lime-300 text-xl">
+      The Commands You'll Actually Use
+    </h3>
+    <div class="space-y-3">
+      {[
+        {
+          cmd: "npm install",
+          alias: "npm i",
+          desc: "Reads package.json and downloads everything listed in dependencies and devDependencies into a folder called node_modules/. Run this once when you clone a project, or after someone adds a new dependency.",
+        },
+        {
+          cmd: "npm install react",
+          alias: "npm i react",
+          desc: "Adds a specific package to your project. Updates package.json automatically so your teammates get it too.",
+        },
+        {
+          cmd: "npm install -D tailwindcss",
+          alias: "npm i -D tailwindcss",
+          desc: "The -D flag adds it as a devDependency — a tool for development only, not shipped to users. Bundlers, linters, and Tailwind go here.",
+        },
+        {
+          cmd: "npm run dev",
+          alias: null,
+          desc: 'Runs the "dev" script from package.json. In your project, that\'s "vite" — which starts the dev server.',
+        },
+        {
+          cmd: "npm run build",
+          alias: null,
+          desc: 'Runs the "build" script. In your project, that\'s "vite build" — which produces the optimized files for production.',
+        },
+      ].map((c) => (
+        <div
+          class="rounded-xl border border-zinc-800 bg-zinc-900/50 p-4 flex flex-col sm:flex-row gap-3"
+        >
+          <div class="flex-shrink-0 sm:w-64">
+            <code class="font-mono text-sm font-semibold text-lime-300">
+              {c.cmd}
+            </code>
+            {c.alias && (
+              <div class="text-xs font-mono text-zinc-500 mt-0.5">
+                short: {c.alias}
+              </div>
+            )}
+          </div>
+          <p class="text-sm text-zinc-400 leading-relaxed">{c.desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <DiagramBox>
+    <div class="text-center mb-4">
+      <span class="text-xs font-mono text-zinc-400 uppercase tracking-widest">
+        What npm install actually does
+      </span>
+    </div>
+    <div class="flex flex-col md:flex-row items-center gap-6 justify-center">
+      <div class="px-4 py-3 rounded-xl border border-lime-800/40 bg-lime-950/20 text-center">
+        <div class="font-mono text-sm text-lime-300 font-bold">
+          package.json
+        </div>
+        <div class="text-xs text-zinc-400 mt-1">
+          "I need react, react-dom, vite..."
+        </div>
+      </div>
+
+      <div class="text-lime-500 text-3xl md:rotate-0 rotate-90">⟹</div>
+
+      <div class="px-6 py-4 rounded-2xl bg-lime-950/30 border-2 border-lime-700/40 text-center">
+        <div class="text-2xl mb-1">📦</div>
+        <div class="font-mono text-sm font-bold text-lime-300">
+          npm install
+        </div>
+        <div class="text-xs text-zinc-400 mt-1">
+          Downloads from npmjs.com
+        </div>
+      </div>
+
+      <div class="text-lime-500 text-3xl md:rotate-0 rotate-90">⟹</div>
+
+      <div class="px-4 py-3 rounded-xl border border-zinc-700 bg-zinc-800/60 text-center">
+        <div class="font-mono text-sm text-zinc-300 font-bold">
+          node_modules/
+        </div>
+        <div class="text-xs text-zinc-400 mt-1">
+          Folder with all downloaded packages
+        </div>
+        <div class="text-xs text-zinc-500 mt-1 italic">
+          Often 200MB+ — never commit this to git!
+        </div>
+      </div>
+    </div>
+  </DiagramBox>
+
+  <Callout color="#a3e635" icon="🔑">
+    <strong class="text-lime-300">Package managers run on your machine, never in the browser.</strong> When you run <code class="font-mono text-xs bg-zinc-800 px-1 rounded">npm install</code>, it downloads code to your <code class="font-mono text-xs bg-zinc-800 px-1 rounded">node_modules/</code> folder. The bundler (Vite) then picks the pieces it needs from there and includes them in the final bundle. The user's browser never sees npm, node_modules, or package.json — it just gets the finished JS and CSS files.
+  </Callout>
+
+  <Callout color="#a3e635" icon="💡">
+    <strong class="text-lime-300">npm vs pnpm in practice:</strong> They use the same registry (npmjs.com), the same package.json format, and nearly identical commands (<code class="font-mono text-xs bg-zinc-800 px-1 rounded">pnpm install</code>, <code class="font-mono text-xs bg-zinc-800 px-1 rounded">pnpm run dev</code>). pnpm is faster because it stores packages globally and symlinks them into each project instead of making full copies. If npm works for you, stick with it — you can always switch later with zero code changes.
+  </Callout>
+</div>

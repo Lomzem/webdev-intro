@@ -1,0 +1,125 @@
+---
+import CodeBlock from "../components/CodeBlock.astro";
+import RunsBadge from "../components/RunsBadge.astro";
+import CompareCards from "../components/CompareCards.astro";
+import Callout from "../components/Callout.astro";
+
+const beforeStylesCode = `<span class="text-violet-300">.card</span><span class="text-zinc-400"> {
+</span><span class="text-sky-300">  background</span><span class="text-zinc-400">: </span><span class="text-amber-300">white</span><span class="text-zinc-400">;
+</span><span class="text-sky-300">  border-radius</span><span class="text-zinc-400">: </span><span class="text-amber-300">12px</span><span class="text-zinc-400">;
+</span><span class="text-sky-300">  padding</span><span class="text-zinc-400">: </span><span class="text-amber-300">24px</span><span class="text-zinc-400">;
+</span><span class="text-sky-300">  box-shadow</span><span class="text-zinc-400">: </span><span class="text-amber-300">0 4px 6px
+    rgba(0,0,0,0.1)</span><span class="text-zinc-400">;
+</span><span class="text-zinc-400">}
+
+</span><span class="text-violet-300">.card-title</span><span class="text-zinc-400"> {
+</span><span class="text-sky-300">  font-size</span><span class="text-zinc-400">: </span><span class="text-amber-300">1.5rem</span><span class="text-zinc-400">;
+</span><span class="text-sky-300">  font-weight</span><span class="text-zinc-400">: </span><span class="text-amber-300">700</span><span class="text-zinc-400">;
+</span><span class="text-sky-300">  color</span><span class="text-zinc-400">: </span><span class="text-amber-300">#1a1a2e</span><span class="text-zinc-400">;
+}</span>`;
+
+const beforeComponentCode = `<span class="text-zinc-400">&lt;</span><span class="text-red-400">div</span><span class="text-amber-300"> className</span><span class="text-zinc-400">=</span><span class="text-emerald-400">"card"</span><span class="text-zinc-400">&gt;
+</span><span class="text-zinc-400">  &lt;</span><span class="text-red-400">h2</span><span class="text-amber-300"> className</span><span class="text-zinc-400">=</span><span class="text-emerald-400">"card-title"</span><span class="text-zinc-400">&gt;
+</span><span class="text-zinc-300">    Hello World
+</span><span class="text-zinc-400">  &lt;/</span><span class="text-red-400">h2</span><span class="text-zinc-400">&gt;
+</span><span class="text-zinc-400">&lt;/</span><span class="text-red-400">div</span><span class="text-zinc-400">&gt;</span>`;
+
+const afterCode = `<span class="text-zinc-400">&lt;</span><span class="text-red-400">div</span><span class="text-amber-300"> className</span><span class="text-zinc-400">=</span><span class="text-emerald-400">"bg-white
+  rounded-xl
+  p-6
+  shadow-md"</span><span class="text-zinc-400">&gt;
+</span><span class="text-zinc-400">  &lt;</span><span class="text-red-400">h2</span><span class="text-amber-300"> className</span><span class="text-zinc-400">=</span><span class="text-emerald-400">"text-2xl
+    font-bold
+    text-slate-900"</span><span class="text-zinc-400">&gt;
+</span><span class="text-zinc-300">    Hello World
+</span><span class="text-zinc-400">  &lt;/</span><span class="text-red-400">h2</span><span class="text-zinc-400">&gt;
+</span><span class="text-zinc-400">&lt;/</span><span class="text-red-400">div</span><span class="text-zinc-400">&gt;</span>`;
+---
+
+<div class="space-y-8">
+  <div class="flex flex-wrap gap-3 items-center">
+    <RunsBadge location="Build Time (your machine)" color="amber" />
+  </div>
+
+  <p class="text-lg leading-relaxed text-zinc-300">
+    Traditional CSS means writing styles in separate files and inventing
+    class names like <code class="font-mono text-xs bg-zinc-800 px-1.5 rounded text-rose-300">
+      .card-wrapper-outer-container
+    </code>. <strong class="text-rose-300">Tailwind CSS</strong> flips this:
+    you apply small, single-purpose utility classes directly in your
+    HTML/JSX. No separate CSS file, no naming things.
+  </p>
+
+  <CompareCards
+    beforeLabel="Traditional CSS"
+    afterLabel="Tailwind CSS"
+    accentBefore="border-zinc-700 bg-zinc-900/50"
+    accentAfter="border-rose-900/40 bg-rose-950/10"
+  >
+    <Fragment slot="before">
+      <div class="space-y-3">
+        <CodeBlock title="styles.css">
+          <Fragment set:html={beforeStylesCode} />
+        </CodeBlock>
+        <CodeBlock title="Component.jsx">
+          <Fragment set:html={beforeComponentCode} />
+        </CodeBlock>
+      </div>
+    </Fragment>
+    <Fragment slot="after">
+      <div class="space-y-3">
+        <CodeBlock title="Component.jsx — that's it, no CSS file needed" accent="rose">
+          <Fragment set:html={afterCode} />
+        </CodeBlock>
+        <p class="text-xs text-zinc-400 leading-relaxed">
+          Each class does one thing: <code class="text-rose-300">bg-white</code> = white
+          background, <code class="text-rose-300">rounded-xl</code> =
+          rounded corners, <code class="text-rose-300">p-6</code> =
+          padding, <code class="text-rose-300">shadow-md</code> = drop
+          shadow.
+        </p>
+      </div>
+    </Fragment>
+  </CompareCards>
+
+  <div class="grid md:grid-cols-3 gap-4">
+    {[
+      {
+        title: "No Naming",
+        desc: 'You never have to invent class names like ".sidebar-nav-link-active-state" again.',
+        icon: "\u{1F3F7}\u{FE0F}",
+      },
+      {
+        title: "Tiny Output",
+        desc: "Tailwind scans your code and only generates CSS for the classes you actually use. Unused styles are never shipped.",
+        icon: "\u{1F4E6}",
+      },
+      {
+        title: "Co-located",
+        desc: "Styles live right next to the markup they affect. No jumping between files.",
+        icon: "\u{1F4CD}",
+      },
+    ].map((b) => (
+      <div
+        class="rounded-xl border border-rose-900/30 bg-rose-950/10 p-4"
+      >
+        <div class="text-2xl mb-2">{b.icon}</div>
+        <h3 class="font-display font-bold text-rose-300 mb-1">
+          {b.title}
+        </h3>
+        <p class="text-sm text-zinc-400 leading-relaxed">{b.desc}</p>
+      </div>
+    ))}
+  </div>
+
+  <Callout color="#fb7185" icon="🔑">
+    <strong class="text-rose-300">
+      Tailwind doesn't run in the browser.
+    </strong> During the build (when Vite bundles your app), Tailwind scans your JSX
+    files for class names like <code class="font-mono text-xs bg-zinc-800 px-1 rounded">
+      bg-white
+    </code> and generates a plain CSS file containing only those rules. The browser
+    receives normal, standard CSS — it has no idea Tailwind was involved.
+    This page you're reading right now uses Tailwind!
+  </Callout>
+</div>
