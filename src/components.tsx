@@ -1,8 +1,78 @@
 /* ─── Shared UI components ─── */
 
+import type { ReactNode } from "react";
+
+type BadgeColor = "cyan" | "violet" | "emerald" | "amber" | "rose";
+
+interface RunsBadgeProps {
+  location: string;
+  color: BadgeColor;
+}
+
+interface CodeBlockProps {
+  title?: string;
+  code: ReactNode;
+  accent?:
+    | "amber"
+    | "emerald"
+    | "sky"
+    | "violet"
+    | "rose"
+    | "orange"
+    | "teal"
+    | "blue"
+    | "zinc";
+}
+
+interface CompareCardSide {
+  label?: string;
+  content: ReactNode;
+}
+
+interface CompareCardsProps {
+  before: CompareCardSide;
+  after: CompareCardSide;
+  accentBefore?: string;
+  accentAfter?: string;
+}
+
+interface DiagramBoxProps {
+  children: ReactNode;
+  className?: string;
+}
+
+interface SequenceStep {
+  from: string;
+  to: string;
+  label: string;
+  color: string;
+  direction?: "left" | "right";
+}
+
+interface SequenceDiagramProps {
+  steps: SequenceStep[];
+  className?: string;
+}
+
+interface FlowItem {
+  label: string;
+  color: string;
+}
+
+interface FlowDiagramProps {
+  items: (string | FlowItem)[];
+  direction?: "right" | "down";
+}
+
+interface CalloutProps {
+  children: ReactNode;
+  color?: string;
+  icon?: string;
+}
+
 /** Colored badge showing WHERE something runs */
-export function RunsBadge({ location, color }) {
-  const colors = {
+export function RunsBadge({ location, color }: RunsBadgeProps) {
+  const colors: Record<BadgeColor, string> = {
     cyan: "bg-cyan-950 text-cyan-300 border-cyan-800",
     violet: "bg-violet-950 text-violet-300 border-violet-800",
     emerald: "bg-emerald-950 text-emerald-300 border-emerald-800",
@@ -28,8 +98,8 @@ export function RunsBadge({ location, color }) {
 }
 
 /** Syntax-highlighted-ish code block */
-export function CodeBlock({ title, code, accent = "zinc" }) {
-  const headerBg = {
+export function CodeBlock({ title, code, accent = "zinc" }: CodeBlockProps) {
+  const headerBg: Record<string, string> = {
     amber: "bg-amber-950/50 border-amber-900/50",
     emerald: "bg-emerald-950/50 border-emerald-900/50",
     sky: "bg-sky-950/50 border-sky-900/50",
@@ -63,7 +133,12 @@ export function CodeBlock({ title, code, accent = "zinc" }) {
 }
 
 /** Side-by-side or stacked comparison cards */
-export function CompareCards({ before, after, accentBefore, accentAfter }) {
+export function CompareCards({
+  before,
+  after,
+  accentBefore,
+  accentAfter,
+}: CompareCardsProps) {
   return (
     <div className="grid md:grid-cols-2 gap-4">
       <div
@@ -87,7 +162,7 @@ export function CompareCards({ before, after, accentBefore, accentAfter }) {
 }
 
 /** A whiteboard-style diagram container */
-export function DiagramBox({ children, className = "" }) {
+export function DiagramBox({ children, className = "" }: DiagramBoxProps) {
   return (
     <div
       className={`rounded-2xl border-2 border-dashed border-zinc-700 bg-zinc-900/50 p-6 ${className}`}
@@ -98,7 +173,10 @@ export function DiagramBox({ children, className = "" }) {
 }
 
 /** Sequence diagram built from steps */
-export function SequenceDiagram({ steps, className = "" }) {
+export function SequenceDiagram({
+  steps,
+  className = "",
+}: SequenceDiagramProps) {
   return (
     <div className={`space-y-0 ${className}`}>
       {steps.map((step, i) => (
@@ -156,7 +234,10 @@ export function SequenceDiagram({ steps, className = "" }) {
 }
 
 /** Flow diagram: boxes connected by arrows */
-export function FlowDiagram({ items, direction = "right" }) {
+export function FlowDiagram({
+  items,
+  direction = "right",
+}: FlowDiagramProps) {
   return (
     <div
       className={`flex ${direction === "down" ? "flex-col" : "flex-row flex-wrap"} items-center gap-2 justify-center`}
@@ -191,7 +272,11 @@ export function FlowDiagram({ items, direction = "right" }) {
 }
 
 /** A callout/highlight box */
-export function Callout({ children, color = "#fbbf24", icon = "💡" }) {
+export function Callout({
+  children,
+  color = "#fbbf24",
+  icon = "💡",
+}: CalloutProps) {
   return (
     <div
       className="rounded-xl border px-5 py-4 flex gap-3"

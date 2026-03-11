@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, type ComponentType } from "react";
 import OldDays from "./sections/OldDays";
 import PackageManagers from "./sections/PackageManagers";
 import Bundlers from "./sections/Bundlers";
@@ -10,7 +10,16 @@ import DataFetching from "./sections/DataFetching";
 import Fullstack from "./sections/Fullstack";
 import Architecture from "./sections/Architecture";
 
-const sections = [
+interface Section {
+  id: string;
+  num: string;
+  title: string;
+  subtitle: string;
+  color: string;
+  component: ComponentType;
+}
+
+const sections: Section[] = [
   {
     id: "old-days",
     num: "01",
@@ -96,7 +105,7 @@ const sections = [
 function App() {
   const [activeSection, setActiveSection] = useState("old-days");
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const observerRef = useRef(null);
+  const observerRef = useRef<IntersectionObserver | null>(null);
 
   // Intersection Observer for scroll tracking
   useEffect(() => {
@@ -127,7 +136,7 @@ function App() {
     };
   }, []);
 
-  const scrollTo = (id) => {
+  const scrollTo = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
     setSidebarOpen(false);
   };
