@@ -122,7 +122,7 @@ export function CodeBlock({ title, code, accent = "zinc" }: CodeBlockProps) {
           <div className="w-3 h-3 rounded-full bg-green-500/80" />
         </div>
         {title && (
-          <span className="text-xs font-mono text-zinc-500 ml-2">{title}</span>
+          <span className="text-xs font-mono text-zinc-400 ml-2">{title}</span>
         )}
       </div>
       <pre className="p-4 overflow-x-auto text-sm leading-relaxed font-mono">
@@ -210,7 +210,7 @@ export function SequenceDiagram({
               >
                 {step.from}
               </span>
-              <span className="text-zinc-600 text-lg">
+              <span className="text-zinc-500 text-lg">
                 {step.direction === "left" ? "◂──" : "──▸"}
               </span>
               <span
@@ -258,7 +258,7 @@ export function FlowDiagram({ items, direction = "right" }: FlowDiagramProps) {
             </div>
           )}
           {i < items.length - 1 && (
-            <span className="text-zinc-600 text-lg flex-shrink-0">
+            <span className="text-zinc-500 text-lg flex-shrink-0">
               {direction === "down" ? "▾" : "▸"}
             </span>
           )}

@@ -86,7 +86,7 @@ export default function Fullstack() {
         </h3>
         <div className="flex flex-wrap gap-3 items-center mb-2">
           <RunsBadge location="Your Server" color="emerald" />
-          <span className="text-zinc-600 text-sm">then</span>
+          <span className="text-zinc-500 text-sm">then</span>
           <RunsBadge location="User's Browser" color="violet" />
         </div>
         <p className="text-zinc-400 leading-relaxed">
@@ -136,7 +136,7 @@ export default function Fullstack() {
       {/* The rendering spectrum */}
       <DiagramBox>
         <div className="text-center mb-4">
-          <span className="text-xs font-mono text-zinc-500 uppercase tracking-widest">
+          <span className="text-xs font-mono text-zinc-400 uppercase tracking-widest">
             The spectrum of rendering approaches
           </span>
         </div>
@@ -153,7 +153,7 @@ export default function Fullstack() {
               Server sends an empty HTML shell. Browser downloads JS, React
               builds the entire page. All rendering happens in the browser.
             </p>
-            <div className="text-xs text-zinc-500 pt-2 border-t border-violet-900/30 space-y-1">
+            <div className="text-xs text-zinc-400 pt-2 border-t border-violet-900/30 space-y-1">
               <div className="flex gap-2">
                 <span className="text-emerald-400">+</span> Simple mental model,
                 easy to deploy (static files)
@@ -178,7 +178,7 @@ export default function Fullstack() {
               receives a complete page instantly, then React hydrates to make it
               interactive.
             </p>
-            <div className="text-xs text-zinc-500 pt-2 border-t border-teal-900/30 space-y-1">
+            <div className="text-xs text-zinc-400 pt-2 border-t border-teal-900/30 space-y-1">
               <div className="flex gap-2">
                 <span className="text-emerald-400">+</span> Fast first paint,
                 great SEO, link previews work
@@ -203,7 +203,7 @@ export default function Fullstack() {
               time. No server needed at runtime — just static files, but with
               real content baked in.
             </p>
-            <div className="text-xs text-zinc-500 pt-2 border-t border-amber-900/30 space-y-1">
+            <div className="text-xs text-zinc-400 pt-2 border-t border-amber-900/30 space-y-1">
               <div className="flex gap-2">
                 <span className="text-emerald-400">+</span> Fastest possible,
                 cheapest hosting, great SEO
@@ -246,10 +246,10 @@ export default function Fullstack() {
               <span className="text-emerald-400">{"'@/lib/database'"}</span>
               <span className="text-zinc-400">{";\n\n"}</span>
 
-              <span className="text-zinc-500">
+              <span className="text-zinc-400">
                 {"// This runs on the SERVER. The browser never\n"}
               </span>
-              <span className="text-zinc-500">
+              <span className="text-zinc-400">
                 {"// sees this code or your database credentials.\n\n"}
               </span>
 
@@ -259,7 +259,7 @@ export default function Fullstack() {
               <span className="text-amber-300">{"PostsPage"}</span>
               <span className="text-zinc-400">{"() {\n"}</span>
 
-              <span className="text-zinc-500">
+              <span className="text-zinc-400">
                 {"  // Query the database directly — no API layer needed\n"}
               </span>
               <span className="text-zinc-400">{"  "}</span>
@@ -281,10 +281,10 @@ export default function Fullstack() {
               </span>
               <span className="text-zinc-400">{"\n  );\n\n"}</span>
 
-              <span className="text-zinc-500">
+              <span className="text-zinc-400">
                 {"  // This JSX is rendered to HTML on the server,\n"}
               </span>
-              <span className="text-zinc-500">
+              <span className="text-zinc-400">
                 {"  // then sent to the browser as a complete page.\n"}
               </span>
               <span className="text-zinc-400">{"  "}</span>
@@ -303,7 +303,7 @@ export default function Fullstack() {
               <span className="text-amber-300">{" key"}</span>
               <span className="text-zinc-400">{"={post.id}>\n"}</span>
               <span className="text-zinc-400">{"          {post.title} "}</span>
-              <span className="text-zinc-500">{"— "}</span>
+              <span className="text-zinc-400">{"— "}</span>
               <span className="text-zinc-400">{"{post.author}\n"}</span>
               <span className="text-zinc-400">{"        </"}</span>
               <span className="text-red-400">{"li"}</span>
@@ -386,12 +386,12 @@ export default function Fullstack() {
                 backgroundColor: col.color + "08",
               }}
             >
-              <h4
+              <h3
                 className="font-display font-bold mb-3"
                 style={{ color: col.color }}
               >
                 {col.title}
-              </h4>
+              </h3>
               <ul className="space-y-2">
                 {col.items.map((item, i) => (
                   <li key={i} className="flex gap-2 text-sm text-zinc-400">

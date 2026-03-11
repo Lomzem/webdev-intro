@@ -18,7 +18,7 @@ export default function Bundlers() {
       {/* Visual: many files → bundler → output */}
       <DiagramBox>
         <div className="text-center mb-4">
-          <span className="text-xs font-mono text-zinc-500 uppercase tracking-widest">
+          <span className="text-xs font-mono text-zinc-400 uppercase tracking-widest">
             What a bundler does
           </span>
         </div>
@@ -57,7 +57,7 @@ export default function Bundlers() {
             <div className="font-display font-bold text-emerald-300 text-lg">
               Vite
             </div>
-            <div className="text-xs text-zinc-500 mt-1">Bundler</div>
+            <div className="text-xs text-zinc-400 mt-1">Bundler</div>
           </div>
 
           {/* Arrow out */}
@@ -77,7 +77,7 @@ export default function Bundlers() {
                 className="px-3 py-1.5 rounded border border-emerald-800/50 bg-emerald-950/30 text-xs font-mono flex items-center gap-3"
               >
                 <span className="text-emerald-300">{f.name}</span>
-                <span className="text-zinc-600">{f.size}</span>
+                <span className="text-zinc-500">{f.size}</span>
               </div>
             ))}
           </div>
@@ -136,16 +136,16 @@ export default function Bundlers() {
             accent="emerald"
             code={
               <span>
-                <span className="text-zinc-500">$</span>{" "}
+                <span className="text-zinc-400">$</span>{" "}
                 <span className="text-emerald-300">npm run dev</span>
                 {"\n\n"}
-                <span className="text-zinc-500">
+                <span className="text-zinc-400">
                   {"  VITE v7.3.1  ready in 120 ms\n\n"}
                 </span>
                 <span className="text-emerald-400">
                   {"  ➜  Local:   http://localhost:5173/\n"}
                 </span>
-                <span className="text-zinc-500">
+                <span className="text-zinc-400">
                   {"  ➜  press h + enter to show help\n\n"}
                 </span>
                 <span className="text-sky-300">{"  [hmr] "}</span>

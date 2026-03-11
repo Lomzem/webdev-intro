@@ -68,9 +68,9 @@ export default function PackageManagers() {
                 </span>
               )}
             </div>
-            <div className="text-xs text-zinc-600 font-mono">{pm.full}</div>
+            <div className="text-xs text-zinc-500 font-mono">{pm.full}</div>
             <p className="text-sm text-zinc-400 leading-relaxed">{pm.desc}</p>
-            <p className="text-xs text-zinc-600 italic">{pm.detail}</p>
+            <p className="text-xs text-zinc-500 italic">{pm.detail}</p>
           </div>
         ))}
       </div>
@@ -105,7 +105,7 @@ export default function PackageManagers() {
               <span className="text-zinc-400">{"  "}</span>
               <span className="text-sky-300">{'"scripts"'}</span>
               <span className="text-zinc-400">{": {\n"}</span>
-              <span className="text-zinc-500">
+              <span className="text-zinc-400">
                 {"    // These are shortcuts you run with: npm run <name>\n"}
               </span>
               <span className="text-zinc-400">{"    "}</span>
@@ -127,7 +127,7 @@ export default function PackageManagers() {
               <span className="text-zinc-400">{"  "}</span>
               <span className="text-sky-300">{'"dependencies"'}</span>
               <span className="text-zinc-400">{": {\n"}</span>
-              <span className="text-zinc-500">
+              <span className="text-zinc-400">
                 {"    // Libraries your app NEEDS to run in the browser\n"}
               </span>
               <span className="text-zinc-400">{"    "}</span>
@@ -144,7 +144,7 @@ export default function PackageManagers() {
               <span className="text-zinc-400">{"  "}</span>
               <span className="text-sky-300">{'"devDependencies"'}</span>
               <span className="text-zinc-400">{": {\n"}</span>
-              <span className="text-zinc-500">
+              <span className="text-zinc-400">
                 {
                   "    // Tools used only during development (not shipped to users)\n"
                 }
@@ -207,7 +207,7 @@ export default function PackageManagers() {
                   {c.cmd}
                 </code>
                 {c.alias && (
-                  <div className="text-xs font-mono text-zinc-600 mt-0.5">
+                  <div className="text-xs font-mono text-zinc-500 mt-0.5">
                     short: {c.alias}
                   </div>
                 )}
@@ -221,7 +221,7 @@ export default function PackageManagers() {
       {/* node_modules */}
       <DiagramBox>
         <div className="text-center mb-4">
-          <span className="text-xs font-mono text-zinc-500 uppercase tracking-widest">
+          <span className="text-xs font-mono text-zinc-400 uppercase tracking-widest">
             What npm install actually does
           </span>
         </div>
@@ -230,7 +230,7 @@ export default function PackageManagers() {
             <div className="font-mono text-sm text-lime-300 font-bold">
               package.json
             </div>
-            <div className="text-xs text-zinc-500 mt-1">
+            <div className="text-xs text-zinc-400 mt-1">
               "I need react, react-dom, vite..."
             </div>
           </div>
@@ -242,7 +242,7 @@ export default function PackageManagers() {
             <div className="font-mono text-sm font-bold text-lime-300">
               npm install
             </div>
-            <div className="text-xs text-zinc-500 mt-1">
+            <div className="text-xs text-zinc-400 mt-1">
               Downloads from npmjs.com
             </div>
           </div>
@@ -253,10 +253,10 @@ export default function PackageManagers() {
             <div className="font-mono text-sm text-zinc-300 font-bold">
               node_modules/
             </div>
-            <div className="text-xs text-zinc-500 mt-1">
+            <div className="text-xs text-zinc-400 mt-1">
               Folder with all downloaded packages
             </div>
-            <div className="text-xs text-zinc-600 mt-1 italic">
+            <div className="text-xs text-zinc-500 mt-1 italic">
               Often 200MB+ — never commit this to git!
             </div>
           </div>

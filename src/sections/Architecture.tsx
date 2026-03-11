@@ -17,7 +17,7 @@ export default function Architecture() {
       {/* Main architecture diagram */}
       <DiagramBox className="!border-blue-800/40 !bg-blue-950/10">
         <div className="text-center mb-6">
-          <span className="text-xs font-mono text-zinc-500 uppercase tracking-widest">
+          <span className="text-xs font-mono text-zinc-400 uppercase tracking-widest">
             The Modern Web Architecture
           </span>
         </div>
@@ -27,9 +27,9 @@ export default function Architecture() {
           <div className="rounded-2xl border-2 border-cyan-700/50 bg-zinc-950/80 p-5 space-y-4">
             <div className="flex items-center gap-2 mb-1">
               <span className="text-2xl">🖥️</span>
-              <h4 className="font-display font-bold text-cyan-300">
+              <h3 className="font-display font-bold text-cyan-300">
                 Development
-              </h4>
+              </h3>
             </div>
             <RunsBadge location="Your Machine" color="cyan" />
             <div className="space-y-2 text-sm">
@@ -37,7 +37,7 @@ export default function Architecture() {
                 <div className="font-mono text-xs text-cyan-300 font-bold">
                   JS Runtime
                 </div>
-                <div className="text-zinc-500 text-xs mt-0.5">
+                <div className="text-zinc-400 text-xs mt-0.5">
                   Node.js / Bun — runs your dev tools
                 </div>
               </div>
@@ -46,7 +46,7 @@ export default function Architecture() {
                 <div className="font-mono text-xs text-cyan-300 font-bold">
                   Bundler + Dev Server
                 </div>
-                <div className="text-zinc-500 text-xs mt-0.5">
+                <div className="text-zinc-400 text-xs mt-0.5">
                   Vite / Webpack — bundles code, HMR
                 </div>
               </div>
@@ -55,12 +55,12 @@ export default function Architecture() {
                 <div className="font-mono text-xs text-cyan-300 font-bold">
                   Build-Time Tools
                 </div>
-                <div className="text-zinc-500 text-xs mt-0.5">
+                <div className="text-zinc-400 text-xs mt-0.5">
                   TypeScript, Tailwind, ESLint
                 </div>
               </div>
             </div>
-            <div className="text-xs text-zinc-600 font-mono pt-2 border-t border-cyan-900/20">
+            <div className="text-xs text-zinc-500 font-mono pt-2 border-t border-cyan-900/20">
               npm run dev → localhost:5173
             </div>
           </div>
@@ -71,12 +71,12 @@ export default function Architecture() {
             <div className="rounded-2xl border-2 border-amber-700/50 bg-zinc-950/80 p-5 space-y-3">
               <div className="flex items-center gap-2 mb-1">
                 <span className="text-2xl">📦</span>
-                <h4 className="font-display font-bold text-amber-300">
+                <h3 className="font-display font-bold text-amber-300">
                   Build Output
-                </h4>
+                </h3>
               </div>
               <RunsBadge location="Build Step / CI" color="amber" />
-              <p className="text-xs text-zinc-500">
+              <p className="text-xs text-zinc-400">
                 <code className="text-amber-300">npm run build</code> produces
                 optimized static files:
               </p>
@@ -94,14 +94,14 @@ export default function Architecture() {
                   </div>
                 ))}
               </div>
-              <div className="text-xs text-zinc-600 font-mono pt-2 border-t border-amber-900/20">
+              <div className="text-xs text-zinc-500 font-mono pt-2 border-t border-amber-900/20">
                 Deployed to a CDN or static host
               </div>
             </div>
 
             {/* Arrow */}
             <div className="flex justify-center">
-              <div className="flex flex-col items-center gap-1 text-zinc-600">
+              <div className="flex flex-col items-center gap-1 text-zinc-500">
                 <span className="text-xs font-mono">served to</span>
                 <span className="text-2xl">⬇</span>
               </div>
@@ -111,9 +111,9 @@ export default function Architecture() {
             <div className="rounded-2xl border-2 border-violet-700/50 bg-zinc-950/80 p-5 space-y-3">
               <div className="flex items-center gap-2 mb-1">
                 <span className="text-2xl">🌐</span>
-                <h4 className="font-display font-bold text-violet-300">
+                <h3 className="font-display font-bold text-violet-300">
                   User's Browser
-                </h4>
+                </h3>
               </div>
               <RunsBadge location="User's Browser" color="violet" />
               <div className="space-y-2 text-sm">
@@ -121,7 +121,7 @@ export default function Architecture() {
                   <div className="font-mono text-xs text-violet-300 font-bold">
                     Frontend Framework
                   </div>
-                  <div className="text-zinc-500 text-xs mt-0.5">
+                  <div className="text-zinc-400 text-xs mt-0.5">
                     React / Vue / Svelte — builds & updates UI
                   </div>
                 </div>
@@ -129,7 +129,7 @@ export default function Architecture() {
                   <div className="font-mono text-xs text-violet-300 font-bold">
                     Client Libraries
                   </div>
-                  <div className="text-zinc-500 text-xs mt-0.5">
+                  <div className="text-zinc-400 text-xs mt-0.5">
                     TanStack Query, router, state management
                   </div>
                 </div>
@@ -141,9 +141,9 @@ export default function Architecture() {
           <div className="rounded-2xl border-2 border-emerald-700/50 bg-zinc-950/80 p-5 space-y-4">
             <div className="flex items-center gap-2 mb-1">
               <span className="text-2xl">⚙️</span>
-              <h4 className="font-display font-bold text-emerald-300">
+              <h3 className="font-display font-bold text-emerald-300">
                 Backend Server
-              </h4>
+              </h3>
             </div>
             <RunsBadge location="Server / Cloud" color="emerald" />
             <div className="space-y-2 text-sm">
@@ -151,7 +151,7 @@ export default function Architecture() {
                 <div className="font-mono text-xs text-emerald-300 font-bold">
                   API Endpoints
                 </div>
-                <div className="text-zinc-500 text-xs mt-0.5">
+                <div className="text-zinc-400 text-xs mt-0.5">
                   REST or GraphQL — your app's interface
                 </div>
               </div>
@@ -160,7 +160,7 @@ export default function Architecture() {
                 <div className="font-mono text-xs text-emerald-300 font-bold">
                   Business Logic
                 </div>
-                <div className="text-zinc-500 text-xs mt-0.5">
+                <div className="text-zinc-400 text-xs mt-0.5">
                   Auth, validation, processing
                 </div>
               </div>
@@ -169,12 +169,12 @@ export default function Architecture() {
                 <div className="font-mono text-xs text-emerald-300 font-bold">
                   Database
                 </div>
-                <div className="text-zinc-500 text-xs mt-0.5">
+                <div className="text-zinc-400 text-xs mt-0.5">
                   PostgreSQL, MongoDB, Redis, etc.
                 </div>
               </div>
             </div>
-            <div className="text-xs text-zinc-600 font-mono pt-2 border-t border-emerald-900/20">
+            <div className="text-xs text-zinc-500 font-mono pt-2 border-t border-emerald-900/20">
               Can be any language: JS, Python, Go, Rust...
             </div>
           </div>
@@ -227,9 +227,9 @@ export default function Architecture() {
               className="rounded-xl border border-blue-900/30 bg-blue-950/10 p-4"
             >
               <div className="text-2xl mb-2">{p.icon}</div>
-              <h4 className="font-display font-bold text-blue-300 mb-1">
+              <h3 className="font-display font-bold text-blue-300 mb-1">
                 {p.title}
-              </h4>
+              </h3>
               <p className="text-sm text-zinc-400 leading-relaxed">{p.desc}</p>
             </div>
           ))}

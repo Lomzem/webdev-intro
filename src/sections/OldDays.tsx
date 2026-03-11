@@ -15,41 +15,41 @@ export default function OldDays() {
         accent="amber"
         code={
           <span className="text-zinc-300">
-            <span className="text-zinc-500">
+            <span className="text-zinc-400">
               {"<!-- Every library loaded via a <script> tag -->\n"}
               {"<!-- ORDER MATTERS — load jQuery before your code! -->\n"}
             </span>
             <span className="text-red-400">{"<script"}</span>
             <span className="text-amber-300"> src</span>
-            <span className="text-zinc-500">=</span>
+            <span className="text-zinc-400">=</span>
             <span className="text-emerald-400">"libs/jquery-3.2.1.min.js"</span>
             <span className="text-red-400">{">"}</span>
             <span className="text-red-400">{"</script>\n"}</span>
             <span className="text-red-400">{"<script"}</span>
             <span className="text-amber-300"> src</span>
-            <span className="text-zinc-500">=</span>
+            <span className="text-zinc-400">=</span>
             <span className="text-emerald-400">"libs/bootstrap.min.js"</span>
             <span className="text-red-400">{">"}</span>
             <span className="text-red-400">{"</script>\n"}</span>
             <span className="text-red-400">{"<script"}</span>
             <span className="text-amber-300"> src</span>
-            <span className="text-zinc-500">=</span>
+            <span className="text-zinc-400">=</span>
             <span className="text-emerald-400">"libs/lodash.min.js"</span>
             <span className="text-red-400">{">"}</span>
             <span className="text-red-400">{"</script>\n"}</span>
             <span className="text-red-400">{"<script"}</span>
             <span className="text-amber-300"> src</span>
-            <span className="text-zinc-500">=</span>
+            <span className="text-zinc-400">=</span>
             <span className="text-emerald-400">"js/utils.js"</span>
             <span className="text-red-400">{">"}</span>
             <span className="text-red-400">{"</script>\n"}</span>
             <span className="text-red-400">{"<script"}</span>
             <span className="text-amber-300"> src</span>
-            <span className="text-zinc-500">=</span>
+            <span className="text-zinc-400">=</span>
             <span className="text-emerald-400">"js/app.js"</span>
             <span className="text-red-400">{">"}</span>
             <span className="text-red-400">{"</script>\n"}</span>
-            <span className="text-zinc-500">
+            <span className="text-zinc-400">
               {"\n<!-- Move one script above another? Everything breaks. -->"}
             </span>
           </span>
@@ -94,9 +94,9 @@ export default function OldDays() {
             className="rounded-xl border border-amber-900/30 bg-amber-950/10 p-4"
           >
             <div className="text-2xl mb-2">{pain.icon}</div>
-            <h4 className="font-display font-bold text-amber-300 mb-1">
+            <h3 className="font-display font-bold text-amber-300 mb-1">
               {pain.title}
-            </h4>
+            </h3>
             <p className="text-sm text-zinc-400 leading-relaxed">{pain.desc}</p>
           </div>
         ))}

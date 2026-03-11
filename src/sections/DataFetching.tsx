@@ -11,7 +11,7 @@ export default function DataFetching() {
     <div className="space-y-8">
       <div className="flex flex-wrap gap-3 items-center">
         <RunsBadge location="User's Browser" color="violet" />
-        <span className="text-zinc-600 text-sm">+</span>
+        <span className="text-zinc-500 text-sm">+</span>
         <RunsBadge location="Your Backend Server" color="emerald" />
       </div>
 
@@ -52,7 +52,7 @@ export default function DataFetching() {
             <span className="text-zinc-400">{"  "}</span>
             <span className="text-amber-300">{"useEffect"}</span>
             <span className="text-zinc-400">{"(() => {\n"}</span>
-            <span className="text-zinc-500">
+            <span className="text-zinc-400">
               {"    // This runs IN THE BROWSER\n"}
             </span>
             <span className="text-zinc-400">{"    "}</span>
@@ -288,19 +288,19 @@ export default function DataFetching() {
                     <span className="text-red-400">{"p"}</span>
                     <span className="text-zinc-400">{">;\n\n"}</span>
 
-                    <span className="text-zinc-500">
+                    <span className="text-zinc-400">
                       {"  // No caching.\n"}
                     </span>
-                    <span className="text-zinc-500">
+                    <span className="text-zinc-400">
                       {"  // No retries.\n"}
                     </span>
-                    <span className="text-zinc-500">
+                    <span className="text-zinc-400">
                       {"  // No background refetch.\n"}
                     </span>
-                    <span className="text-zinc-500">
+                    <span className="text-zinc-400">
                       {"  // Every page visit re-fetches.\n"}
                     </span>
-                    <span className="text-zinc-500">
+                    <span className="text-zinc-400">
                       {"  // And you wrote all this yourself.\n"}
                     </span>
                     <span className="text-zinc-400">{"}"}</span>
@@ -377,16 +377,16 @@ export default function DataFetching() {
                     <span className="text-red-400">{"p"}</span>
                     <span className="text-zinc-400">{">;\n\n"}</span>
 
-                    <span className="text-zinc-500">
+                    <span className="text-zinc-400">
                       {"  // Caching ✓  Retries ✓\n"}
                     </span>
-                    <span className="text-zinc-500">
+                    <span className="text-zinc-400">
                       {"  // Background refetch ✓\n"}
                     </span>
-                    <span className="text-zinc-500">
+                    <span className="text-zinc-400">
                       {"  // Loading & error states ✓\n"}
                     </span>
-                    <span className="text-zinc-500">
+                    <span className="text-zinc-400">
                       {"  // All in ~12 lines.\n"}
                     </span>
                     <span className="text-zinc-400">{"}"}</span>
@@ -434,7 +434,7 @@ export default function DataFetching() {
               </span>
               <span className="text-zinc-400">{";\n\n"}</span>
 
-              <span className="text-zinc-500">
+              <span className="text-zinc-400">
                 {"// Define the shape of a new post\n"}
               </span>
               <span className="text-violet-300">{"interface "}</span>
@@ -513,7 +513,7 @@ export default function DataFetching() {
               <span className="text-zinc-400">{"    "}</span>
               <span className="text-sky-300">{"onSuccess"}</span>
               <span className="text-zinc-400">{": () => {\n"}</span>
-              <span className="text-zinc-500">
+              <span className="text-zinc-400">
                 {"      // Refetch the posts list so the new one appears\n"}
               </span>
               <span className="text-zinc-400">{"      "}</span>
@@ -528,7 +528,7 @@ export default function DataFetching() {
               <span className="text-zinc-400">{"    },\n"}</span>
               <span className="text-zinc-400">{"  });\n\n"}</span>
 
-              <span className="text-zinc-500">
+              <span className="text-zinc-400">
                 {"  // TypeScript ensures you pass the right shape:\n"}
               </span>
               <span className="text-zinc-400">{"  "}</span>
@@ -666,7 +666,7 @@ export default function DataFetching() {
               <div className="font-mono text-xs font-bold text-orange-300 mb-1">
                 {f.label}
               </div>
-              <p className="text-xs text-zinc-500 leading-relaxed">{f.desc}</p>
+              <p className="text-xs text-zinc-400 leading-relaxed">{f.desc}</p>
             </div>
           ))}
         </div>

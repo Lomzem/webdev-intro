@@ -44,17 +44,17 @@ export default function TypeScript() {
                   <span className="text-zinc-400">{", "}</span>
                   <span className="text-emerald-400">{'"3"'}</span>
                   <span className="text-zinc-400">{");\n"}</span>
-                  <span className="text-zinc-500">
+                  <span className="text-zinc-400">
                     {'// Returns "53" not 8!'}
                   </span>
                   <span className="text-zinc-400">{"\n"}</span>
-                  <span className="text-zinc-500">
+                  <span className="text-zinc-400">
                     {"// JS silently concatenated\n"}
                   </span>
-                  <span className="text-zinc-500">
+                  <span className="text-zinc-400">
                     {"// strings instead of adding.\n"}
                   </span>
-                  <span className="text-zinc-500">
+                  <span className="text-zinc-400">
                     {"// No error. Just wrong."}
                   </span>
                 </span>
@@ -100,7 +100,7 @@ export default function TypeScript() {
                   <span className="text-red-400">
                     {"// assignable to 'number'.\n"}
                   </span>
-                  <span className="text-zinc-500">
+                  <span className="text-zinc-400">
                     {"// Caught BEFORE running!"}
                   </span>
                 </span>
@@ -123,7 +123,7 @@ export default function TypeScript() {
       {/* How it works */}
       <DiagramBox>
         <div className="text-center mb-4">
-          <span className="text-xs font-mono text-zinc-500 uppercase tracking-widest">
+          <span className="text-xs font-mono text-zinc-400 uppercase tracking-widest">
             TypeScript compilation
           </span>
         </div>
@@ -139,7 +139,7 @@ export default function TypeScript() {
                 className="px-3 py-1.5 rounded border border-pink-800/40 bg-pink-950/20 text-xs font-mono flex items-center gap-3"
               >
                 <span className="text-pink-300">{f.name}</span>
-                <span className="text-zinc-600">{f.desc}</span>
+                <span className="text-zinc-500">{f.desc}</span>
               </div>
             ))}
           </div>
@@ -151,7 +151,7 @@ export default function TypeScript() {
             <div className="font-display font-bold text-pink-300">
               TypeScript
             </div>
-            <div className="text-xs text-zinc-500 mt-1">
+            <div className="text-xs text-zinc-400 mt-1">
               Type checks → strips types
             </div>
           </div>
@@ -169,7 +169,7 @@ export default function TypeScript() {
                 className="px-3 py-1.5 rounded border border-zinc-700 bg-zinc-800/60 text-xs font-mono flex items-center gap-3"
               >
                 <span className="text-zinc-300">{f.name}</span>
-                <span className="text-zinc-600">{f.desc}</span>
+                <span className="text-zinc-500">{f.desc}</span>
               </div>
             ))}
           </div>
@@ -192,10 +192,10 @@ export default function TypeScript() {
           accent="rose"
           code={
             <span>
-              <span className="text-zinc-500">
+              <span className="text-zinc-400">
                 {"// This describes what a Post looks like.\n"}
               </span>
-              <span className="text-zinc-500">
+              <span className="text-zinc-400">
                 {"// It doesn't create anything — it's just a blueprint.\n\n"}
               </span>
               <span className="text-violet-300">{"interface "}</span>
@@ -350,7 +350,7 @@ export default function TypeScript() {
                 <span className="text-sm text-zinc-400">{f.name}</span>
               </div>
               <p className="text-sm text-zinc-400 leading-relaxed">{f.desc}</p>
-              <div className="text-xs font-mono text-zinc-600">
+              <div className="text-xs font-mono text-zinc-500">
                 e.g. {f.example}
               </div>
             </div>

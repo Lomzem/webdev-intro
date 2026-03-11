@@ -31,7 +31,7 @@ export default function Frameworks() {
               title="app.js"
               code={
                 <span>
-                  <span className="text-zinc-500">
+                  <span className="text-zinc-400">
                     {"// Add a new todo item\n"}
                   </span>
                   <span className="text-violet-300">{"const "}</span>

@@ -129,7 +129,7 @@ export default function TailwindCSS() {
                   </span>
                 }
               />
-              <p className="text-xs text-zinc-500 leading-relaxed">
+              <p className="text-xs text-zinc-400 leading-relaxed">
                 Each class does one thing:{" "}
                 <code className="text-rose-300">bg-white</code> = white
                 background, <code className="text-rose-300">rounded-xl</code> =
@@ -167,9 +167,9 @@ export default function TailwindCSS() {
             className="rounded-xl border border-rose-900/30 bg-rose-950/10 p-4"
           >
             <div className="text-2xl mb-2">{b.icon}</div>
-            <h4 className="font-display font-bold text-rose-300 mb-1">
+            <h3 className="font-display font-bold text-rose-300 mb-1">
               {b.title}
-            </h4>
+            </h3>
             <p className="text-sm text-zinc-400 leading-relaxed">{b.desc}</p>
           </div>
         ))}

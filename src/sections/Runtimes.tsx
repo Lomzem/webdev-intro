@@ -15,7 +15,7 @@ export default function Runtimes() {
       {/* Two environments diagram */}
       <DiagramBox>
         <div className="text-center mb-6">
-          <span className="text-xs font-mono text-zinc-500 uppercase tracking-widest">
+          <span className="text-xs font-mono text-zinc-400 uppercase tracking-widest">
             Two different worlds, same language
           </span>
         </div>
@@ -24,9 +24,9 @@ export default function Runtimes() {
           <div className="rounded-xl border-2 border-sky-700/50 bg-sky-950/20 p-5 space-y-4">
             <div className="flex items-center gap-2">
               <span className="text-2xl">🖥️</span>
-              <h4 className="font-display font-bold text-sky-300 text-lg">
+              <h3 className="font-display font-bold text-sky-300 text-lg">
                 Your Machine / Server
-              </h4>
+              </h3>
             </div>
             <RunsBadge location="Your Machine" color="cyan" />
             <div className="space-y-2 mt-3">
@@ -55,7 +55,7 @@ export default function Runtimes() {
                 </div>
               ))}
             </div>
-            <div className="text-xs text-zinc-500 font-mono mt-3 pt-3 border-t border-sky-900/30">
+            <div className="text-xs text-zinc-400 font-mono mt-3 pt-3 border-t border-sky-900/30">
               Can access: file system, network, databases, processes
               <br />
               Cannot access: DOM, window, document
@@ -66,9 +66,9 @@ export default function Runtimes() {
           <div className="rounded-xl border-2 border-violet-700/50 bg-violet-950/20 p-5 space-y-4">
             <div className="flex items-center gap-2">
               <span className="text-2xl">🌐</span>
-              <h4 className="font-display font-bold text-violet-300 text-lg">
+              <h3 className="font-display font-bold text-violet-300 text-lg">
                 User's Web Browser
-              </h4>
+              </h3>
             </div>
             <RunsBadge location="User's Browser" color="violet" />
             <div className="space-y-2 mt-3">
@@ -97,7 +97,7 @@ export default function Runtimes() {
                 </div>
               ))}
             </div>
-            <div className="text-xs text-zinc-500 font-mono mt-3 pt-3 border-t border-violet-900/30">
+            <div className="text-xs text-zinc-400 font-mono mt-3 pt-3 border-t border-violet-900/30">
               Can access: DOM, window, fetch, localStorage
               <br />
               Cannot access: file system, databases, processes

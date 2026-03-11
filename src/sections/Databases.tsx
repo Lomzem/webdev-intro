@@ -30,13 +30,13 @@ export default function Databases() {
               title="api/posts.ts"
               code={
                 <span>
-                  <span className="text-zinc-500">
+                  <span className="text-zinc-400">
                     {"// No type safety.\n"}
                   </span>
-                  <span className="text-zinc-500">
+                  <span className="text-zinc-400">
                     {"// Typo in a column name?\n"}
                   </span>
-                  <span className="text-zinc-500">
+                  <span className="text-zinc-400">
                     {"// You won't know until runtime.\n\n"}
                   </span>
                   <span className="text-violet-300">{"const "}</span>
@@ -59,10 +59,10 @@ export default function Databases() {
                   <span className="text-emerald-400">{"'published'"}</span>
                   <span className="text-zinc-400">{"]\n"}</span>
                   <span className="text-zinc-400">{");\n\n"}</span>
-                  <span className="text-zinc-500">
+                  <span className="text-zinc-400">
                     {"// result.rows is `any[]`\n"}
                   </span>
-                  <span className="text-zinc-500">
+                  <span className="text-zinc-400">
                     {'// "titl" typo? No error.'}
                   </span>
                 </span>
@@ -117,10 +117,10 @@ export default function Databases() {
                   <span className="text-zinc-400">{", "}</span>
                   <span className="text-emerald-400">{"'published'"}</span>
                   <span className="text-zinc-400">{"));\n\n"}</span>
-                  <span className="text-zinc-500">
+                  <span className="text-zinc-400">
                     {"// result is Post[] — fully typed!\n"}
                   </span>
-                  <span className="text-zinc-500">
+                  <span className="text-zinc-400">
                     {"// posts.titl would be a TS error."}
                   </span>
                 </span>
@@ -197,10 +197,10 @@ export default function Databases() {
               <span className="text-sky-300">{"defaultNow"}</span>
               <span className="text-zinc-400">{"(),\n"}</span>
               <span className="text-zinc-400">{"});\n\n"}</span>
-              <span className="text-zinc-500">
+              <span className="text-zinc-400">
                 {"// TypeScript now knows: a post has id (number),\n"}
               </span>
-              <span className="text-zinc-500">
+              <span className="text-zinc-400">
                 {"// title (string), author (string), createdAt (Date)."}
               </span>
             </span>
@@ -229,7 +229,7 @@ export default function Databases() {
               <div className="font-mono text-xs font-bold text-indigo-300 mb-1">
                 {f.label}
               </div>
-              <p className="text-xs text-zinc-500 leading-relaxed">{f.desc}</p>
+              <p className="text-xs text-zinc-400 leading-relaxed">{f.desc}</p>
             </div>
           ))}
         </div>
@@ -321,7 +321,7 @@ export default function Databases() {
               <span className="text-violet-300">{"function "}</span>
               <span className="text-amber-300">{"PostList"}</span>
               <span className="text-zinc-400">{"() {\n"}</span>
-              <span className="text-zinc-500">
+              <span className="text-zinc-400">
                 {"  // Fully typed — knows the return shape\n"}
               </span>
               <span className="text-zinc-400">{"  "}</span>
@@ -336,10 +336,10 @@ export default function Databases() {
               <span className="text-zinc-400">{"."}</span>
               <span className="text-sky-300">{"listPosts"}</span>
               <span className="text-zinc-400">{");\n\n"}</span>
-              <span className="text-zinc-500">
+              <span className="text-zinc-400">
                 {"  // Data updates in REAL TIME — no refetching needed.\n"}
               </span>
-              <span className="text-zinc-500">
+              <span className="text-zinc-400">
                 {"  // Another user adds a post? It appears instantly.\n"}
               </span>
               <span className="text-zinc-400">{"}"}</span>
@@ -369,7 +369,7 @@ export default function Databases() {
               <div className="font-mono text-xs font-bold text-indigo-300 mb-1">
                 {f.label}
               </div>
-              <p className="text-xs text-zinc-500 leading-relaxed">{f.desc}</p>
+              <p className="text-xs text-zinc-400 leading-relaxed">{f.desc}</p>
             </div>
           ))}
         </div>
@@ -378,7 +378,7 @@ export default function Databases() {
       {/* Where it runs */}
       <DiagramBox>
         <div className="text-center mb-4">
-          <span className="text-xs font-mono text-zinc-500 uppercase tracking-widest">
+          <span className="text-xs font-mono text-zinc-400 uppercase tracking-widest">
             Traditional ORM vs Convex
           </span>
         </div>
@@ -391,16 +391,16 @@ export default function Databases() {
               <div className="rounded bg-zinc-800/60 px-3 py-1.5">
                 React app (browser)
               </div>
-              <div className="text-zinc-600 text-center">↕ HTTP / JSON</div>
+              <div className="text-zinc-500 text-center">↕ HTTP / JSON</div>
               <div className="rounded bg-zinc-800/60 px-3 py-1.5">
                 Your API server (Express, Hono, etc.)
               </div>
-              <div className="text-zinc-600 text-center">↕ SQL</div>
+              <div className="text-zinc-500 text-center">↕ SQL</div>
               <div className="rounded bg-zinc-800/60 px-3 py-1.5">
                 PostgreSQL / MySQL / SQLite
               </div>
             </div>
-            <p className="text-xs text-zinc-500">
+            <p className="text-xs text-zinc-400">
               You manage the API server and database yourself.
             </p>
           </div>
@@ -418,7 +418,7 @@ export default function Databases() {
                 Convex cloud (functions + database)
               </div>
             </div>
-            <p className="text-xs text-zinc-500">
+            <p className="text-xs text-zinc-400">
               Convex is both your API and your database. One fewer thing to
               manage.
             </p>
