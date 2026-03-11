@@ -7,6 +7,7 @@ import Frameworks from "./sections/Frameworks";
 import TypeScript from "./sections/TypeScript";
 import TailwindCSS from "./sections/TailwindCSS";
 import DataFetching from "./sections/DataFetching";
+import Databases from "./sections/Databases";
 import Fullstack from "./sections/Fullstack";
 import Architecture from "./sections/Architecture";
 
@@ -85,8 +86,16 @@ const sections: Section[] = [
     component: DataFetching,
   },
   {
-    id: "fullstack",
+    id: "databases",
     num: "09",
+    title: "Databases & ORMs",
+    subtitle: "Drizzle, Convex & SQL",
+    color: "#c084fc",
+    component: Databases,
+  },
+  {
+    id: "fullstack",
+    num: "10",
     title: "Fullstack Frameworks",
     subtitle: "Next.js, Remix & SSR",
     color: "#2dd4bf",
@@ -94,7 +103,7 @@ const sections: Section[] = [
   },
   {
     id: "architecture",
-    num: "10",
+    num: "11",
     title: "Putting It Together",
     subtitle: "The Full Picture",
     color: "#60a5fa",
